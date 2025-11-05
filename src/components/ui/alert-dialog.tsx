@@ -45,8 +45,7 @@ const AlertDialogContent = React.forwardRef<
         If the consumer provides an AlertDialogTitle, this hidden title will be ignored by visual users
         but keeps the component accessible and avoids runtime warnings. */}
       <AlertDialogPrimitive.Title className="sr-only">Alert</AlertDialogPrimitive.Title>
-    </AlertDialogPortal>
-  )
+    </AlertDialogPrimitive.Content>
   </AlertDialogPortal>
 ))
 AlertDialogContent.displayName = AlertDialogPrimitive.Content.displayName
