@@ -53,7 +53,25 @@ export async function submitContactForm(
     };
   }
 
-  const resend = new Resend(process.env.RESEND_API_KEY);
+  // Ensure we have an API key before attempting to construct the client.
+  if (!process.env.RESEND_API_KEY) {
+    console.error('Missing RESEND_API_KEY environment variable. Email not sent.');
+    return {
+      message: 'Email service is not configured. Please contact the site owner directly.',
+      success: false,
+    };
+  }
+
+  let resend: Resend;
+  try {
+    resend = new Resend(process.env.RESEND_API_KEY);
+  } catch (err) {
+    console.error('Failed to initialize Resend client:', err);
+    return {
+      message: 'Email service initialization failed. Please try again later.',
+      success: false,
+    };
+  }
 
   try {
     const isHireMeForm = !!organization;
