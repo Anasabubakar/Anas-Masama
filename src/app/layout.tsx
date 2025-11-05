@@ -51,6 +51,7 @@ export default function RootLayout({
   {/* Generic PNG fallback and Apple touch icon */}
   <link rel="icon" type="image/png" href="/favicon.png" />
   <link rel="apple-touch-icon" href="/favicon-32x32.png" />
+  <link rel="manifest" href="/site.webmanifest" />
   {/* Cache-bust and theme */}
   <meta name="theme-color" content="#0ea5a4" />
       </head>
