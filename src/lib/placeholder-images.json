@@ -1,0 +1,46 @@
+{
+  "placeholderImages": [
+    {
+      "id": "project-1",
+      "description": "A placeholder image for the PillPal project.",
+      "imageUrl": "/images/projects/pillpal.png",
+      "imageHint": "medicine reminder app"
+    },
+    {
+      "id": "project-2",
+      "description": "A placeholder image for the EmpowerYou project.",
+      "imageUrl": "/images/projects/empoweryou.png",
+      "imageHint": "self growth journal"
+    },
+    {
+      "id": "project-3",
+      "description": "A placeholder image for the MonieFlow project.",
+      "imageUrl": "/images/projects/monieflow.png",
+      "imageHint": "finance app dashboard"
+    },
+    {
+      "id": "project-4",
+      "description": "A placeholder image for the TeenovateX Labs project.",
+      "imageUrl": "/images/projects/teenovatex.png",
+      "imageHint": "youth empowerment platform"
+    },
+    {
+      "id": "project-5",
+      "description": "A placeholder image for the Last Shield project.",
+      "imageUrl": "/images/projects/last-shield.png",
+      "imageHint": "survival shooter game"
+    },
+    {
+      "id": "about-portrait",
+      "description": "A placeholder portrait of the developer.",
+      "imageUrl": "/images/Lodge.jpg",
+      "imageHint": "architecture building"
+    },
+    {
+      "id": "hero-portrait",
+      "description": "A placeholder portrait of the developer for the hero section.",
+      "imageUrl": "/images/anas-masama-transparent.png",
+      "imageHint": "developer portrait no background"
+    }
+  ]
+}
