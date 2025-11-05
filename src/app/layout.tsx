@@ -36,7 +36,14 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark" suppressHydrationWarning>
       <head>
-        <link rel="icon" href="/images/logo-small.png" sizes="any" />
+        {/* Primary favicon (ico fallback) */}
+        <link rel="icon" href="/favicon.ico" />
+        {/* PNG favicons for modern browsers */}
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+        {/* Generic PNG fallback and Apple touch icon */}
+        <link rel="icon" type="image/png" href="/favicon.png" />
+        <link rel="apple-touch-icon" href="/favicon-32x32.png" />
       </head>
       <body className={cn("font-body antialiased", fontHeadline.variable, fontBody.variable, fontCode.variable)}>
         <CursorFollower />
