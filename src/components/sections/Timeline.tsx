@@ -39,13 +39,13 @@ export function Timeline() {
         </div>
         <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
           {timelineData.map((item, index) => (
-            <div key={index} className="p-6 rounded-lg shadow-lg bg-card border-border border transition-all duration-300 hover:border-primary/50 hover:shadow-[0_0_30px_theme(colors.primary/20)]">
-              <div className='flex items-start justify-between gap-4'>
+            <div key={index} className="p-6 rounded-lg shadow-lg bg-card border-border border transition-all duration-300 hover:border-primary/50 hover:shadow-[0_0_30px_hsl(var(--primary)/0.2)]">
+              <div className='flex items-center justify-between gap-4'>
                 <div className='space-y-1'>
                     <h3 className="text-xl font-semibold text-foreground">{item.title}</h3>
                     <p className="text-sm font-medium text-primary">{item.date}</p>
                 </div>
-                 <div className="w-10 h-10 flex-shrink-0 bg-background border-2 border-primary rounded-full flex items-center justify-center text-primary shadow-[0_0_20px_theme(colors.primary/75)] transition-all duration-300 group-hover:scale-110">
+                 <div className="w-10 h-10 flex-shrink-0 bg-background border-2 border-primary rounded-full flex items-center justify-center text-primary shadow-[0_0_20px_hsl(var(--primary)/0.75)] transition-all duration-300 group-hover:scale-110">
                   {item.icon}
                 </div>
               </div>
