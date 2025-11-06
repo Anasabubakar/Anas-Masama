@@ -7,7 +7,23 @@ module.exports = [
     languageOptions: {
       ecmaVersion: 2022,
       sourceType: 'module',
+      parser: require.resolve('@typescript-eslint/parser'),
+      parserOptions: {
+        ecmaFeatures: { jsx: true },
+        project: './tsconfig.json',
+      },
     },
-    rules: {},
+    plugins: {
+      '@typescript-eslint': require('@typescript-eslint/eslint-plugin'),
+      react: require('eslint-plugin-react'),
+      'react-hooks': require('eslint-plugin-react-hooks'),
+      'jsx-a11y': require('eslint-plugin-jsx-a11y'),
+    },
+    rules: {
+      // Minimal recommended rules to surface real issues; keep most rules off
+      'react/jsx-uses-react': 'off',
+      'react/react-in-jsx-scope': 'off',
+      '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
+    },
   },
 ];
