@@ -1,15 +1,14 @@
 # Anas Masama - Personal Portfolio
 
-This is the source code for my personal portfolio website, designed to showcase my skills, projects, and professional journey as a web developer. It's built with modern technologies including Next.js, TypeScript, and Tailwind CSS, featuring a sleek, responsive design and a touch of AI for a personalized experience.
+This is the source code for my personal portfolio website, designed to showcase my skills, projects, and professional journey as a web developer. It's built with modern technologies including Next.js, TypeScript, and Tailwind CSS, featuring a sleek, responsive design for a personalized experience.
 
 
-**Live Demo:** [**Anas Masama | Web developer**](https://anasmasama.vercel.app/) (Replace with your actual domain when deployed)
+**Live Demo:** [**Anas Masama | Web developer**](https://anasmasama.vercel.app/)
 
 ---
 
 ## ✨ Features
 
-*   **AI-Powered Introduction:** A unique intro generator powered by Google's Gemini model via Genkit that creates personalized opening remarks based on user-selected keywords.
 *   **Interactive Timeline:** A visually engaging timeline that walks visitors through my career and educational milestones.
 *   **Dynamic Skills Showcase:** A dedicated section to display my technical skills and certifications.
 *   **Working Contact Form:** A functional contact form using **Resend** for reliable email delivery.
