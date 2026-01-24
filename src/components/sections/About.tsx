@@ -27,14 +27,14 @@ export function About() {
           <div className="space-y-8">
             <div className="space-y-4">
               <p className="font-semibold text-primary uppercase tracking-widest font-body">About Me</p>
-              <h2 className="text-4xl md:text-5xl font-bold font-headline leading-tight">Transforming visions into exceptional portfolios</h2>
+              <h2 className="text-4xl md:text-5xl font-bold font-headline leading-tight">Building Earth's next generation of innovators</h2>
             </div>
             <div className="space-y-6 text-muted-foreground text-lg">
                 <p>
-                 I’m Anas Abubakar Masama - I build, design, and learn every single day. I like making things that actually work, not just look nice. What drives me isn’t perfection, it’s progress.
+                 I’m Anas Abubakar Masama - a Software Engineer and Future Architect. I build, design, and learn every single day with a mission to empower the next generation.
                 </p>
                 <p>
-                I started from curiosity, wanting to know why things are the way they are, and how I could make them better. That curiosity pushed me into coding, design, and a bit of 3D work on the side.
+                What drives me isn’t just progress, but the creation of tools and experiences that inspire innovation and growth in others.
                 </p>
             </div>
 
@@ -71,7 +71,7 @@ export function About() {
                     </div>
                     <div>
                         <p className="font-bold text-card-foreground">Daily Activity</p>
-                        <p className="text-sm text-muted-foreground">Building & Learning</p>
+                        <p className="text-sm text-muted-foreground">Software Engineer & Future Architect</p>
                     </div>
                   </div>
               </div>

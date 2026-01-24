@@ -24,8 +24,8 @@ const fontCode = Source_Code_Pro({
 });
 
 export const metadata: Metadata = {
-  title: 'Anas Masama | Web Developer',
-  description: 'Personal portfolio of Anas Masama, a passionate web developer.',
+  title: 'Anas Masama | Software Engineer',
+  description: 'Anas Masama is a Software Engineer and Future Architect building Earth\'s next generation of innovators.',
   icons: {
     icon: '/favicon-v2.ico',
     shortcut: '/favicon-32x32-v2.png',

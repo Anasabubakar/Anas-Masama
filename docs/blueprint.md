@@ -1,10 +1,10 @@
-# **App Name**: Anas Masama | Web Developer
+# **App Name**: Anas Masama | Software Engineer
 
 ## Core Features:
 
 - Dynamic Hero Section: An attention-grabbing introductory section with a headline and sub-headline to immediately capture visitor interest. Includes smooth scrolling navigation to other sections of the page. Built with HTML, CSS, Tailwind, and React.
 - Interactive Timeline: Visually engaging timeline that chronologically displays key milestones and achievements in your tech journey. Built with HTML, CSS, Tailwind, and React.
-- Project Showcase: Display of web development projects, complete with descriptions, used technologies, and live links to project demos. Built with HTML, CSS, Tailwind, and React.
+- Project Showcase: Display of software engineering projects, complete with descriptions, used technologies, and live links to project demos. Built with HTML, CSS, Tailwind, and React.
 - Skills & Certificates: A visually rich listing of technical skills accompanied by verifiable digital badges to build credibility and provide supporting evidence of expertise. Built with HTML, CSS, Tailwind, and React.
 - AI-Powered Intro Generator: Leverage an LLM tool to create personalized opening remarks. It uses a set of relevant keywords (user-definable and editable) about the website visitor and your personal work style. Output will vary according to which keywords are chosen, allowing a balance between the principles 'Live like a king. Love like you’re not scared. Work like your name will be remembered'.
 - Contact Form Submission: Easy form to collect contact information for interested parties and allow submission of their message. When the form is submitted, trigger a background call to a mail service that emails the message and other contact information. Do not store submissions in a database.

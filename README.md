@@ -1,9 +1,9 @@
 # Anas Masama - Personal Portfolio
 
-This is the source code for my personal portfolio website, designed to showcase my skills, projects, and professional journey as a web developer. It's built with modern technologies including Next.js, TypeScript, and Tailwind CSS, featuring a sleek, responsive design for a personalized experience.
+This is the source code for my personal portfolio website, designed to showcase my skills, projects, and professional journey as a Software Engineer and Future Architect. It's built with modern technologies including Next.js, TypeScript, and Tailwind CSS, featuring a sleek, responsive design for a personalized experience.
 
 
-**Live Demo:** [**Anas Masama | Web developer**](https://anasmasama.vercel.app/)
+**Live Demo:** [**Anas Masama | Software Engineer**](https://anasmasama.vercel.app/)
 
 ---
 

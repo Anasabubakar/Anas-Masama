@@ -53,7 +53,7 @@ const StarIcon = (props: React.SVGProps<SVGSVGElement>) => (
 );
 
 const ScrollingSkills = () => {
-  const skills = ["Web Developer", "AI/ML Engineer", "Freelancer", "Startup founder"];
+  const skills = ["Software Engineer", "Future Architect"];
   const repeatedSkills = Array(10).fill(skills).flat();
 
   return (
@@ -70,7 +70,7 @@ const ScrollingSkills = () => {
   );
 };
 
-const CYCLING_TEXT = ["Web Developer", "Startup founder", "AI/ML Engineer"];
+const CYCLING_TEXT = ["Software Engineer", "Future Architect"];
 
 export function Hero() {
   const heroImage = PlaceHolderImages.find(img => img.id === 'hero-portrait');
@@ -138,7 +138,7 @@ export function Hero() {
               </div>
             </div>
             <p className="text-lg text-muted-foreground max-w-md mx-auto md:mx-0">
-              I’m a passionate developer with a mission to create delightful and intuitive digital experiences. I specialize in translating complex ideas into user-friendly interfaces that captivate and engage.
+              I’m a Software Engineer and Future Architect dedicated to building Earth's next generation of innovators.
             </p>
             <Button size="lg" asChild>
               <a href="https://drive.google.com/file/d/1XWs9OdhAqW8pgEQF_-Bpn9zHOBnoOZQOdlib6ggfCbE/view" target="_blank" rel="noopener noreferrer">
@@ -160,7 +160,7 @@ export function Hero() {
                   alt="Anas Masama"
                   fill
                   className="object-contain transition-transform duration-300 group-hover:scale-105"
-                  data-ai-hint="developer portrait no background"
+                  data-ai-hint="Software Engineer portrait no background"
                   priority
                 />
               </div>

@@ -32,15 +32,15 @@
     },
     {
       "id": "about-portrait",
-      "description": "A placeholder portrait of the developer.",
+      "description": "A placeholder portrait of the Software Engineer.",
       "imageUrl": "/images/Lodge.jpg",
       "imageHint": "architecture building"
     },
     {
       "id": "hero-portrait",
-      "description": "A placeholder portrait of the developer for the hero section.",
+      "description": "A placeholder portrait of the Software Engineer for the hero section.",
       "imageUrl": "/images/anas-masama-transparent.png",
-      "imageHint": "developer portrait no background"
+      "imageHint": "Software Engineer portrait no background"
     }
   ]
 }

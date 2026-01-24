@@ -24,8 +24,8 @@ const timelineData = [
   {
     icon: <Search />,
     date: 'Present',
-    title: 'Freelancing & Seeking New Opportunities',
-    description: 'Currently working as a freelance developer and actively looking for my next full-time role.',
+    title: 'Software Engineer & Future Architect',
+    description: 'Currently building Earth\'s next generation of innovators through cutting-edge software solutions.',
   },
 ];
 
