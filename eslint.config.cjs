@@ -3,11 +3,14 @@
 // can expand rules later (for example to enforce next/core-web-vitals).
 module.exports = [
   {
+    ignores: ['.next/**', 'node_modules/**', 'public/**', 'scripts/**'],
+  },
+  {
     files: ['**/*.{js,jsx,ts,tsx}'],
     languageOptions: {
       ecmaVersion: 2022,
       sourceType: 'module',
-      parser: require.resolve('@typescript-eslint/parser'),
+      parser: require('@typescript-eslint/parser'),
       parserOptions: {
         ecmaFeatures: { jsx: true },
         project: './tsconfig.json',

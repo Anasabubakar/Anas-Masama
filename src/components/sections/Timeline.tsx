@@ -1,4 +1,4 @@
-import { Briefcase, GraduationCap, Star, Search, ArrowRight } from 'lucide-react';
+import { Briefcase, GraduationCap, Search, ArrowRight } from 'lucide-react';
 import { Button } from '../ui/button';
 import { HireMeDialog } from '../HireMeDialog';
 

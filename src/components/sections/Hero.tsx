@@ -4,7 +4,7 @@ import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { Download, Github, Linkedin } from 'lucide-react';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
-import { useEffect, useState, useMemo } from 'react';
+import { useEffect, useState } from 'react';
 import { cn } from '@/lib/utils';
 import Link from 'next/link';
 import { WhatsappIcon } from '../icons/WhatsappIcon';

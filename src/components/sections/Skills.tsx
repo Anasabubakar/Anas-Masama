@@ -1,10 +1,7 @@
 import {
   Briefcase,
   Code,
-  Database,
   Figma,
-  PenTool,
-  Server,
   Star,
   Zap,
 } from 'lucide-react';
