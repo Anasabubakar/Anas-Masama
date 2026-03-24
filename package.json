@@ -6,7 +6,7 @@
     "dev": "next dev --turbopack -p 9002",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
+    "lint": "eslint src",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
@@ -38,7 +38,7 @@
     "embla-carousel-react": "^8.6.0",
     "firebase": "^11.9.1",
     "lucide-react": "^0.563.0",
-    "next": "^16.1.4",
+    "next": "^16.2.1",
     "nodemailer": "^7.0.12",
     "patch-package": "^8.0.1",
     "react": "^19.2.3",
@@ -60,7 +60,7 @@
     "@typescript-eslint/parser": "^8.46.3",
     "baseline-browser-mapping": "^2.9.17",
     "eslint": "9.39.1",
-    "eslint-config-next": "^16.1.4",
+    "eslint-config-next": "^16.2.1",
     "eslint-plugin-jsx-a11y": "^6.10.2",
     "eslint-plugin-react": "^7.37.5",
     "eslint-plugin-react-hooks": "^7.0.1",
