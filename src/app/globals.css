@@ -38,7 +38,7 @@
     @apply border-border;
   }
   body {
-    @apply bg-transparent text-foreground;
+    @apply bg-transparent text-foreground tracking-wide;
   }
   html {
     @apply scroll-smooth;
