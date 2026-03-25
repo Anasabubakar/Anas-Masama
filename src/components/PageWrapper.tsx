@@ -11,7 +11,7 @@ export default function PageWrapper({ children }: { children: React.ReactNode })
       {!loaded && <LoadingScreen onComplete={() => setLoaded(true)} />}
       <div
         className={`transition-opacity duration-700 ${
-          loaded ? "opacity-100" : "opacity-0"
+          loaded ? "opacity-100 animate-page-reveal" : "opacity-0"
         }`}
       >
         {children}

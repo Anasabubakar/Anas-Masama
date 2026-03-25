@@ -64,14 +64,6 @@ export function Hero() {
         <div className="grid lg:grid-cols-12 gap-12 items-center">
           
           <div className="lg:col-span-7 space-y-10 text-center lg:text-left order-2 lg:order-1">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 bg-white/5 text-sm font-medium text-primary animate-fade-in">
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
-              </span>
-              Available for New Projects
-            </div>
-            
             <div className="space-y-4">
               <h1 className="text-6xl md:text-7xl xl:text-8xl font-black font-headline leading-[0.9] tracking-tighter">
                 CRAFTING THE <br />
