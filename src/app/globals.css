@@ -133,3 +133,116 @@
     animation: pageReveal 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   }
 }
+
+@property --angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+.prismatic-wrapper {
+  position: relative;
+  display: inline-flex;
+  padding: 3px;
+  border-radius: 9999px;
+  background: conic-gradient(
+    from var(--angle),
+    #09091a 0%,
+    #1c1c30 4%,
+    #3a3a55 8%,
+    #7070a0 12%,
+    #b0b0cc 15%,
+    #e0e0ee 17%,
+    #ffffff 18.5%,
+    #2db985 20%,
+    #2db985 22%,
+    #2db985 23%,
+    #00ddff 24.5%,
+    #0055ff 26%,
+    #8800ff 27%,
+    #ff00cc 28%,
+    #ffffff 29.5%,
+    #d8d8ec 31%,
+    #9090b0 35%,
+    #5a5a80 40%,
+    #2e2e48 46%,
+    #0d0d20 52%,
+    #303050 57%,
+    #7070a0 62%,
+    #b8b8d0 66%,
+    #e8e8f0 68%,
+    #ffffff 69.5%,
+    #2db985 71%,
+    #2db985 72.5%,
+    #c0c0d8 75%,
+    #8888a8 79%,
+    #3a3a58 84%,
+    #161626 90%,
+    #09091a 100%
+  );
+  animation: rotatePrismatic 3.5s linear infinite;
+}
+
+@keyframes rotatePrismatic {
+  to {
+    --angle: 360deg;
+  }
+}
+
+.prismatic-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 28px;
+  border-radius: 9999px;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background: linear-gradient(160deg, #0a0a0a 0%, #1a1a1a 45%, #0a0a0a 100%);
+  box-shadow: inset 3px 3px 8px rgba(255, 255, 255, 0.1), inset -2px -2px 6px rgba(0, 0, 0, 0.3);
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.prismatic-button::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 9999px;
+  background: linear-gradient(to bottom, rgba(45, 185, 133, 0.3) 0%, rgba(45, 185, 133, 0) 55%);
+  pointer-events: none;
+}
+
+.prismatic-button:hover {
+  transform: scale(1.02);
+  box-shadow: inset 4px 4px 10px rgba(255, 255, 255, 0.1), inset -2px -2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.prismatic-button:active {
+  transform: scale(0.98);
+}
+
+.prismatic-label {
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: #fff;
+  user-select: none;
+  pointer-events: none;
+  position: relative;
+  z-index: 1;
+}
+
+.prismatic-button.outline {
+  background: transparent;
+  box-shadow: none;
+}
+
+.prismatic-button.outline::before {
+  background: linear-gradient(to bottom, rgba(45, 185, 133, 0.2) 0%, rgba(45, 185, 133, 0) 55%);
+}
+
+.prismatic-button.outline .prismatic-label {
+  color: #2db985;
+}
