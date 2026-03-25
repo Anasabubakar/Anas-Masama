@@ -8,21 +8,24 @@ import PageWrapper from '@/components/PageWrapper';
 
 const fontHeadline = localFont({
   src: [
-    { path: '../../public/fonts/Florisha-Font/florishabold-drnv7.otf', weight: '700', style: 'normal' },
+    { path: '../../public/fonts/SF-Pro/SF-Pro-Display-Bold.otf', weight: '700', style: 'normal' },
+    { path: '../../public/fonts/SF-Pro/SF-Pro-Display-Semibold.otf', weight: '600', style: 'normal' },
   ],
   variable: '--font-headline',
 });
 
 const fontBody = localFont({
   src: [
-    { path: '../../public/fonts/Florisha-Font/florishabold-drnv7.otf', weight: '400', style: 'normal' },
+    { path: '../../public/fonts/SF-Pro/SF-Pro-Text-Regular.otf', weight: '400', style: 'normal' },
+    { path: '../../public/fonts/SF-Pro/SF-Pro-Text-Light.otf', weight: '300', style: 'normal' },
+    { path: '../../public/fonts/SF-Pro/SF-Pro-Text-Medium.otf', weight: '500', style: 'normal' },
   ],
   variable: '--font-body',
 });
 
 const fontCode = localFont({
   src: [
-    { path: '../../public/fonts/Florisha-Font/florishabold-drnv7.otf', weight: '400', style: 'normal' },
+    { path: '../../public/fonts/SF-Pro/SF-Pro-Text-Regular.otf', weight: '400', style: 'normal' },
   ],
   variable: '--font-code',
 });
