@@ -15,7 +15,7 @@ const navLinks = [
 ];
 
 const dockTabs = [
-  { id: 'home', label: 'Home', href: '/', icon: Home },
+  { id: 'home', label: 'Home', href: '#hero', icon: Home },
   { id: 'about', label: 'About', href: '#about', icon: User },
   { id: 'services', label: 'Services', href: '#services', icon: Layers },
   { id: 'projects', label: 'Projects', href: '#projects', icon: Briefcase },
@@ -29,6 +29,28 @@ export function Header() {
   useEffect(() => {
     setMounted(true);
   }, []);
+
+  useEffect(() => {
+    if (!mounted) return;
+    const sectionIds = ['about', 'services', 'projects', 'contact'];
+    const getActive = () => {
+      const y = window.scrollY + window.innerHeight * 0.35;
+      if (window.scrollY < 80) return 'home';
+      for (let i = sectionIds.length - 1; i >= 0; i -= 1) {
+        const id = sectionIds[i];
+        const el = document.getElementById(id);
+        if (el && y >= el.offsetTop) return id;
+      }
+      return 'home';
+    };
+    const onScroll = () => {
+      const next = getActive();
+      setActiveDock((prev) => (prev === next ? prev : next));
+    };
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, [mounted]);
 
   if (!mounted) return null;
 
@@ -73,7 +95,7 @@ export function Header() {
                     padding: isActive ? '12px 18px' : '12px 12px',
                     minWidth: isActive ? 118 : 44,
                     gap: isActive ? 8 : 0,
-                    color: isActive ? '#101114' : '#7b7b88',
+                    color: isActive ? '#101114' : '#ffffff',
                     background: isActive ? 'rgba(240,240,244,0.92)' : 'transparent',
                     boxShadow: isActive ? '0 2px 12px rgba(140,140,160,0.18), inset 0 1px 0 rgba(255,255,255,0.9)' : 'none',
                   }}
