@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Home, User, Briefcase, Layers, Mail } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { SafeHireMeDialog } from '../SafeHireMeDialog';
 
@@ -14,8 +14,17 @@ const navLinks = [
   { href: '#contact', label: 'Contact' },
 ];
 
+const dockTabs = [
+  { id: 'home', label: 'Home', href: '/', icon: Home },
+  { id: 'about', label: 'About', href: '#about', icon: User },
+  { id: 'services', label: 'Services', href: '#services', icon: Layers },
+  { id: 'projects', label: 'Projects', href: '#projects', icon: Briefcase },
+  { id: 'contact', label: 'Contact', href: '#contact', icon: Mail },
+];
+
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
+  const [activeDock, setActiveDock] = useState('home');
 
   useEffect(() => {
     const handleScroll = () => {
@@ -89,22 +98,65 @@ export function Header() {
         </div>
 
         <div className="fixed bottom-5 left-1/2 -translate-x-1/2 z-50 w-[92%] max-w-sm">
-          <nav className="flex items-center justify-between gap-2 rounded-full border border-white/20 bg-white/10 backdrop-blur-2xl p-2 shadow-[0_12px_40px_rgba(0,0,0,0.45)]">
-            {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                className="flex-1 text-center text-xs font-semibold tracking-wide text-white/80 px-3 py-2 rounded-full transition-all duration-300 hover:text-white hover:bg-white/10"
-              >
-                {link.label}
-              </a>
-            ))}
+          <div className="flex items-center gap-4">
+            <div
+              className="flex-1 flex items-center gap-1 rounded-full border border-white/30 bg-white/70 px-1.5 py-1.5 backdrop-blur-2xl"
+              style={{
+                boxShadow:
+                  '0 12px 40px rgba(20,20,40,0.25), 0 2px 8px rgba(20,20,40,0.18), inset 0 1px 0 rgba(255,255,255,0.9)',
+              }}
+            >
+              {dockTabs.map(({ id, label, href, icon: Icon }) => {
+                const isActive = activeDock === id;
+                return (
+                  <a
+                    key={id}
+                    href={href}
+                    onClick={() => setActiveDock(id)}
+                    className="relative flex items-center justify-center rounded-full transition-all duration-300"
+                    style={{
+                      padding: isActive ? '10px 18px' : '10px 12px',
+                      minWidth: isActive ? 120 : 44,
+                      gap: isActive ? 8 : 0,
+                      color: isActive ? '#101114' : '#8b8b99',
+                      background: isActive ? 'rgba(240,240,244,0.9)' : 'transparent',
+                      boxShadow: isActive ? '0 2px 12px rgba(140,140,160,0.18), inset 0 1px 0 rgba(255,255,255,0.9)' : 'none',
+                    }}
+                    aria-label={label}
+                  >
+                    <Icon className="h-5 w-5" />
+                    {isActive && (
+                      <span
+                        className="text-sm font-semibold tracking-tight whitespace-nowrap"
+                        style={{ fontFamily: "'SF Pro Display', 'Helvetica Neue', sans-serif" }}
+                      >
+                        {label}
+                      </span>
+                    )}
+                  </a>
+                );
+              })}
+            </div>
+
             <SafeHireMeDialog>
-              <Button size="sm" className="rounded-full px-4 bg-primary text-primary-foreground shadow-[0_0_20px_rgba(45,185,133,0.35)]">
-                Hire
-              </Button>
+              <button
+                className="h-14 w-14 rounded-full border-0 outline-none flex items-center justify-center"
+                style={{
+                  background: 'linear-gradient(145deg, #f4857a, #e85d50)',
+                  boxShadow:
+                    '0 8px 28px rgba(232,93,80,0.48), 0 2px 8px rgba(232,93,80,0.28), inset 0 1px 0 rgba(255,200,190,0.4)',
+                  transition: 'transform 0.15s ease',
+                }}
+                onMouseEnter={(e) => (e.currentTarget.style.transform = 'scale(1.06)')}
+                onMouseLeave={(e) => (e.currentTarget.style.transform = 'scale(1)')}
+                onMouseDown={(e) => (e.currentTarget.style.transform = 'scale(0.95)')}
+                onMouseUp={(e) => (e.currentTarget.style.transform = 'scale(1.06)')}
+                aria-label="Start a project"
+              >
+                <ArrowRight className="h-5 w-5 text-white" />
+              </button>
             </SafeHireMeDialog>
-          </nav>
+          </div>
         </div>
       </div>
     </>
