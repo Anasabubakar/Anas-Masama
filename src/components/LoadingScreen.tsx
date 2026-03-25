@@ -34,10 +34,10 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
         backgroundSize: "28px 28px",
       }}
     >
-      <div className="relative flex items-center justify-center pb-10">
+      <div className="relative flex items-center justify-center pb-10 scale-75 md:scale-100">
         {/* Name */}
         <h1
-          className="select-none whitespace-nowrap text-[clamp(3.2rem,9.5vw,8.4rem)] font-extrabold leading-none tracking-tight text-white"
+          className="select-none whitespace-nowrap text-[clamp(2.5rem,8vw,7rem)] font-extrabold leading-none tracking-tight text-white"
           style={{
             fontFamily: "var(--font-syne), sans-serif",
             animation: "nameReveal 1s cubic-bezier(0.16,1,0.3,1) 0.1s forwards",
@@ -50,7 +50,7 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
         {/* Signature SVG */}
         <svg
           className="pointer-events-none absolute overflow-visible"
-          style={{ inset: "-40% -5%", width: "110%", height: "180%" }}
+          style={{ inset: "-35% -5%", width: "110%", height: "170%" }}
           viewBox="0 0 900 200"
           xmlns="http://www.w3.org/2000/svg"
           aria-hidden="true"
@@ -58,8 +58,8 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
           <path
             style={{
               fill: "none",
-              stroke: "#b8001f",
-              strokeWidth: 3.2,
+              stroke: "#6efcb0",
+              strokeWidth: 3.5,
               strokeLinecap: "round",
               strokeLinejoin: "round",
               strokeDasharray: 2800,
