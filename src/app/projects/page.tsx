@@ -81,7 +81,7 @@ const projects = [
     category: 'Portfolio • Creative',
     description: 'A stunning portfolio template for creative professionals. Showcase your work with elegance and style.',
     tech: ['Next.js', 'Framer Motion', 'Tailwind', 'React'],
-    liveLink: 'https://ilmeen-rose.vercel.app/',
+    liveLink: 'https://ilmeen-mvp.vercel.app',
     githubLink: 'https://github.com/Anasabubakar/Ilmeen',
     icon: <Code2 className="w-6 h-6" />,
     featured: false,
