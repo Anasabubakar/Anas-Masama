@@ -84,10 +84,6 @@ export function Header() {
                   <p className="text-lg font-bold tracking-tight">Software Engineer</p>
                 </div>
               </Link>
-              <div className="hidden sm:flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-3 py-1.5">
-                <span className="h-2 w-2 rounded-full bg-primary shadow-[0_0_10px_rgba(45,185,133,0.8)]" />
-                <span className="text-[10px] uppercase tracking-[0.3em] text-white/70">Available</span>
-              </div>
             </div>
           </div>
         </div>

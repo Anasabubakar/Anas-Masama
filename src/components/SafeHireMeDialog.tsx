@@ -1,12 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
-import dynamic from 'next/dynamic';
-
-const HireMeDialogContent = dynamic(
-  () => import('./HireMeDialog').then((mod) => mod.HireMeDialog),
-  { ssr: false }
-);
+import React, { useEffect, useState } from 'react';
 
 export function SafeHireMeDialog({ children }: { children: React.ReactNode }) {
   const [mounted, setMounted] = useState(false);
@@ -15,9 +9,27 @@ export function SafeHireMeDialog({ children }: { children: React.ReactNode }) {
     setMounted(true);
   }, []);
 
-  if (!mounted) {
-    return <>{children}</>;
+  const handleScroll = (e?: React.MouseEvent) => {
+    e?.preventDefault();
+    const el = document.getElementById('hire');
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
+
+  if (!mounted) return <>{children}</>;
+
+  if (React.isValidElement(children)) {
+    const existingOnClick = (children.props as { onClick?: (e: React.MouseEvent) => void }).onClick;
+    return React.cloneElement(children, {
+      onClick: (e: React.MouseEvent) => {
+        existingOnClick?.(e);
+        handleScroll(e);
+      },
+    });
   }
 
-  return <HireMeDialogContent>{children}</HireMeDialogContent>;
+  return (
+    <span onClick={handleScroll} role="button" tabIndex={0} onKeyDown={(e) => e.key === 'Enter' && handleScroll()}>
+      {children}
+    </span>
+  );
 }
