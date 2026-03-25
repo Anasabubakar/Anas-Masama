@@ -26,6 +26,11 @@
   --ring: 158 82% 57%;
   --radius: 0.5rem;
   --font-syne: "Syne";
+  --font-qurova: "Qurova", sans-serif;
+  --letter-spacing-tight: -0.02em;
+  --letter-spacing-normal: 0em;
+  --letter-spacing-wide: 0.05em;
+  --letter-spacing-wider: 0.1em;
 }
 
 @layer base {

@@ -10,7 +10,10 @@ import {
   Database,
   Cloud,
   Layout,
-  Smartphone
+  Smartphone,
+  Sparkles,
+  Shield,
+  Palette
 } from 'lucide-react';
 import { BootstrapIcon } from '../icons/BootstrapIcon';
 import { CssIcon } from '../icons/CssIcon';
@@ -34,17 +37,22 @@ const skillCategories = [
       { icon: <NextjsIcon className="w-6 h-6" />, name: 'Next.js' },
       { icon: <ReactIcon className="w-6 h-6" />, name: 'React' },
       { icon: <TailwindIcon className="w-6 h-6" />, name: 'Tailwind' },
-      { icon: <TypescriptIcon className="w-6 h-6" />, name: 'TS' },
-      { icon: <JavascriptIcon className="w-6 h-6" />, name: 'JS' },
+      { icon: <TypescriptIcon className="w-6 h-6" />, name: 'TypeScript' },
+      { icon: <JavascriptIcon className="w-6 h-6" />, name: 'JavaScript' },
+      { icon: <Code className="w-6 h-6" />, name: 'Framer Motion' },
+      { icon: <Palette className="w-6 h-6" />, name: 'ShadCN UI' },
     ]
   },
   {
-    title: "Backend & Data",
+    title: "Backend & AI",
     icon: <Database className="w-5 h-5" />,
     skills: [
       { icon: <NodeIcon className="w-6 h-6" />, name: 'Node.js' },
-      { icon: <SqlIcon className="w-6 h-6" />, name: 'SQL' },
+      { icon: <SqlIcon className="w-6 h-6" />, name: 'PostgreSQL' },
       { icon: <Zap className="w-6 h-6 text-yellow-400" />, name: 'Firebase' },
+      { icon: <Sparkles className="w-6 h-6 text-primary" />, name: 'Genkit' },
+      { icon: <Sparkles className="w-6 h-6" />, name: 'Gemini' },
+      { icon: <Code className="w-6 h-6" />, name: 'Prisma' },
     ]
   },
   {
@@ -54,6 +62,10 @@ const skillCategories = [
       { icon: <Figma className="w-6 h-6" />, name: 'Figma' },
       { icon: <SolidEdgeIcon className="w-6 h-6" />, name: 'Solid Edge' },
       { icon: <Microsoft365Icon className="w-6 h-6" />, name: 'M365' },
+      { icon: <Shield className="w-6 h-6" />, name: 'Stripe' },
+      { icon: <Globe className="w-6 h-6" />, name: 'Web3' },
+      { icon: <Code className="w-6 h-6" />, name: 'React Hook Form' },
+      { icon: <Code className="w-6 h-6" />, name: 'Zod' },
     ]
   }
 ];

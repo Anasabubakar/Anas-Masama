@@ -1,27 +1,33 @@
 import type { Metadata } from 'next';
 import './globals.css';
 import { Toaster } from '@/components/ui/toaster';
-import { Inter, Source_Code_Pro } from 'next/font/google';
+import localFont from 'next/font/local';
 import { cn } from '@/lib/utils';
 import { CursorFollower } from '@/components/CursorFollower';
 import PageWrapper from '@/components/PageWrapper';
 
-const fontHeadline = Inter({
-  subsets: ["latin"],
-  variable: "--font-headline",
-  weight: ['600', '700', '800'],
+const fontHeadline = localFont({
+  src: [
+    { path: '../../public/fonts/Qurova-Bold.otf', weight: '700', style: 'normal' },
+    { path: '../../public/fonts/Qurova-SemiBold.otf', weight: '600', style: 'normal' },
+  ],
+  variable: '--font-headline',
 });
 
-const fontBody = Inter({
-  subsets: ["latin"],
-  variable: "--font-body",
-  weight: ['400', '500'],
+const fontBody = localFont({
+  src: [
+    { path: '../../public/fonts/Qurova-Regular.otf', weight: '400', style: 'normal' },
+    { path: '../../public/fonts/Qurova-Light.otf', weight: '300', style: 'normal' },
+    { path: '../../public/fonts/Qurova-Medium.otf', weight: '500', style: 'normal' },
+  ],
+  variable: '--font-body',
 });
 
-const fontCode = Source_Code_Pro({
-  subsets: ['latin'],
+const fontCode = localFont({
+  src: [
+    { path: '../../public/fonts/Qurova-Regular.otf', weight: '400', style: 'normal' },
+  ],
   variable: '--font-code',
-  weight: '400',
 });
 
 export const metadata: Metadata = {
