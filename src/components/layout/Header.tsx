@@ -4,15 +4,9 @@ import { useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import Link from 'next/link';
 import Image from 'next/image';
-import { ArrowRight, Home, User, Briefcase, Layers, Mail } from 'lucide-react';
+import { Home, User, Briefcase, Layers, Mail, BriefcaseBusiness } from 'lucide-react';
 import { SafeHireMeDialog } from '../SafeHireMeDialog';
-
-const navLinks = [
-  { href: '#about', label: 'About' },
-  { href: '#services', label: 'Services' },
-  { href: '#projects', label: 'Projects' },
-  { href: '#contact', label: 'Contact' },
-];
+import { Button } from '@/components/ui/button';
 
 const dockTabs = [
   { id: 'home', label: 'Home', href: '#hero', icon: Home },
@@ -57,21 +51,29 @@ export function Header() {
   return createPortal(
     <>
       <div className="fixed top-5 left-1/2 -translate-x-1/2 z-[9999] w-[92%] max-w-sm sm:max-w-md lg:max-w-lg pointer-events-auto">
-        <Link href="/" className="flex items-center gap-3 rounded-full border border-white/20 bg-black/70 backdrop-blur-2xl px-4 py-2 shadow-[0_12px_40px_rgba(0,0,0,0.55)]">
-          <div className="relative w-10 h-10 overflow-hidden rounded-xl border border-white/20 bg-white/10 backdrop-blur-xl flex items-center justify-center shadow-[0_10px_30px_rgba(0,0,0,0.35)]">
-            <Image
-              src="/images/logo-small.png"
-              alt="Anas Masama Logo"
-              width={22}
-              height={22}
-              className="object-contain"
-            />
+        <div className="rounded-full border border-white/20 bg-black/70 backdrop-blur-2xl px-4 py-2 shadow-[0_12px_40px_rgba(0,0,0,0.55)]">
+          <div className="flex items-center justify-between gap-3">
+            <Link href="/" className="flex items-center gap-3">
+              <div className="relative w-10 h-10 overflow-hidden rounded-xl border border-white/20 bg-white/10 backdrop-blur-xl flex items-center justify-center shadow-[0_10px_30px_rgba(0,0,0,0.35)]">
+                <Image
+                  src="/images/logo-small.png"
+                  alt="Anas Masama Logo"
+                  width={22}
+                  height={22}
+                  className="object-contain"
+                />
+              </div>
+              <div className="leading-none">
+                <p className="text-[10px] uppercase tracking-[0.35em] text-white/50">Anas Masama</p>
+                <p className="text-lg font-bold tracking-tight">Software Engineer</p>
+              </div>
+            </Link>
+            <div className="hidden sm:flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-3 py-1">
+              <span className="h-2 w-2 rounded-full bg-primary shadow-[0_0_10px_rgba(45,185,133,0.8)]" />
+              <span className="text-[10px] uppercase tracking-[0.3em] text-white/70">Available</span>
+            </div>
           </div>
-          <div className="leading-none">
-            <p className="text-[10px] uppercase tracking-[0.35em] text-white/50">Anas Masama</p>
-            <p className="text-lg font-bold tracking-tight">Software Engineer</p>
-          </div>
-        </Link>
+        </div>
       </div>
 
       <div className="fixed bottom-5 left-1/2 -translate-x-1/2 z-[9999] w-[78%] max-w-[280px] sm:max-w-[320px] lg:max-w-[360px] pointer-events-auto">
@@ -115,23 +117,24 @@ export function Header() {
             })}
           </div>
 
-          <a
-            href="#contact"
-            className="h-14 px-5 rounded-full border border-primary/40 outline-none flex items-center justify-center font-semibold text-sm text-primary-foreground"
-            style={{
-              background: 'linear-gradient(145deg, rgba(45,185,133,0.95), rgba(24,120,86,0.95))',
-              boxShadow:
-                '0 10px 28px rgba(45,185,133,0.35), 0 2px 8px rgba(45,185,133,0.25), inset 0 1px 0 rgba(255,255,255,0.35)',
-              transition: 'transform 0.15s ease',
-            }}
-            onMouseEnter={(e) => (e.currentTarget.style.transform = 'scale(1.06)')}
-            onMouseLeave={(e) => (e.currentTarget.style.transform = 'scale(1)')}
-            onMouseDown={(e) => (e.currentTarget.style.transform = 'scale(0.95)')}
-            onMouseUp={(e) => (e.currentTarget.style.transform = 'scale(1.06)')}
-            aria-label="Contact"
-          >
-            Contact
-          </a>
+          <SafeHireMeDialog>
+            <Button
+              className="h-14 px-5 rounded-full border border-primary/40 font-semibold text-sm text-primary-foreground"
+              style={{
+                background: 'linear-gradient(145deg, rgba(45,185,133,0.95), rgba(24,120,86,0.95))',
+                boxShadow:
+                  '0 10px 28px rgba(45,185,133,0.35), 0 2px 8px rgba(45,185,133,0.25), inset 0 1px 0 rgba(255,255,255,0.35)',
+                transition: 'transform 0.15s ease',
+              }}
+              onMouseEnter={(e) => (e.currentTarget.style.transform = 'scale(1.06)')}
+              onMouseLeave={(e) => (e.currentTarget.style.transform = 'scale(1)')}
+              onMouseDown={(e) => (e.currentTarget.style.transform = 'scale(0.95)')}
+              onMouseUp={(e) => (e.currentTarget.style.transform = 'scale(1.06)')}
+            >
+              <BriefcaseBusiness className="mr-2 h-4 w-4" />
+              Hire Me
+            </Button>
+          </SafeHireMeDialog>
         </div>
       </div>
     </>,
