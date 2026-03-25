@@ -246,3 +246,12 @@
 .prismatic-button.outline .prismatic-label {
   color: #2db985;
 }
+
+.glass-button {
+  @apply backdrop-blur-xl transition-all duration-300;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.2);
+}
+
+.glass-button:hover {
+  box-shadow: 0 4px 32px rgba(45, 185, 133, 0.3);
+}

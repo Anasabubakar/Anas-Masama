@@ -9,21 +9,20 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default: "prismatic-wrapper",
+        default: "glass-button bg-primary/20 text-primary border border-primary/30 hover:bg-primary hover:text-primary-foreground",
         destructive:
           "bg-destructive text-destructive-foreground hover:bg-destructive/90",
-        outline:
-          "prismatic-wrapper bg-transparent",
+        outline: "glass-button bg-transparent border border-white/20 text-white hover:bg-white/10 hover:border-primary/50",
         secondary:
-          "bg-secondary text-secondary-foreground hover:bg-secondary/80",
+          "glass-button bg-white/10 border border-white/10 text-white hover:bg-white/20",
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
       },
       size: {
-        default: "prismatic-button h-10 px-6 py-2",
-        sm: "prismatic-button h-9 px-4",
-        lg: "prismatic-button h-12 px-10 text-base",
-        icon: "prismatic-button h-10 w-10",
+        default: "h-11 px-8 py-2",
+        sm: "h-9 px-5 py-1",
+        lg: "h-14 px-10 text-base",
+        icon: "h-11 w-11",
       },
     },
     defaultVariants: {
