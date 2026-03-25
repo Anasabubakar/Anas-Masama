@@ -5,12 +5,14 @@ import { useToast } from '@/hooks/use-toast';
 import { submitContactForm } from '@/app/actions';
 import {
   Dialog,
+  DialogClose,
   DialogContent,
   DialogDescription,
   DialogHeader,
   DialogTitle,
   DialogTrigger,
 } from '@/components/ui/dialog';
+import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
@@ -43,8 +45,8 @@ export function HireMeDialog({ children }: { children: React.ReactNode }) {
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>{children}</DialogTrigger>
-      <DialogContent className="sm:max-w-[600px] bg-transparent border-0 p-0 max-h-[90vh] overflow-y-auto">
-        <div className="relative glass-card rounded-[2rem] px-6 py-8 md:px-8 md:py-10 overflow-hidden">
+      <DialogContent className="sm:max-w-[600px] bg-transparent border-0 p-0 max-h-[90vh] overflow-hidden">
+        <div className="relative glass-card rounded-[2rem] px-6 py-8 md:px-8 md:py-10 overflow-hidden flex flex-col max-h-[90vh]">
           <div className="absolute -top-24 -right-24 h-56 w-56 rounded-full bg-primary/10 blur-3xl" />
           <div className="absolute -bottom-24 -left-24 h-56 w-56 rounded-full bg-primary/10 blur-3xl" />
 
@@ -66,7 +68,7 @@ export function HireMeDialog({ children }: { children: React.ReactNode }) {
             <span className="rounded-full border border-white/10 bg-white/5 px-3 py-2">High-impact builds</span>
           </div>
 
-          <form ref={formRef} action={dispatch} className="space-y-4 pt-8">
+          <form ref={formRef} action={dispatch} className="space-y-4 pt-8 overflow-y-auto pr-1">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="space-y-2">
                 <Label htmlFor="hire-name">Name</Label>
@@ -102,8 +104,16 @@ export function HireMeDialog({ children }: { children: React.ReactNode }) {
               <Textarea id="hire-message" name="message" placeholder="Goals, scope, timeline, success criteria..." />
               {state.errors?.message && <p className="text-sm text-destructive">{state.errors.message[0]}</p>}
             </div>
-            <SubmitButton />
           </form>
+
+          <div className="mt-6 flex flex-col sm:flex-row gap-3">
+            <SubmitButton />
+            <DialogClose asChild>
+              <Button variant="outline" className="w-full">
+                Cancel
+              </Button>
+            </DialogClose>
+          </div>
         </div>
       </DialogContent>
     </Dialog>
