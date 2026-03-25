@@ -7,20 +7,9 @@ import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { useActionState, useEffect, useRef } from 'react';
 import { useToast } from '@/hooks/use-toast';
-import { ArrowRight, Sparkles, ShieldCheck, Timer, Workflow, Mail, Linkedin, Github } from 'lucide-react';
+import { ArrowRight, Sparkles, ShieldCheck, Timer, Workflow, Mail, Linkedin } from 'lucide-react';
 import Link from 'next/link';
 import { WhatsappIcon } from '../icons/WhatsappIcon';
-
-const XIcon = (props: React.SVGProps<SVGSVGElement>) => (
-  <svg
-    {...props}
-    viewBox="0 0 24 24"
-    fill="currentColor"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.05l8.6-9.83-8.209-9.064h7.585l5.243 7.185L18.901 1.153zM17.61 20.644h2.039L6.486 3.24H4.298l13.312 17.404z" />
-  </svg>
-);
 
 const contactLinks = [
   {
@@ -100,9 +89,31 @@ export function HireMe() {
               ))}
             </div>
 
-            <div className="flex items-center gap-3 text-xs uppercase tracking-[0.3em] text-white/50">
+            <div className="grid gap-4">
+              {contactLinks.map((link) => (
+                <Link key={link.href} href={link.href} target="_blank" className="group">
+                  <div className="glass-card p-4 rounded-2xl flex items-center justify-between gap-4 hover:bg-white/[0.03] transition-all duration-500">
+                    <div className="flex items-center gap-4 min-w-0">
+                      <div className="w-11 h-11 rounded-2xl bg-white/5 flex items-center justify-center text-primary transition-all duration-500 group-hover:scale-110 group-hover:bg-primary/10">
+                        {link.icon}
+                      </div>
+                      <div className="space-y-1 min-w-0">
+                        <p className="text-[10px] uppercase font-bold tracking-[0.2em] text-muted-foreground group-hover:text-primary transition-colors">{link.name}</p>
+                        <h4 className="text-sm font-bold tracking-tight break-all">{link.handle}</h4>
+                      </div>
+                    </div>
+                    <div className="w-9 h-9 rounded-full border border-white/10 flex items-center justify-center transition-all duration-500 group-hover:bg-primary group-hover:text-primary-foreground group-hover:border-primary">
+                      <ArrowRight className="w-4 h-4" />
+                    </div>
+                  </div>
+                </Link>
+              ))}
+            </div>
+
+            <div className="flex flex-wrap items-center gap-3 text-[10px] uppercase tracking-[0.3em] text-white/50">
               <span className="rounded-full border border-white/10 bg-white/5 px-3 py-2">Avg response &lt; 2 hours</span>
               <span className="rounded-full border border-white/10 bg-white/5 px-3 py-2">Global clients</span>
+              <span className="rounded-full border border-white/10 bg-white/5 px-3 py-2">High‑impact builds</span>
             </div>
           </div>
 
@@ -155,36 +166,6 @@ export function HireMe() {
               </div>
               <SubmitButton />
             </form>
-
-            <div className="mt-8 grid gap-4">
-              {contactLinks.map((link) => (
-                <Link key={link.href} href={link.href} target="_blank" className="group">
-                  <div className="glass-card p-4 rounded-2xl flex items-center justify-between gap-4 hover:bg-white/[0.03] transition-all duration-500">
-                    <div className="flex items-center gap-4 min-w-0">
-                      <div className="w-11 h-11 rounded-2xl bg-white/5 flex items-center justify-center text-primary transition-all duration-500 group-hover:scale-110 group-hover:bg-primary/10">
-                        {link.icon}
-                      </div>
-                      <div className="space-y-1 min-w-0">
-                        <p className="text-[10px] uppercase font-bold tracking-[0.2em] text-muted-foreground group-hover:text-primary transition-colors">{link.name}</p>
-                        <h4 className="text-sm font-bold tracking-tight break-all">{link.handle}</h4>
-                      </div>
-                    </div>
-                    <div className="w-9 h-9 rounded-full border border-white/10 flex items-center justify-center transition-all duration-500 group-hover:bg-primary group-hover:text-primary-foreground group-hover:border-primary">
-                      <ArrowRight className="w-4 h-4" />
-                    </div>
-                  </div>
-                </Link>
-              ))}
-
-              <div className="pt-2 flex items-center gap-6 opacity-50">
-                <Link href="https://www.twitter.com/Anas_Abubakar70" target="_blank" className="hover:text-primary transition-colors">
-                  <XIcon className="w-5 h-5" />
-                </Link>
-                <Link href="https://www.github.com/Anasabubakar" target="_blank" className="hover:text-primary transition-colors">
-                  <Github className="w-5 h-5" />
-                </Link>
-              </div>
-            </div>
           </div>
         </div>
       </div>
