@@ -95,13 +95,13 @@ export function Header() {
 
       <div
         className={[
-          "fixed bottom-5 left-1/2 -translate-x-1/2 z-[9999] w-[92%] max-w-[420px] transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]",
+          "fixed bottom-5 left-1/2 -translate-x-1/2 z-[9999] w-[94%] max-w-[420px] transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]",
           showChrome ? "opacity-100 translate-y-0 pointer-events-auto" : "opacity-0 translate-y-6 pointer-events-none",
         ].join(" ")}
       >
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2">
           <div
-            className="glass-card flex-1 flex items-center gap-1 rounded-full px-2 py-2.5 overflow-hidden"
+            className="glass-card flex-1 flex items-center gap-0.5 rounded-full px-1.5 py-1.5 overflow-hidden"
             style={{
               boxShadow:
                 '0 12px 40px rgba(20,20,40,0.25), 0 2px 8px rgba(20,20,40,0.18), inset 0 1px 0 rgba(255,255,255,0.9)',
@@ -116,9 +116,9 @@ export function Header() {
                   onClick={() => setActiveDock(id)}
                   className="relative flex items-center justify-center rounded-full transition-all duration-300"
                   style={{
-                    padding: isActive ? '12px 16px' : '12px 12px',
-                    minWidth: isActive ? 96 : 44,
-                    gap: isActive ? 8 : 0,
+                    padding: isActive ? '10px 12px' : '10px 10px',
+                    minWidth: isActive ? 88 : 40,
+                    gap: isActive ? 6 : 0,
                     color: isActive ? '#101114' : '#ffffff',
                     background: isActive ? 'rgba(240,240,244,0.92)' : 'transparent',
                     boxShadow: isActive ? '0 2px 12px rgba(140,140,160,0.18), inset 0 1px 0 rgba(255,255,255,0.9)' : 'none',
@@ -128,7 +128,7 @@ export function Header() {
                   <Icon className="h-5 w-5" />
                   {isActive && (
                     <span
-                      className="text-sm font-semibold tracking-tight whitespace-nowrap"
+                      className="text-[13px] font-semibold tracking-tight whitespace-nowrap"
                       style={{ fontFamily: "'SF Pro Display', 'Helvetica Neue', sans-serif" }}
                     >
                       {label}
@@ -139,24 +139,23 @@ export function Header() {
             })}
           </div>
 
-            <SafeHireMeDialog>
-              <Button
-                className="h-14 px-5 rounded-full border border-primary/40 font-semibold text-sm text-primary-foreground"
-                style={{
-                  background: 'linear-gradient(145deg, rgba(45,185,133,0.95), rgba(24,120,86,0.95))',
-                  boxShadow:
-                    '0 10px 28px rgba(45,185,133,0.35), 0 2px 8px rgba(45,185,133,0.25), inset 0 1px 0 rgba(255,255,255,0.35)',
-                  transition: 'transform 0.15s ease',
-                }}
-                onMouseEnter={(e) => (e.currentTarget.style.transform = 'scale(1.06)')}
-                onMouseLeave={(e) => (e.currentTarget.style.transform = 'scale(1)')}
-                onMouseDown={(e) => (e.currentTarget.style.transform = 'scale(0.95)')}
-                onMouseUp={(e) => (e.currentTarget.style.transform = 'scale(1.06)')}
-              >
-                <BriefcaseBusiness className="mr-2 h-4 w-4" />
-                Hire Me
-              </Button>
-            </SafeHireMeDialog>
+          <SafeHireMeDialog>
+            <Button
+              className="h-12 w-12 rounded-full border border-primary/40 font-semibold text-sm text-primary-foreground px-0"
+              style={{
+                background: 'linear-gradient(145deg, rgba(45,185,133,0.95), rgba(24,120,86,0.95))',
+                boxShadow:
+                  '0 10px 28px rgba(45,185,133,0.35), 0 2px 8px rgba(45,185,133,0.25), inset 0 1px 0 rgba(255,255,255,0.35)',
+                transition: 'transform 0.15s ease',
+              }}
+              onMouseEnter={(e) => (e.currentTarget.style.transform = 'scale(1.06)')}
+              onMouseLeave={(e) => (e.currentTarget.style.transform = 'scale(1)')}
+              onMouseDown={(e) => (e.currentTarget.style.transform = 'scale(0.95)')}
+              onMouseUp={(e) => (e.currentTarget.style.transform = 'scale(1.06)')}
+            >
+              <BriefcaseBusiness className="h-4 w-4" />
+            </Button>
+          </SafeHireMeDialog>
         </div>
       </div>
     </>,
