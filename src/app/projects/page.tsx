@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowLeft, ArrowRight, ExternalLink, Github, Star, Code2, Layers, Zap, Globe, Shield, Brain, Wallet, GraduationCap, Heart, Pill, Sparkles } from 'lucide-react';
+import { ArrowLeft, ArrowRight, ExternalLink, Github, Code2, Layers, Zap, Globe, Shield, Brain, Wallet, GraduationCap, Heart, Pill, Sparkles } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
@@ -10,113 +10,115 @@ import { cn } from '@/lib/utils';
 
 const projects = [
   {
-    id: 'teenovatex',
-    title: 'TeenovateX Labs',
-    tagline: 'Empowering the next generation of African creators',
-    category: 'EdTech • Community',
-    description: 'A comprehensive platform for learning and opportunity. Building the future of African innovation through education, mentorship, and community.',
-    tech: ['Next.js', 'Firebase', 'Auth', 'React'],
-    liveLink: 'https://teenovatex.org',
-    githubLink: 'https://github.com/Anasabubakar/TeenovateX-Labs',
-    image: '/images/teenovatex.png',
-    icon: <GraduationCap className="w-6 h-6" />,
-    featured: true,
-    color: 'from-purple-500 to-pink-500',
-  },
-  {
     id: 'jackpal',
     title: 'JackPal',
-    tagline: 'Your AI-powered assistant for everything',
-    category: 'AI • Productivity',
-    description: 'An intelligent personal assistant powered by advanced AI. Helps with tasks, answers questions, and streamlines daily workflows.',
-    tech: ['Next.js', 'TypeScript', 'AI', 'OpenAI'],
+    tagline: 'Student-first audio learning platform',
+    category: 'EdTech • AI',
+    description: 'JackPal is a student-first audio learning platform built for the Nigerian and African student market. Students can upload academic documents (PDFs, Word docs, text), convert them to natural-sounding audio using AI, and play them back offline — with content protection to prevent piracy.',
+    fullDescription: 'Students struggle with large volumes of academic reading due to limited time, reading fatigue, visual strain, and the high cost of existing audio tools. JackPal solves this by letting students upload their academic documents, converting them to natural-sounding audio using AI, and playing them back offline — with content protection so files cannot be shared or pirated.',
+    tech: ['Next.js', 'TypeScript', 'AI', 'Firebase', 'Genkit'],
     liveLink: 'https://jackpal.vercel.app',
     githubLink: 'https://github.com/Anasabubakar/JackPal',
     image: '/images/jackpal.png',
     icon: <Brain className="w-6 h-6" />,
-    featured: true,
     color: 'from-blue-500 to-cyan-500',
+  },
+  {
+    id: 'teenovatex',
+    title: 'TeenovateX Labs',
+    tagline: 'Empowering the next generation of African creators',
+    category: 'EdTech • Community',
+    description: 'TeenovateX Labs is a cutting-edge platform designed to empower the next generation of innovators. Combining advanced AI assistance (Le AI), immersive "MAD" designs, and a vibrant community, we provide the ultimate ecosystem for teens to learn, build, and grow.',
+    fullDescription: 'TeenovateX Labs is a cutting-edge platform designed to empower the next generation of innovators. Combining advanced AI assistance, immersive "MAD" designs, and a vibrant community, we provide the ultimate ecosystem for teens to learn, build, and grow. Features include Lexy AI (your personal coding companion), MAD Dashboard (visually stunning command center), Learn & Grow (curated learning paths), and Community & Trending (connect with like-minded teen innovators).',
+    tech: ['Next.js', 'Firebase', 'Auth', 'React', 'AI'],
+    liveLink: 'https://teenovatex.org',
+    githubLink: 'https://github.com/Anasabubakar/TeenovateX-Labs',
+    image: '/images/teenovatex.png',
+    icon: <GraduationCap className="w-6 h-6" />,
+    color: 'from-purple-500 to-pink-500',
   },
   {
     id: 'marcedivault',
     title: 'MarcediVault',
-    tagline: 'Next-generation Web3 dashboard',
+    tagline: 'Multi-chain custodial wallet frontend',
     category: 'Web3 • Finance',
-    description: 'A powerful Web3 portfolio tracker and analytics platform. Monitor your crypto assets, DeFi positions, and NFT collections in one place.',
+    description: 'MarcediVault is a multi-chain custodial wallet frontend featuring a production-quality, responsive interface with a luxury minimalist aesthetic.',
+    fullDescription: 'MarcediVault by Xentrius is a Next.js application for a multi-chain custodial wallet frontend. It features a production-quality, responsive interface with a luxury minimalist aesthetic.',
     tech: ['Next.js', 'Web3', 'TypeScript', 'Tailwind'],
     liveLink: 'https://web3-site-kappa.vercel.app/',
     githubLink: 'https://github.com/Anasabubakar/Web3-Site',
     image: '/images/marcedivault.png',
     icon: <Wallet className="w-6 h-6" />,
-    featured: true,
     color: 'from-orange-500 to-red-500',
   },
   {
     id: 'kinzoku',
     title: 'Kinzoku Blueprint Forge',
-    tagline: 'Forge your digital destiny',
-    category: 'Platform • Creative',
-    description: 'A cutting-edge platform for digital creators. Design, deploy, and monetize your creative assets with powerful tooling.',
-    tech: ['Next.js', 'React', 'Node.js', 'MongoDB'],
+    tagline: 'Professional industrial prototyping tool',
+    category: 'Platform • AI',
+    description: 'Kinzoku Blueprint Forge is a professional industrial prototyping tool that generates detailed technical specifications and photorealistic blueprints using AI.',
+    fullDescription: 'Kinzoku Blueprint Forge is a professional industrial prototyping tool designed to generate detailed technical specifications and photorealistic blueprints. Key features include The Forge (uses Gemini to generate precise engineering specs and Imagen to render 8K-quality technical drawings), Reverse Engineering (analyzes existing designs), Interactive Editor (manually refine AI-generated specs), and AI Assistant (built-in chat for brainstorming).',
+    tech: ['Next.js', 'React', 'Gemini', 'Imagen'],
     liveLink: 'https://ai.studio.apps/drive/17n6l3RtYoq5LYqpcpOA4OjjUc7F2tsQc?fullscreenApplet=true',
     githubLink: 'https://github.com/Anasabubakar/Kinzoku-Blueprint-Forge',
     image: '/images/kinzoku.png',
     icon: <Sparkles className="w-6 h-6" />,
-    featured: false,
     color: 'from-slate-500 to-zinc-500',
   },
   {
     id: 'edupeak',
     title: 'EduPeak',
-    tagline: 'Peak performance in learning',
+    tagline: 'Modern Learning Management System',
     category: 'EdTech • Platform',
-    description: 'An innovative learning management system. Track progress, achieve milestones, and unlock your full potential.',
-    tech: ['Next.js', 'TypeScript', 'PostgreSQL', 'Prisma'],
+    description: 'EduPeak is a modern, feature-rich Learning Management System designed to provide a resilient and engaging educational experience with offline-first architecture.',
+    fullDescription: 'EDUPEAK is a modern, feature-rich Learning Management System (LMS) designed to provide a resilient and engaging educational experience for both students and teachers. Built with a robust, offline-first architecture, it ensures learning never stops. Features distinct portals for students and teachers with personalized learning paths, gamified quizzes, powerful analytics, and content curation tools.',
+    tech: ['Next.js', 'TypeScript', 'PostgreSQL', 'Prisma', 'Tailwind', 'ShadCN'],
     liveLink: 'https://edupeak-eta.vercel.app/',
     githubLink: 'https://github.com/Anasabubakar/Edupeak',
     image: '/images/edupeak.png',
     icon: <Layers className="w-6 h-6" />,
-    featured: true,
     color: 'from-green-500 to-emerald-500',
   },
   {
     id: 'ilmeen',
     title: 'Ilmeen',
-    tagline: 'Where creativity meets code',
-    category: 'Portfolio • Creative',
-    description: 'A stunning portfolio template for creative professionals. Showcase your work with elegance and style.',
-    tech: ['Next.js', 'Framer Motion', 'Tailwind', 'React'],
+    tagline: 'AI Companion for Mastering Quranic Arabic',
+    category: 'EdTech • AI',
+    description: 'Ilmeen is a revolutionary AI-powered web application that transforms any Arabic text into an interactive and engaging learning experience.',
+    fullDescription: 'Ilmeen is a revolutionary, AI-powered web application designed to help learners, especially African Muslims, master the Arabic language. By combining cutting-edge AI with pedagogical techniques inspired by traditional Islamic education, Ilmeen transforms any Arabic text into an interactive learning experience. Features include Scan & Learn, 24/7 AI Mentor with voice dialogue, Deep Understanding Engine with grammar annotations, Smart Memorization Mode, and Gamified Learning Journey.',
+    tech: ['Next.js', 'Framer Motion', 'Tailwind', 'React', 'Gemini', 'Genkit', 'Firebase'],
     liveLink: 'https://ilmeen-mvp.vercel.app',
     githubLink: 'https://github.com/Anasabubakar/Ilmeen',
     image: '/images/ilmeen.png',
     icon: <Code2 className="w-6 h-6" />,
-    featured: false,
     color: 'from-rose-500 to-pink-500',
   },
   {
     id: 'empower-you',
     title: 'Empower-You',
-    tagline: 'Transform your habits, transform your life',
-    category: 'Wellness • Productivity',
-    description: 'A premium digital sanctuary for self-optimization. Smart habit tracking meets AI-driven growth insights.',
-    tech: ['Next.js', 'PostgreSQL', 'Tailwind', 'AI'],
+    tagline: 'Personal AI Companion for Growth & Well-being',
+    category: 'Wellness • AI',
+    description: 'EmpowerYou is a holistic, private, and AI-enhanced application designed to be a sanctuary for your thoughts, goals, and personal well-being.',
+    fullDescription: 'EmpowerYou is a holistic, private, and AI-enhanced application designed to be a sanctuary for your thoughts, goals, and personal well-being. It\'s a comprehensive tool for promoting self-awareness, organization, and growth, with all data stored securely and privately on your device. Features include Dashboard Overview, Wants & Needs Tracker, Menstrual Cycle Tracker, Task Manager, Health Metrics Logger, Daily Diary with AI summaries, AI Companion, and Personalized Insights.',
+    tech: ['Next.js', 'TypeScript', 'Tailwind', 'ShadCN', 'Genkit', 'Recharts'],
     liveLink: 'https://empower-you.vercel.app/',
     githubLink: 'https://github.com/Anasabubakar/EmpowerYou',
+    image: '/images/projects/empoweryou.png',
     icon: <Heart className="w-6 h-6" />,
-    featured: false,
     color: 'from-yellow-500 to-orange-500',
   },
   {
     id: 'pill-pal',
     title: 'Pill-Pal',
-    tagline: 'Your health, simplified',
+    tagline: 'AI-Powered Medication Reminder',
     category: 'Healthcare • AI',
-    description: 'A revolutionary AI-powered medication tracking system. Never miss a dose with intelligent reminders.',
-    tech: ['Next.js', 'TypeScript', 'AI', 'Firebase'],
+    description: 'Pill-Pal is a modern, AI-powered web application designed to help users manage their medication schedules, track adherence, and gain insights.',
+    fullDescription: 'Pill-Pal is a modern, AI-powered web application designed to help users manage their medication schedules, track their adherence, and gain insights into their habits. Features include onboarding experience, secure authentication, medication management, daily dashboard, adherence tracking, medication logs with CSV export, AI-powered insights, responsive design, and light/dark mode.',
+    tech: ['Next.js', 'TypeScript', 'AI', 'Firebase', 'Genkit', 'Framer Motion', 'ShadCN', 'React Hook Form', 'Zod'],
     liveLink: 'https://pill-pal-eta.vercel.app/',
     githubLink: 'https://github.com/Anasabubakar/Pill-Pal',
+    image: '/images/projects/pillpal.png',
     icon: <Pill className="w-6 h-6" />,
-    featured: false,
     color: 'from-teal-500 to-cyan-500',
   },
   {
@@ -128,8 +130,8 @@ const projects = [
     tech: ['Next.js', 'Stripe', 'Framer Motion', 'Tailwind'],
     liveLink: 'https://monieplow-spark.vercel.app',
     githubLink: 'https://github.com/Anasabubakar/MonieFlow',
+    image: '/images/projects/monieflow.png',
     icon: <Zap className="w-6 h-6" />,
-    featured: true,
     color: 'from-violet-500 to-purple-500',
   },
 ];
@@ -164,99 +166,13 @@ export default function ProjectsPage() {
             </p>
           </div>
 
-          {/* Featured Projects */}
-          <div className="mb-20">
-            <h3 className="text-2xl font-bold mb-8 flex items-center gap-3">
-              <Star className="w-6 h-6 text-primary" />
-              Featured Projects
-            </h3>
-            <div className="grid md:grid-cols-2 gap-8">
-              {projects.filter(p => p.featured).map((project, idx) => (
-                <div 
-                  key={project.id}
-                  className={cn(
-                    "group relative overflow-hidden rounded-[2.5rem] glass-card",
-                    idx % 2 === 1 ? "md:mt-12" : ""
-                  )}
-                >
-                  {/* Project Image */}
-                  <div className="relative aspect-video overflow-hidden">
-                    {project.image ? (
-                      <Image
-                        src={project.image}
-                        alt={project.title}
-                        fill
-                        className="object-cover transition-transform duration-700 group-hover:scale-105"
-                        unoptimized
-                      />
-                    ) : (
-                      <div className={cn(
-                        "absolute inset-0 bg-gradient-to-br",
-                        project.color
-                      )} />
-                    )}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-                    
-                    {/* Category Badge */}
-                    <div className="absolute top-4 left-4">
-                      <span className="text-[10px] uppercase tracking-widest text-white/90 font-bold px-3 py-1 rounded-full bg-black/40 backdrop-blur-sm border border-white/10">
-                        {project.category.split('•')[0].trim()}
-                      </span>
-                    </div>
-                  </div>
-                  
-                  {/* Project Info */}
-                  <div className="relative p-8 -mt-4">
-                    {/* Title */}
-                    <h4 className="text-3xl font-black tracking-tight mb-2 group-hover:text-primary transition-colors">
-                      {project.title}
-                    </h4>
-                    
-                    {/* Tagline */}
-                    <p className="text-white/60 text-sm mb-4 font-medium">
-                      {project.tagline}
-                    </p>
-                    
-                    {/* Description */}
-                    <p className="text-white/50 text-sm leading-relaxed mb-6">
-                      {project.description}
-                    </p>
-                    
-                    {/* Tech Stack */}
-                    <div className="flex flex-wrap gap-2 mb-8">
-                      {project.tech.map(tech => (
-                        <span key={tech} className="text-[10px] uppercase font-bold text-white/40 px-3 py-1 rounded-full border border-white/10">
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
-                    
-                    {/* Links */}
-                    <div className="flex gap-4">
-                      <Button asChild size="sm" className="rounded-full bg-primary/20 text-primary border border-primary/30 hover:bg-primary hover:text-primary-foreground">
-                        <Link href={project.liveLink} target="_blank">
-                          View Live <ExternalLink className="ml-2 w-4 h-4" />
-                        </Link>
-                      </Button>
-                      <Button asChild size="sm" variant="outline" className="rounded-full border-white/10 hover:bg-white/5">
-                        <Link href={project.githubLink} target="_blank">
-                          <Github className="mr-2 w-4 h-4" /> Code
-                        </Link>
-                      </Button>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
           {/* All Projects Grid */}
           <div className="mb-16">
             <h3 className="text-2xl font-bold mb-8 flex items-center gap-3">
               <Layers className="w-6 h-6 text-primary" />
               All Projects
             </h3>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {projects.map((project) => (
                 <div 
                   key={project.id} 
