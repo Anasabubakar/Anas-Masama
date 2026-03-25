@@ -132,9 +132,9 @@ export function Header() {
                     padding: isActive ? '12px 12px' : '12px 10px',
                     minWidth: isActive ? 90 : 40,
                     gap: isActive ? 6 : 0,
-                    color: isActive ? '#101114' : '#ffffff',
-                    background: isActive ? 'rgba(240,240,244,0.92)' : 'transparent',
-                    boxShadow: isActive ? '0 2px 12px rgba(140,140,160,0.18), inset 0 1px 0 rgba(255,255,255,0.9)' : 'none',
+                    color: isActive ? '#ffffff' : '#ffffff',
+                    background: isActive ? 'linear-gradient(145deg, rgba(45,185,133,0.95), rgba(24,120,86,0.95))' : 'transparent',
+                    boxShadow: isActive ? '0 10px 20px rgba(45,185,133,0.25), inset 0 1px 0 rgba(255,255,255,0.35)' : 'none',
                   }}
                   aria-label={label}
                 >
