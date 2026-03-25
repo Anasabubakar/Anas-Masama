@@ -75,9 +75,11 @@ export function Hero() {
             </div>
 
             <div className="flex flex-wrap items-center justify-center lg:justify-start gap-6">
-              <Button size="lg" className="rounded-full h-14 px-10 text-lg font-bold group bg-primary hover:bg-primary/90 transition-all duration-300">
-                Explore My Work
-                <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+              <Button size="lg" className="rounded-full h-14 px-10 text-lg font-bold group bg-primary hover:bg-primary/90 transition-all duration-300" asChild>
+                <a href="#projects">
+                  Explore My Work
+                  <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+                </a>
               </Button>
               <Button variant="outline" size="lg" className="rounded-full h-14 px-10 text-lg font-bold border-white/10 hover:bg-white/5 transition-all duration-300" asChild>
                 <a href="https://drive.google.com/file/d/1XWs9OdhAqW8pgEQF_-Bpn9zHOBnoOZQOdlib6ggfCbE/view" target="_blank" rel="noopener noreferrer">
