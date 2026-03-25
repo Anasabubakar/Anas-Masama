@@ -95,7 +95,7 @@ export function Header() {
 
       <div
         className={[
-          "fixed bottom-5 left-1/2 -translate-x-1/2 z-[9999] w-[86%] max-w-[380px] transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]",
+          "fixed bottom-5 left-1/2 -translate-x-1/2 z-[9999] w-[82%] max-w-[360px] transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]",
           showChrome ? "opacity-100 translate-y-0 pointer-events-auto" : "opacity-0 translate-y-6 pointer-events-none",
         ].join(" ")}
       >
