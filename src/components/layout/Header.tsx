@@ -37,7 +37,6 @@ export function Header() {
   useEffect(() => {
     if (!mounted) return;
     const sectionIds = ['about', 'services', 'projects', 'contact'];
-    let ticking = false;
     const getActive = () => {
       const y = window.scrollY + window.innerHeight * 0.35;
       if (window.scrollY < 80) return 'home';
@@ -49,13 +48,8 @@ export function Header() {
       return 'home';
     };
     const onScroll = () => {
-      if (ticking) return;
-      ticking = true;
-      window.requestAnimationFrame(() => {
-        const next = getActive();
-        setActiveDock((prev) => (prev === next ? prev : next));
-        ticking = false;
-      });
+      const next = getActive();
+      setActiveDock((prev) => (prev === next ? prev : next));
     };
     onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
@@ -68,7 +62,7 @@ export function Header() {
     <>
       <div
         className={[
-          "fixed top-5 left-1/2 -translate-x-1/2 z-[9999] w-[92%] max-w-md sm:max-w-lg lg:max-w-xl transition-[transform,opacity] duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] will-change-transform",
+          "fixed top-5 left-1/2 -translate-x-1/2 z-[9999] w-[92%] max-w-md sm:max-w-lg lg:max-w-xl transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]",
           showChrome ? "opacity-100 translate-y-0 pointer-events-auto" : "opacity-0 -translate-y-6 pointer-events-none",
         ].join(" ")}
       >
@@ -101,7 +95,7 @@ export function Header() {
 
       <div
         className={[
-          "fixed bottom-5 left-1/2 -translate-x-1/2 z-[9999] w-[82%] max-w-[360px] transition-[transform,opacity] duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] will-change-transform",
+          "fixed bottom-5 left-1/2 -translate-x-1/2 z-[9999] w-[82%] max-w-[360px] transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]",
           showChrome ? "opacity-100 translate-y-0 pointer-events-auto" : "opacity-0 translate-y-6 pointer-events-none",
         ].join(" ")}
       >
@@ -120,7 +114,7 @@ export function Header() {
                   key={id}
                   href={href}
                   onClick={() => setActiveDock(id)}
-                  className="relative flex items-center justify-center rounded-full transition-[background,box-shadow,color,transform] duration-200"
+                  className="relative flex items-center justify-center rounded-full transition-all duration-300"
                   style={{
                     padding: isActive ? '12px 12px' : '12px 10px',
                     minWidth: isActive ? 90 : 40,
