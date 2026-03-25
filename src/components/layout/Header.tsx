@@ -84,6 +84,23 @@ export function Header() {
                   <p className="text-lg font-bold tracking-tight">Software Engineer</p>
                 </div>
               </Link>
+              <SafeHireMeDialog>
+                <Button
+                  className="hidden sm:inline-flex h-10 px-4 rounded-full border border-primary/40 font-semibold text-xs text-primary-foreground"
+                  style={{
+                    background: 'linear-gradient(145deg, rgba(45,185,133,0.95), rgba(24,120,86,0.95))',
+                    boxShadow:
+                      '0 10px 28px rgba(45,185,133,0.35), 0 2px 8px rgba(45,185,133,0.25), inset 0 1px 0 rgba(255,255,255,0.35)',
+                    transition: 'transform 0.15s ease',
+                  }}
+                  onMouseEnter={(e) => (e.currentTarget.style.transform = 'scale(1.06)')}
+                  onMouseLeave={(e) => (e.currentTarget.style.transform = 'scale(1)')}
+                  onMouseDown={(e) => (e.currentTarget.style.transform = 'scale(0.95)')}
+                  onMouseUp={(e) => (e.currentTarget.style.transform = 'scale(1.06)')}
+                >
+                  Hire Me
+                </Button>
+              </SafeHireMeDialog>
             </div>
           </div>
         </div>
