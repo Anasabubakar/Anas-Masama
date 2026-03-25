@@ -37,6 +37,7 @@ export function Header() {
   useEffect(() => {
     if (!mounted) return;
     const sectionIds = ['about', 'services', 'projects', 'contact'];
+    let ticking = false;
     const getActive = () => {
       const y = window.scrollY + window.innerHeight * 0.35;
       if (window.scrollY < 80) return 'home';
@@ -48,8 +49,13 @@ export function Header() {
       return 'home';
     };
     const onScroll = () => {
-      const next = getActive();
-      setActiveDock((prev) => (prev === next ? prev : next));
+      if (ticking) return;
+      ticking = true;
+      window.requestAnimationFrame(() => {
+        const next = getActive();
+        setActiveDock((prev) => (prev === next ? prev : next));
+        ticking = false;
+      });
     };
     onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
@@ -62,12 +68,12 @@ export function Header() {
     <>
       <div
         className={[
-          "fixed top-5 left-1/2 -translate-x-1/2 z-[9999] w-[92%] max-w-md sm:max-w-lg lg:max-w-xl transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]",
+          "fixed top-5 left-1/2 -translate-x-1/2 z-[9999] w-[92%] max-w-md sm:max-w-lg lg:max-w-xl transition-[transform,opacity] duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] will-change-transform",
           showChrome ? "opacity-100 translate-y-0 pointer-events-auto" : "opacity-0 -translate-y-6 pointer-events-none",
         ].join(" ")}
       >
         <div className="prismatic-wrapper w-full">
-          <div className="w-full rounded-full bg-black/70 backdrop-blur-2xl px-5 py-3 shadow-[0_12px_40px_rgba(0,0,0,0.55)]">
+          <div className="glass-card w-full rounded-full px-5 py-3">
             <div className="flex items-center justify-between gap-4">
               <Link href="/" className="flex items-center gap-3">
                 <div className="relative w-11 h-11 overflow-hidden rounded-2xl border border-white/20 bg-white/10 backdrop-blur-xl flex items-center justify-center shadow-[0_10px_30px_rgba(0,0,0,0.35)]">
@@ -95,7 +101,7 @@ export function Header() {
 
       <div
         className={[
-          "fixed bottom-5 left-1/2 -translate-x-1/2 z-[9999] w-[82%] max-w-[360px] transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]",
+          "fixed bottom-5 left-1/2 -translate-x-1/2 z-[9999] w-[82%] max-w-[360px] transition-[transform,opacity] duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] will-change-transform",
           showChrome ? "opacity-100 translate-y-0 pointer-events-auto" : "opacity-0 translate-y-6 pointer-events-none",
         ].join(" ")}
       >
@@ -114,7 +120,7 @@ export function Header() {
                   key={id}
                   href={href}
                   onClick={() => setActiveDock(id)}
-                  className="relative flex items-center justify-center rounded-full transition-all duration-300"
+                  className="relative flex items-center justify-center rounded-full transition-[background,box-shadow,color,transform] duration-200"
                   style={{
                     padding: isActive ? '12px 12px' : '12px 10px',
                     minWidth: isActive ? 90 : 40,
