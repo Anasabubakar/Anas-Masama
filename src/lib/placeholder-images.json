@@ -26,6 +26,18 @@
     },
     {
       "id": "project-5",
+      "description": "A placeholder image for the JackPal project.",
+      "imageUrl": "/images/jackpal.png",
+      "imageHint": "audio learning platform"
+    },
+    {
+      "id": "project-6",
+      "description": "A placeholder image for the MarcediVault project.",
+      "imageUrl": "/images/marcedivault.png",
+      "imageHint": "web3 wallet"
+    },
+    {
+      "id": "project-5-old",
       "description": "A placeholder image for the Last Shield project.",
       "imageUrl": "/images/projects/last-shield.png",
       "imageHint": "survival shooter game"

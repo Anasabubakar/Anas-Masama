@@ -12,20 +12,20 @@ import { cn } from '@/lib/utils';
 
 const projects = [
   {
-    id: 'project-1',
-    title: 'PillPal AI',
-    category: 'Healthcare • AI',
-    description: 'A revolutionary AI-powered medication tracking system. Focused on simplifying complex treatment schedules with intuitive design.',
-    tags: ['Next.js', 'TypeScript', 'AI', 'Firebase'],
-    liveLink: 'https://pill-pal-eta.vercel.app',
+    id: 'project-4',
+    title: 'TeenovateX',
+    category: 'NGO • Community',
+    description: 'Empowering the next generation of African creators. A comprehensive platform for learning and opportunity.',
+    tags: ['Next.js', 'Firebase', 'AI'],
+    liveLink: 'https://teenovatex.org',
   },
   {
-    id: 'project-2',
-    title: 'EmpowerYou',
-    category: 'Productivity • Wellness',
-    description: 'A premium digital sanctuary for self-optimization. Features smart habit tracking and AI-driven growth insights.',
-    tags: ['Next.js', 'PostgreSQL', 'Tailwind'],
-    liveLink: 'https://empoweryou.vercel.app',
+    id: 'project-5',
+    title: 'JackPal',
+    category: 'EdTech • AI',
+    description: 'Student-first audio learning platform for African students. Convert academic documents to natural-sounding audio.',
+    tags: ['Next.js', 'TypeScript', 'AI', 'Genkit'],
+    liveLink: 'https://jackpal.vercel.app',
   },
   {
     id: 'project-3',
@@ -36,12 +36,12 @@ const projects = [
     liveLink: 'https://monieplow-spark.vercel.app',
   },
   {
-    id: 'project-4',
-    title: 'TeenovateX',
-    category: 'EdTech • Community',
-    description: 'Empowering the next generation of African creators. A comprehensive platform for learning and opportunity.',
-    tags: ['Next.js', 'Firebase', 'Auth'],
-    liveLink: 'https://teenovatex-labs.vercel.app',
+    id: 'project-6',
+    title: 'MarcediVault',
+    category: 'Web3 • Finance',
+    description: 'Multi-chain custodial wallet frontend with luxury minimalist aesthetic.',
+    tags: ['Next.js', 'Web3', 'TypeScript'],
+    liveLink: 'https://web3-site-kappa.vercel.app/',
   },
 ];
 

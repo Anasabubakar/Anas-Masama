@@ -27,7 +27,7 @@ const projects = [
     id: 'teenovatex',
     title: 'TeenovateX Labs',
     tagline: 'Empowering the next generation of African creators',
-    category: 'EdTech • Community',
+    category: 'NGO • Community',
     description: 'TeenovateX Labs is a cutting-edge platform designed to empower the next generation of innovators. Combining advanced AI assistance (Le AI), immersive "MAD" designs, and a vibrant community, we provide the ultimate ecosystem for teens to learn, build, and grow.',
     fullDescription: 'TeenovateX Labs is a cutting-edge platform designed to empower the next generation of innovators. Combining advanced AI assistance, immersive "MAD" designs, and a vibrant community, we provide the ultimate ecosystem for teens to learn, build, and grow. Features include Lexy AI (your personal coding companion), MAD Dashboard (visually stunning command center), Learn & Grow (curated learning paths), and Community & Trending (connect with like-minded teen innovators).',
     tech: ['Next.js', 'Firebase', 'Auth', 'React', 'AI'],
