@@ -105,20 +105,6 @@ export function HireMe() {
               </div>
             </div>
 
-            <div className="mt-6 flex items-center justify-end gap-3">
-              {socialLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  target="_blank"
-                  className="w-10 h-10 rounded-full border border-white/10 bg-white/5 flex items-center justify-center text-white/70 hover:text-primary hover:border-primary/40 transition-all"
-                  aria-label={link.name}
-                >
-                  {link.icon}
-                </Link>
-              ))}
-            </div>
-
             <form ref={formRef} action={dispatch} className="space-y-4 pt-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div className="space-y-2">
@@ -157,6 +143,20 @@ export function HireMe() {
               </div>
               <SubmitButton />
             </form>
+
+            <div className="mt-6 flex items-center justify-center gap-3">
+              {socialLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  target="_blank"
+                  className="w-10 h-10 rounded-full border border-white/10 bg-white/5 flex items-center justify-center text-white/70 hover:text-primary hover:border-primary/40 transition-all"
+                  aria-label={link.name}
+                >
+                  {link.icon}
+                </Link>
+              ))}
+            </div>
           </div>
         </div>
       </div>
