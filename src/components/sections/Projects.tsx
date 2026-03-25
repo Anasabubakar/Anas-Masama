@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { Badge } from '../ui/badge';
 import { ArrowRight, StarIcon } from 'lucide-react';
-import { HireMeDialog } from '../HireMeDialog';
+import { HireMeButton } from '../HireMeButton';
 
 const projects = [
   {
@@ -110,12 +110,7 @@ export function Projects() {
           })}
         </div>
          <div className="text-center mt-16">
-          <HireMeDialog>
-            <Button size="lg">
-              Like what you see? Hire Me
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </Button>
-          </HireMeDialog>
+          <HireMeButton />
         </div>
       </div>
        <ScrollingBanner />

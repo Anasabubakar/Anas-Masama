@@ -1,6 +1,6 @@
 import { Briefcase, GraduationCap, Search, ArrowRight } from 'lucide-react';
 import { Button } from '../ui/button';
-import { HireMeDialog } from '../HireMeDialog';
+import { SafeHireMeDialog } from '../SafeHireMeDialog';
 
 const timelineData = [
   {
@@ -54,12 +54,12 @@ export function Timeline() {
           ))}
         </div>
         <div className="text-center mt-16">
-          <HireMeDialog>
+          <SafeHireMeDialog>
             <Button size="lg">
               Ready to Start a Project? Hire Me
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
-          </HireMeDialog>
+          </SafeHireMeDialog>
         </div>
       </div>
     </section>

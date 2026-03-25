@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Download, PieChart, ArrowRight, Github, Linkedin } from 'lucide-react';
 import Link from 'next/link';
 import { WhatsappIcon } from '../icons/WhatsappIcon';
-import { HireMeDialog } from '../HireMeDialog';
+import { SafeHireMeDialog } from '../SafeHireMeDialog';
 
 const XIcon = (props: React.SVGProps<SVGSVGElement>) => (
   <svg
@@ -44,11 +44,11 @@ export function About() {
                   Download CV <Download className="ml-2" />
                 </a>
               </Button>
-               <HireMeDialog>
+               <SafeHireMeDialog>
                 <Button variant="outline" size="lg">
                   Hire Me <ArrowRight className="ml-2" />
                 </Button>
-              </HireMeDialog>
+              </SafeHireMeDialog>
             </div>
           </div>
 

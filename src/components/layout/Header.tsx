@@ -6,7 +6,7 @@ import Image from 'next/image';
 import { Menu, X, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
-import { HireMeDialog } from '../HireMeDialog';
+import { SafeHireMeDialog } from '../SafeHireMeDialog';
 
 const navLinks = [
   { href: '#about', label: 'About' },
@@ -50,12 +50,12 @@ export function Header() {
               </a>
             ))}
           </nav>
-           <HireMeDialog>
+           <SafeHireMeDialog>
             <Button size="sm">
               Hire Me
               <ArrowRight className="ml-2 h-4 w-4"/>
             </Button>
-          </HireMeDialog>
+          </SafeHireMeDialog>
         </div>
 
         {/* Mobile Menu Button */}
@@ -102,12 +102,12 @@ export function Header() {
                 {link.label}
                 </Link>
             ))}
-            <HireMeDialog>
+            <SafeHireMeDialog>
                 <Button size="lg" className="mt-8" onClick={() => setIsMenuOpen(false)}>
                 Hire Me
                 <ArrowRight className="ml-2 h-4 w-4"/>
                 </Button>
-            </HireMeDialog>
+            </SafeHireMeDialog>
             </nav>
         </div>
       </div>
