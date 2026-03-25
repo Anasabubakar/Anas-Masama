@@ -1,20 +1,20 @@
 import type { Metadata } from 'next';
 import './globals.css';
 import { Toaster } from '@/components/ui/toaster';
-import { Roboto, Source_Code_Pro } from 'next/font/google';
+import { Inter, Source_Code_Pro } from 'next/font/google';
 import { cn } from '@/lib/utils';
 import { CursorFollower } from '@/components/CursorFollower';
 
-const fontHeadline = Roboto({
+const fontHeadline = Inter({
   subsets: ["latin"],
   variable: "--font-headline",
-  weight: ['400', '700', '900'],
+  weight: ['600', '700', '800'],
 });
 
-const fontBody = Roboto({
+const fontBody = Inter({
   subsets: ["latin"],
   variable: "--font-body",
-  weight: ['400', '700'],
+  weight: ['400', '500'],
 });
 
 const fontCode = Source_Code_Pro({
@@ -39,7 +39,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning>
       <head>
   {/* Primary favicon (ico fallback) */}
   <link rel="icon" href="/favicon-v2.ico" />
@@ -53,9 +53,9 @@ export default function RootLayout({
   <link rel="apple-touch-icon" href="/apple-touch-icon-v2.png" />
   <link rel="manifest" href="/site.webmanifest" />
   {/* Cache-bust and theme */}
-  <meta name="theme-color" content="#0ea5a4" />
+  <meta name="theme-color" content="#B1121B" />
       </head>
-      <body className={cn("font-body antialiased", fontHeadline.variable, fontBody.variable, fontCode.variable)}>
+      <body className={cn("font-body antialiased bg-background text-foreground", fontHeadline.variable, fontBody.variable, fontCode.variable)}>
         <CursorFollower />
         {children}
         <Toaster />

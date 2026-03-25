@@ -38,7 +38,7 @@ const ScrollIndicator = () => (
         </text>
       </svg>
     </div>
-    <div className="text-primary text-glow">
+    <div className="text-primary">
       <svg width="40" height="40" viewBox="0 0 16 16" fill="currentColor">
         <path d="M8 0L9.414 6.586 16 8l-6.586 1.414L8 16l-1.414-6.586L0 8l6.586-1.414L8 0z" />
       </svg>
@@ -127,7 +127,7 @@ export function Hero() {
                 Hi, I'm Anas!
               </h1>
               <div
-                className="text-5xl md:text-6xl lg:text-7xl font-extrabold font-headline uppercase leading-none tracking-tighter text-primary text-glow"
+                className="text-5xl md:text-6xl lg:text-7xl font-extrabold font-headline uppercase leading-none tracking-tighter text-primary"
                 onMouseEnter={() => handleMouseEnter('text')}
                 onMouseLeave={handleMouseLeave}
               >

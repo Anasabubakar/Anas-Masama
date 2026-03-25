@@ -77,7 +77,7 @@ export function Projects() {
           {projects.map((project) => {
             const image = PlaceHolderImages.find((img) => img.id === project.id);
             return (
-              <Card key={project.id} className="group/card flex flex-col overflow-hidden bg-card border-border transition-all duration-300 hover:border-primary/50 hover:shadow-[0_0_40px_-15px_hsl(var(--primary))]">
+              <Card key={project.id} className="group/card flex flex-col overflow-hidden bg-card border-border transition-all duration-300 hover:border-primary/20 hover:shadow-xl hover:-translate-y-1">
                 {image && (
                   <div className="aspect-video overflow-hidden relative">
                     <Image

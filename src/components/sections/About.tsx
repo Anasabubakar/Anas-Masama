@@ -79,22 +79,22 @@ export function About() {
             
             {/* Social Links */}
             <Link href="https://www.github.com/Anasabubakar" target="_blank" rel="noopener noreferrer" className="absolute top-10 -left-2 md:-left-5 z-20 group">
-                <div className="w-12 h-12 bg-card border-2 border-border rounded-full flex items-center justify-center transition-all duration-300 group-hover:border-primary group-hover:scale-110 group-hover:shadow-lg">
+                <div className="w-12 h-12 bg-card border border-border rounded-full flex items-center justify-center transition-all duration-300 hover:border-primary hover:text-primary hover:shadow-md">
                     <Github className="w-6 h-6 text-muted-foreground group-hover:text-primary transition-colors"/>
                 </div>
             </Link>
              <Link href="https://www.linkedin.com/in/Anasmasama" target="_blank" rel="noopener noreferrer" className="absolute top-1/3 -right-2 md:-right-5 z-20 group">
-                <div className="w-12 h-12 bg-card border-2 border-border rounded-full flex items-center justify-center transition-all duration-300 group-hover:border-primary group-hover:scale-110 group-hover:shadow-lg">
+                <div className="w-12 h-12 bg-card border border-border rounded-full flex items-center justify-center transition-all duration-300 hover:border-primary hover:text-primary hover:shadow-md">
                     <Linkedin className="w-6 h-6 text-muted-foreground group-hover:text-primary transition-colors"/>
                 </div>
             </Link>
              <Link href="https://www.twitter.com/Anas_Abubakar70" target="_blank" rel="noopener noreferrer" className="absolute bottom-1/4 -left-4 md:-left-8 z-20 group">
-                <div className="w-12 h-12 bg-card border-2 border-border rounded-full flex items-center justify-center transition-all duration-300 group-hover:border-primary group-hover:scale-110 group-hover:shadow-lg">
+                <div className="w-12 h-12 bg-card border border-border rounded-full flex items-center justify-center transition-all duration-300 hover:border-primary hover:text-primary hover:shadow-md">
                     <XIcon className="w-6 h-6 text-muted-foreground group-hover:text-primary transition-colors"/>
                 </div>
             </Link>
              <Link href="https://wa.me/+2347064294297" target="_blank" rel="noopener noreferrer" className="absolute bottom-0 -right-2 md:-right-4 z-20 group">
-                <div className="w-12 h-12 bg-card border-2 border-border rounded-full flex items-center justify-center transition-all duration-300 group-hover:border-primary group-hover:scale-110 group-hover:shadow-lg">
+                <div className="w-12 h-12 bg-card border border-border rounded-full flex items-center justify-center transition-all duration-300 hover:border-primary hover:text-primary hover:shadow-md">
                     <WhatsappIcon className="w-7 h-7 text-muted-foreground group-hover:text-primary transition-colors"/>
                 </div>
             </Link>
