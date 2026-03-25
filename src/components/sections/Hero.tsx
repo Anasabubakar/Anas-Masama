@@ -109,8 +109,8 @@ export function Hero() {
               <div className="absolute inset-0 border border-white/5 rounded-full animate-spin-slow" />
               <div className="absolute -inset-10 border border-white/5 rounded-full animate-spin-slow [animation-direction:reverse]" />
               
-              <div className="absolute inset-4 rounded-3xl overflow-hidden glass-card p-2 group">
-                <div className="relative h-full w-full rounded-2xl overflow-hidden bg-white/5">
+              <div className="absolute inset-4 rounded-3xl overflow-hidden p-2 group">
+                <div className="relative h-full w-full rounded-2xl overflow-hidden bg-transparent">
                   {heroImage && (
                     <Image
                       src={heroImage.imageUrl}
