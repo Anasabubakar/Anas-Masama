@@ -19,10 +19,20 @@ const dockTabs = [
 export function Header() {
   const [activeDock, setActiveDock] = useState('home');
   const [mounted, setMounted] = useState(false);
+  const [showChrome, setShowChrome] = useState(false);
 
   useEffect(() => {
     setMounted(true);
   }, []);
+
+  useEffect(() => {
+    if (!mounted) return;
+    const isLoading = document.body.dataset.loading === 'true';
+    if (!isLoading) setShowChrome(true);
+    const onComplete = () => setShowChrome(true);
+    window.addEventListener('loading:complete', onComplete);
+    return () => window.removeEventListener('loading:complete', onComplete);
+  }, [mounted]);
 
   useEffect(() => {
     if (!mounted) return;
@@ -50,7 +60,12 @@ export function Header() {
 
   return createPortal(
     <>
-      <div className="fixed top-5 left-1/2 -translate-x-1/2 z-[9999] w-[92%] max-w-md sm:max-w-lg lg:max-w-xl pointer-events-auto">
+      <div
+        className={[
+          "fixed top-5 left-1/2 -translate-x-1/2 z-[9999] w-[92%] max-w-md sm:max-w-lg lg:max-w-xl transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]",
+          showChrome ? "opacity-100 translate-y-0 pointer-events-auto" : "opacity-0 -translate-y-6 pointer-events-none",
+        ].join(" ")}
+      >
         <div className="prismatic-wrapper w-full">
           <div className="w-full rounded-full bg-black/70 backdrop-blur-2xl px-5 py-3 shadow-[0_12px_40px_rgba(0,0,0,0.55)]">
             <div className="flex items-center justify-between gap-4">
@@ -78,7 +93,12 @@ export function Header() {
         </div>
       </div>
 
-      <div className="fixed bottom-5 left-1/2 -translate-x-1/2 z-[9999] w-[92%] max-w-[420px] pointer-events-auto">
+      <div
+        className={[
+          "fixed bottom-5 left-1/2 -translate-x-1/2 z-[9999] w-[92%] max-w-[420px] transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]",
+          showChrome ? "opacity-100 translate-y-0 pointer-events-auto" : "opacity-0 translate-y-6 pointer-events-none",
+        ].join(" ")}
+      >
         <div className="flex items-center gap-3">
           <div
             className="glass-card flex-1 flex items-center gap-1 rounded-full px-2 py-2.5 overflow-hidden"

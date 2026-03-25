@@ -11,11 +11,16 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
   const triggered = useRef(false);
 
   useEffect(() => {
+    document.body.dataset.loading = "true";
     const timer = setTimeout(() => {
       if (!triggered.current) {
         triggered.current = true;
         setIsExiting(true);
-        setTimeout(onComplete, 700);
+        setTimeout(() => {
+          document.body.dataset.loading = "false";
+          window.dispatchEvent(new Event("loading:complete"));
+          onComplete();
+        }, 700);
       }
     }, 5000);
     return () => clearTimeout(timer);
