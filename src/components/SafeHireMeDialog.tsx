@@ -11,7 +11,7 @@ export function SafeHireMeDialog({ children }: { children: React.ReactNode }) {
 
   const handleScroll = (e?: React.MouseEvent) => {
     e?.preventDefault();
-    const el = document.getElementById('hire');
+    const el = document.getElementById('contact');
     if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
 

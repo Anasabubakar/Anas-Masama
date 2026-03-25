@@ -7,7 +7,41 @@ import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { useActionState, useEffect, useRef } from 'react';
 import { useToast } from '@/hooks/use-toast';
-import { ArrowRight, Sparkles, ShieldCheck, Timer, Workflow } from 'lucide-react';
+import { ArrowRight, Sparkles, ShieldCheck, Timer, Workflow, Mail, Linkedin, Github } from 'lucide-react';
+import Link from 'next/link';
+import { WhatsappIcon } from '../icons/WhatsappIcon';
+
+const XIcon = (props: React.SVGProps<SVGSVGElement>) => (
+  <svg
+    {...props}
+    viewBox="0 0 24 24"
+    fill="currentColor"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.05l8.6-9.83-8.209-9.064h7.585l5.243 7.185L18.901 1.153zM17.61 20.644h2.039L6.486 3.24H4.298l13.312 17.404z" />
+  </svg>
+);
+
+const contactLinks = [
+  {
+    name: 'Email',
+    href: 'mailto:anasabubakar7000@gmail.com',
+    icon: <Mail className="w-6 h-6" />,
+    handle: 'anasabubakar7000@gmail.com',
+  },
+  {
+    name: 'LinkedIn',
+    href: 'https://www.linkedin.com/in/Anasmasama',
+    icon: <Linkedin className="w-6 h-6" />,
+    handle: 'Anas Abubakar Masama',
+  },
+  {
+    name: 'WhatsApp',
+    href: 'https://wa.me/+2347064294297',
+    icon: <WhatsappIcon className="w-6 h-6" />,
+    handle: '+234 706 429 4297',
+  },
+];
 
 const highlights = [
   { title: 'High-Impact Builds', description: 'Performance-first web apps with crisp UX and clean systems.', icon: Sparkles },
@@ -39,7 +73,7 @@ export function HireMe() {
   }, [state, toast]);
 
   return (
-    <section id="hire" className="py-24 md:py-32 relative overflow-hidden">
+    <section id="contact" className="py-24 md:py-32 relative overflow-hidden">
       <div className="container max-w-7xl mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-12 items-start">
           <div className="space-y-8">
@@ -121,6 +155,36 @@ export function HireMe() {
               </div>
               <SubmitButton />
             </form>
+
+            <div className="mt-8 grid gap-4">
+              {contactLinks.map((link) => (
+                <Link key={link.href} href={link.href} target="_blank" className="group">
+                  <div className="glass-card p-4 rounded-2xl flex items-center justify-between gap-4 hover:bg-white/[0.03] transition-all duration-500">
+                    <div className="flex items-center gap-4 min-w-0">
+                      <div className="w-11 h-11 rounded-2xl bg-white/5 flex items-center justify-center text-primary transition-all duration-500 group-hover:scale-110 group-hover:bg-primary/10">
+                        {link.icon}
+                      </div>
+                      <div className="space-y-1 min-w-0">
+                        <p className="text-[10px] uppercase font-bold tracking-[0.2em] text-muted-foreground group-hover:text-primary transition-colors">{link.name}</p>
+                        <h4 className="text-sm font-bold tracking-tight break-all">{link.handle}</h4>
+                      </div>
+                    </div>
+                    <div className="w-9 h-9 rounded-full border border-white/10 flex items-center justify-center transition-all duration-500 group-hover:bg-primary group-hover:text-primary-foreground group-hover:border-primary">
+                      <ArrowRight className="w-4 h-4" />
+                    </div>
+                  </div>
+                </Link>
+              ))}
+
+              <div className="pt-2 flex items-center gap-6 opacity-50">
+                <Link href="https://www.twitter.com/Anas_Abubakar70" target="_blank" className="hover:text-primary transition-colors">
+                  <XIcon className="w-5 h-5" />
+                </Link>
+                <Link href="https://www.github.com/Anasabubakar" target="_blank" className="hover:text-primary transition-colors">
+                  <Github className="w-5 h-5" />
+                </Link>
+              </div>
+            </div>
           </div>
         </div>
       </div>
