@@ -8,24 +8,21 @@ import PageWrapper from '@/components/PageWrapper';
 
 const fontHeadline = localFont({
   src: [
-    { path: '../../public/fonts/Ferron/Ferron-ExtraExpanded.otf', weight: '800', style: 'normal' },
-    { path: '../../public/fonts/Ferron/Ferron-SemiExpanded.otf', weight: '600', style: 'normal' },
+    { path: '../../public/fonts/Florisha-Font/florishabold-drnv7.otf', weight: '700', style: 'normal' },
   ],
   variable: '--font-headline',
 });
 
 const fontBody = localFont({
   src: [
-    { path: '../../public/fonts/Ferron/Ferron-Regular.otf', weight: '400', style: 'normal' },
-    { path: '../../public/fonts/Ferron/Ferron-Condensed.otf', weight: '300', style: 'normal' },
-    { path: '../../public/fonts/Ferron/Ferron-SemiCondensed.otf', weight: '500', style: 'normal' },
+    { path: '../../public/fonts/Florisha-Font/florishabold-drnv7.otf', weight: '400', style: 'normal' },
   ],
   variable: '--font-body',
 });
 
 const fontCode = localFont({
   src: [
-    { path: '../../public/fonts/Ferron/Ferron-Regular.otf', weight: '400', style: 'normal' },
+    { path: '../../public/fonts/Florisha-Font/florishabold-drnv7.otf', weight: '400', style: 'normal' },
   ],
   variable: '--font-code',
 });
