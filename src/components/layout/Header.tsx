@@ -78,15 +78,15 @@ export function Header() {
         </div>
       </div>
 
-      <div className="fixed bottom-5 left-1/2 -translate-x-1/2 z-[9999] w-[78%] max-w-[280px] sm:max-w-[320px] lg:max-w-[360px] pointer-events-auto">
+      <div className="fixed bottom-5 left-1/2 -translate-x-1/2 z-[9999] w-[92%] max-w-[420px] pointer-events-auto">
         <div className="flex items-center gap-3">
-            <div
-              className="glass-card flex-1 flex items-center gap-1 rounded-full px-2 py-2.5"
-              style={{
-                boxShadow:
-                  '0 12px 40px rgba(20,20,40,0.25), 0 2px 8px rgba(20,20,40,0.18), inset 0 1px 0 rgba(255,255,255,0.9)',
-              }}
-            >
+          <div
+            className="glass-card flex-1 flex items-center gap-1 rounded-full px-2 py-2.5 overflow-hidden"
+            style={{
+              boxShadow:
+                '0 12px 40px rgba(20,20,40,0.25), 0 2px 8px rgba(20,20,40,0.18), inset 0 1px 0 rgba(255,255,255,0.9)',
+            }}
+          >
             {dockTabs.map(({ id, label, href, icon: Icon }) => {
               const isActive = activeDock === id;
               return (
@@ -96,8 +96,8 @@ export function Header() {
                   onClick={() => setActiveDock(id)}
                   className="relative flex items-center justify-center rounded-full transition-all duration-300"
                   style={{
-                    padding: isActive ? '12px 18px' : '12px 12px',
-                    minWidth: isActive ? 118 : 44,
+                    padding: isActive ? '12px 16px' : '12px 12px',
+                    minWidth: isActive ? 96 : 44,
                     gap: isActive ? 8 : 0,
                     color: isActive ? '#101114' : '#ffffff',
                     background: isActive ? 'rgba(240,240,244,0.92)' : 'transparent',
