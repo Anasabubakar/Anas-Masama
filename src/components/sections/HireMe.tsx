@@ -7,7 +7,7 @@ import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { useActionState, useEffect, useRef } from 'react';
 import { useToast } from '@/hooks/use-toast';
-import { ArrowRight, Rocket, ShieldCheck, Timer, Workflow, Mail, Linkedin, Github } from 'lucide-react';
+import { ArrowRight, Target, ShieldCheck, Timer, Workflow, Mail, Linkedin, Github } from 'lucide-react';
 import Link from 'next/link';
 import { WhatsappIcon } from '../icons/WhatsappIcon';
 
@@ -31,7 +31,7 @@ const socialLinks = [
 ];
 
 const highlights = [
-  { title: 'High-Impact Builds', description: 'Performance-first web apps with crisp UX and clean systems.', icon: Rocket },
+  { title: 'High-Impact Builds', description: 'Performance-first web apps with crisp UX and clean systems.', icon: Target },
   { title: 'Secure & Reliable', description: 'Production-grade foundations with tests, monitoring, and best practices.', icon: ShieldCheck },
   { title: 'Fast Execution', description: 'Clear timelines, weekly updates, and measurable milestones.', icon: Timer },
   { title: 'Process Clarity', description: 'Discovery → Design → Build → Launch with no guesswork.', icon: Workflow },
