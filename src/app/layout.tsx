@@ -4,6 +4,7 @@ import { Toaster } from '@/components/ui/toaster';
 import { Inter, Source_Code_Pro } from 'next/font/google';
 import { cn } from '@/lib/utils';
 import { CursorFollower } from '@/components/CursorFollower';
+import PageWrapper from '@/components/PageWrapper';
 
 const fontHeadline = Inter({
   subsets: ["latin"],
@@ -57,7 +58,9 @@ export default function RootLayout({
       </head>
       <body className={cn("font-body antialiased bg-background text-foreground selection:bg-primary/30", fontHeadline.variable, fontBody.variable, fontCode.variable)}>
         <CursorFollower />
-        {children}
+        <PageWrapper>
+          {children}
+        </PageWrapper>
         <Toaster />
       </body>
     </html>
