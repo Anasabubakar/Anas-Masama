@@ -50,27 +50,29 @@ export function Header() {
 
   return createPortal(
     <>
-      <div className="fixed top-5 left-1/2 -translate-x-1/2 z-[9999] w-[92%] max-w-sm sm:max-w-md lg:max-w-lg pointer-events-auto">
-        <div className="rounded-full border border-white/20 bg-black/70 backdrop-blur-2xl px-4 py-2 shadow-[0_12px_40px_rgba(0,0,0,0.55)]">
-          <div className="flex items-center justify-between gap-3">
-            <Link href="/" className="flex items-center gap-3">
-              <div className="relative w-10 h-10 overflow-hidden rounded-xl border border-white/20 bg-white/10 backdrop-blur-xl flex items-center justify-center shadow-[0_10px_30px_rgba(0,0,0,0.35)]">
-                <Image
-                  src="/images/logo-small.png"
-                  alt="Anas Masama Logo"
-                  width={22}
-                  height={22}
-                  className="object-contain"
-                />
+      <div className="fixed top-5 left-1/2 -translate-x-1/2 z-[9999] w-[92%] max-w-md sm:max-w-lg lg:max-w-xl pointer-events-auto">
+        <div className="prismatic-wrapper w-full">
+          <div className="w-full rounded-full bg-black/70 backdrop-blur-2xl px-5 py-3 shadow-[0_12px_40px_rgba(0,0,0,0.55)]">
+            <div className="flex items-center justify-between gap-4">
+              <Link href="/" className="flex items-center gap-3">
+                <div className="relative w-11 h-11 overflow-hidden rounded-2xl border border-white/20 bg-white/10 backdrop-blur-xl flex items-center justify-center shadow-[0_10px_30px_rgba(0,0,0,0.35)]">
+                  <Image
+                    src="/images/logo-small.png"
+                    alt="Anas Masama Logo"
+                    width={24}
+                    height={24}
+                    className="object-contain"
+                  />
+                </div>
+                <div className="leading-none">
+                  <p className="text-[10px] uppercase tracking-[0.4em] text-white/50">Anas Masama</p>
+                  <p className="text-lg font-bold tracking-tight">Software Engineer</p>
+                </div>
+              </Link>
+              <div className="hidden sm:flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-3 py-1.5">
+                <span className="h-2 w-2 rounded-full bg-primary shadow-[0_0_10px_rgba(45,185,133,0.8)]" />
+                <span className="text-[10px] uppercase tracking-[0.3em] text-white/70">Available</span>
               </div>
-              <div className="leading-none">
-                <p className="text-[10px] uppercase tracking-[0.35em] text-white/50">Anas Masama</p>
-                <p className="text-lg font-bold tracking-tight">Software Engineer</p>
-              </div>
-            </Link>
-            <div className="hidden sm:flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-3 py-1">
-              <span className="h-2 w-2 rounded-full bg-primary shadow-[0_0_10px_rgba(45,185,133,0.8)]" />
-              <span className="text-[10px] uppercase tracking-[0.3em] text-white/70">Available</span>
             </div>
           </div>
         </div>
