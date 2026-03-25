@@ -79,8 +79,8 @@ export function Header() {
 
       {/* Mobile Logo + Dock */}
       <div className="md:hidden">
-        <div className="fixed top-5 left-1/2 -translate-x-1/2 z-50 w-[92%] max-w-sm">
-          <div className="flex items-center gap-3">
+        <div className="fixed top-5 left-1/2 -translate-x-1/2 z-[9999] w-[92%] max-w-sm pointer-events-auto">
+          <div className="flex items-center gap-3 rounded-full border border-white/20 bg-black/60 backdrop-blur-2xl px-4 py-2 shadow-[0_12px_40px_rgba(0,0,0,0.55)]">
             <div className="relative w-10 h-10 overflow-hidden rounded-xl border border-white/20 bg-white/10 backdrop-blur-xl flex items-center justify-center shadow-[0_10px_30px_rgba(0,0,0,0.35)]">
               <Image
                 src="/images/logo-small.png"
@@ -97,7 +97,7 @@ export function Header() {
           </div>
         </div>
 
-        <div className="fixed bottom-5 left-1/2 -translate-x-1/2 z-50 w-[92%] max-w-sm">
+        <div className="fixed bottom-5 left-1/2 -translate-x-1/2 z-[9999] w-[92%] max-w-sm pointer-events-auto">
           <div className="flex items-center gap-4">
             <div
               className="flex-1 flex items-center gap-1 rounded-full border border-white/30 bg-white/70 px-1.5 py-1.5 backdrop-blur-2xl"
