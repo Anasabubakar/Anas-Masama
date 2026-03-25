@@ -52,10 +52,10 @@ export function Header() {
         </Link>
       </div>
 
-      <div className="fixed bottom-5 left-1/2 -translate-x-1/2 z-[9999] w-[92%] max-w-sm sm:max-w-md lg:max-w-lg pointer-events-auto">
-        <div className="flex items-center gap-4">
+      <div className="fixed bottom-5 left-1/2 -translate-x-1/2 z-[9999] w-[86%] max-w-xs sm:max-w-sm lg:max-w-md pointer-events-auto">
+        <div className="flex items-center gap-3">
           <div
-            className="flex-1 flex items-center gap-1 rounded-full border border-white/30 bg-white/80 px-1.5 py-1.5 backdrop-blur-2xl"
+            className="glass-card flex-1 flex items-center gap-1 rounded-full px-2 py-2.5"
             style={{
               boxShadow:
                 '0 12px 40px rgba(20,20,40,0.25), 0 2px 8px rgba(20,20,40,0.18), inset 0 1px 0 rgba(255,255,255,0.9)',
@@ -70,8 +70,8 @@ export function Header() {
                   onClick={() => setActiveDock(id)}
                   className="relative flex items-center justify-center rounded-full transition-all duration-300"
                   style={{
-                    padding: isActive ? '10px 18px' : '10px 12px',
-                    minWidth: isActive ? 120 : 44,
+                    padding: isActive ? '12px 18px' : '12px 12px',
+                    minWidth: isActive ? 118 : 44,
                     gap: isActive ? 8 : 0,
                     color: isActive ? '#101114' : '#7b7b88',
                     background: isActive ? 'rgba(240,240,244,0.92)' : 'transparent',
@@ -95,11 +95,11 @@ export function Header() {
 
           <SafeHireMeDialog>
             <button
-              className="h-14 w-14 rounded-full border-0 outline-none flex items-center justify-center"
+              className="h-16 w-16 rounded-full border border-primary/40 outline-none flex items-center justify-center"
               style={{
-                background: 'linear-gradient(145deg, #f4857a, #e85d50)',
+                background: 'linear-gradient(145deg, rgba(45,185,133,0.95), rgba(24,120,86,0.95))',
                 boxShadow:
-                  '0 8px 28px rgba(232,93,80,0.48), 0 2px 8px rgba(232,93,80,0.28), inset 0 1px 0 rgba(255,200,190,0.4)',
+                  '0 10px 28px rgba(45,185,133,0.35), 0 2px 8px rgba(45,185,133,0.25), inset 0 1px 0 rgba(255,255,255,0.35)',
                 transition: 'transform 0.15s ease',
               }}
               onMouseEnter={(e) => (e.currentTarget.style.transform = 'scale(1.06)')}
