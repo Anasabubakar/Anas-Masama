@@ -53,9 +53,9 @@ export default function RootLayout({
   <link rel="apple-touch-icon" href="/apple-touch-icon-v2.png" />
   <link rel="manifest" href="/site.webmanifest" />
   {/* Cache-bust and theme */}
-  <meta name="theme-color" content="#B1121B" />
+  <meta name="theme-color" content="#0ea5a4" />
       </head>
-      <body className={cn("font-body antialiased bg-background text-foreground", fontHeadline.variable, fontBody.variable, fontCode.variable)}>
+      <body className={cn("font-body antialiased bg-background text-foreground selection:bg-primary/30", fontHeadline.variable, fontBody.variable, fontCode.variable)}>
         <CursorFollower />
         {children}
         <Toaster />

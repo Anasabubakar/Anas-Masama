@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
-import { Download, Github, Linkedin } from 'lucide-react';
+import { Download, Github, Linkedin, ArrowRight, GithubIcon, Twitter } from 'lucide-react';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { useEffect, useState } from 'react';
 import { cn } from '@/lib/utils';
@@ -20,32 +20,6 @@ const XIcon = (props: React.SVGProps<SVGSVGElement>) => (
   </svg>
 );
 
-
-const ScrollIndicator = () => (
-  <div className="absolute bottom-8 left-1/2 -translate-x-1/2 w-28 h-28 hidden md:flex items-center justify-center z-20">
-    <div className="absolute inset-0 animate-spin-slow">
-      <svg viewBox="0 0 100 100">
-        <path
-          id="circlePath"
-          fill="none"
-          stroke="none"
-          d="M 50, 50 m -40, 0 a 40,40 0 1,1 80,0 a 40,40 0 1,1 -80,0"
-        />
-        <text fill="hsl(var(--muted-foreground))" className="text-[10px] font-medium tracking-widest uppercase">
-          <textPath href="#circlePath">
-            Scroll for more * Scroll for more * Scroll for more *
-          </textPath>
-        </text>
-      </svg>
-    </div>
-    <div className="text-primary">
-      <svg width="40" height="40" viewBox="0 0 16 16" fill="currentColor">
-        <path d="M8 0L9.414 6.586 16 8l-6.586 1.414L8 16l-1.414-6.586L0 8l6.586-1.414L8 0z" />
-      </svg>
-    </div>
-  </div>
-);
-
 const StarIcon = (props: React.SVGProps<SVGSVGElement>) => (
   <svg {...props} width="24" height="24" viewBox="0 0 16 16" fill="currentColor">
     <path d="M8 0L9.414 6.586 16 8l-6.586 1.414L8 16l-1.414-6.586L0 8l6.586-1.414L8 0z" />
@@ -53,16 +27,16 @@ const StarIcon = (props: React.SVGProps<SVGSVGElement>) => (
 );
 
 const ScrollingSkills = () => {
-  const skills = ["Software Engineer", "Future Architect"];
+  const skills = ["Fullstack Development", "Architecture Design", "Software Engineering", "AI Integration", "Cloud Infrastructure", "UI/UX Optimization"];
   const repeatedSkills = Array(10).fill(skills).flat();
 
   return (
-    <div className="relative w-full overflow-hidden border-y border-border bg-secondary/20 py-4">
+    <div className="relative w-full overflow-hidden border-y border-white/5 bg-white/[0.02] py-6 mb-10">
       <div className="flex marquee">
         {repeatedSkills.map((skill, index) => (
-          <div key={index} className="flex items-center mx-6 shrink-0">
-            <span className="text-2xl font-bold text-foreground whitespace-nowrap font-headline uppercase tracking-widest">{skill}</span>
-            <StarIcon className="w-6 h-6 text-primary mx-6" />
+          <div key={index} className="flex items-center mx-10 shrink-0">
+            <span className="text-xl font-bold text-foreground/40 whitespace-nowrap font-headline uppercase tracking-[0.2em]">{skill}</span>
+            <StarIcon className="w-4 h-4 text-primary/30 mx-10" />
           </div>
         ))}
       </div>
@@ -70,130 +44,116 @@ const ScrollingSkills = () => {
   );
 };
 
-const CYCLING_TEXT = ["Software Engineer", "Future Architect"];
-
 export function Hero() {
   const heroImage = PlaceHolderImages.find(img => img.id === 'hero-portrait');
-  const [wordIndex, setWordIndex] = useState(0);
-  const [text, setText] = useState('');
-  const [isDeleting, setIsDeleting] = useState(false);
-
-  const typingSpeed = 150;
-  const deletingSpeed = 100;
-  const delay = 2000;
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    const handleTyping = () => {
-      const currentWord = CYCLING_TEXT[wordIndex];
-      if (isDeleting) {
-        setText(currentWord.substring(0, text.length - 1));
-      } else {
-        setText(currentWord.substring(0, text.length + 1));
-      }
+    setMounted(true);
+  }, []);
 
-      if (!isDeleting && text === currentWord) {
-        setTimeout(() => setIsDeleting(true), delay);
-      } else if (isDeleting && text === '') {
-        setIsDeleting(false);
-        setWordIndex((prevIndex) => (prevIndex + 1) % CYCLING_TEXT.length);
-      }
-    };
-
-    const typingTimeout = setTimeout(handleTyping, isDeleting ? deletingSpeed : typingSpeed);
-    return () => clearTimeout(typingTimeout);
-  }, [text, isDeleting, wordIndex]);
-
-  const handleMouseEnter = (cursorType: 'text' | 'image') => {
-    document.body.dataset.cursor = cursorType;
-  };
-
-  const handleMouseLeave = () => {
-    document.body.dataset.cursor = 'default';
-  };
+  if (!mounted) return null;
 
   return (
-    <section id="hero" className="relative min-h-screen w-full flex flex-col justify-center overflow-hidden bg-background pt-20">
-       <div 
-        className="absolute inset-0 z-0 opacity-10"
-        style={{
-          backgroundImage: 'radial-gradient(circle at top left, hsl(var(--primary) / 0.2), transparent 40%), radial-gradient(circle at bottom right, hsl(var(--primary) / 0.2), transparent 40%)'
-        }}
-      />
-      <div className="container z-10 flex-1 flex flex-col justify-center">
-        <div className="grid md:grid-cols-2 gap-8 items-center">
-          <div className="space-y-8 text-center md:text-left">
-            <div className="flex flex-col justify-center">
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold font-headline uppercase leading-none tracking-tighter">
-                Hi, I'm Anas!
+    <section id="hero" className="relative min-h-[95vh] w-full flex flex-col justify-center overflow-hidden bg-background pt-24">
+      {/* Background Elements */}
+      <div className="absolute inset-0 z-0 bg-grid-white opacity-[0.05]" />
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/20 rounded-full blur-[120px] opacity-30 animate-pulse" />
+      
+      <div className="container max-w-7xl mx-auto px-6 z-10 flex-1 flex flex-col justify-center">
+        <div className="grid lg:grid-cols-12 gap-12 items-center">
+          
+          <div className="lg:col-span-7 space-y-10 text-center lg:text-left order-2 lg:order-1">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 bg-white/5 text-sm font-medium text-primary animate-fade-in">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+              </span>
+              Available for New Projects
+            </div>
+            
+            <div className="space-y-4">
+              <h1 className="text-6xl md:text-7xl xl:text-8xl font-black font-headline leading-[0.9] tracking-tighter">
+                CRAFTING THE <br />
+                <span className="text-transparent bg-clip-text bg-gradient-to-b from-primary to-primary/60">FUTURE</span> OF WEBS
               </h1>
-              <div
-                className="text-5xl md:text-6xl lg:text-7xl font-extrabold font-headline uppercase leading-none tracking-tighter text-primary"
-                onMouseEnter={() => handleMouseEnter('text')}
-                onMouseLeave={handleMouseLeave}
-              >
-                <span className={cn('transition-opacity duration-500')}>
-                  {text}
-                </span>
-                <span className="animate-blink">|</span>
+              <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto lg:mx-0 font-light leading-relaxed">
+                I'm <span className="text-foreground font-semibold">Anas Abubakar Masama</span>. A Software Engineer and Future Architect building Earth's next generation of digital experiences.
+              </p>
+            </div>
+
+            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-6">
+              <Button size="lg" className="rounded-full h-14 px-10 text-lg font-bold group bg-primary hover:bg-primary/90 transition-all duration-300">
+                Explore My Work
+                <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+              </Button>
+              <Button variant="outline" size="lg" className="rounded-full h-14 px-10 text-lg font-bold border-white/10 hover:bg-white/5 transition-all duration-300" asChild>
+                <a href="https://drive.google.com/file/d/1XWs9OdhAqW8pgEQF_-Bpn9zHOBnoOZQOdlib6ggfCbE/view" target="_blank" rel="noopener noreferrer">
+                  Download CV
+                  <Download className="ml-2 h-5 w-5" />
+                </a>
+              </Button>
+            </div>
+
+            <div className="pt-4 flex items-center justify-center lg:justify-start gap-8 opacity-60">
+               <Link href="https://www.github.com/Anasabubakar" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
+                  <Github className="w-6 h-6" />
+               </Link>
+               <Link href="https://www.linkedin.com/in/Anasmasama" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
+                  <Linkedin className="w-6 h-6" />
+               </Link>
+               <Link href="https://www.twitter.com/Anas_Abubakar70" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
+                  <XIcon className="w-5 h-5" />
+               </Link>
+               <Link href="https://wa.me/+2347064294297" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
+                  <WhatsappIcon className="w-6 h-6" />
+               </Link>
+            </div>
+          </div>
+
+          <div className="lg:col-span-5 relative flex justify-center items-center order-1 lg:order-2">
+            <div className="relative w-full max-w-[450px] aspect-square">
+               {/* Background Decorative Circles */}
+              <div className="absolute inset-0 border border-white/5 rounded-full animate-spin-slow" />
+              <div className="absolute -inset-10 border border-white/5 rounded-full animate-spin-slow [animation-direction:reverse]" />
+              
+              <div className="absolute inset-4 rounded-3xl overflow-hidden glass-card p-2 group">
+                <div className="relative h-full w-full rounded-2xl overflow-hidden bg-white/5">
+                  {heroImage && (
+                    <Image
+                      src={heroImage.imageUrl}
+                      alt="Anas Masama"
+                      fill
+                      className="object-cover transition-transform duration-700 group-hover:scale-110"
+                      priority
+                    />
+                  )}
+                  <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-60" />
+                </div>
+              </div>
+
+              {/* Stats Badge */}
+              <div className="absolute -bottom-6 -right-6 glass-card p-6 rounded-2xl animate-float">
+                <div className="text-4xl font-bold text-primary">5+</div>
+                <div className="text-xs uppercase tracking-widest text-muted-foreground font-bold">Years Experience</div>
+              </div>
+              
+              <div className="absolute -top-6 -left-6 glass-card p-4 rounded-2xl animate-float [animation-delay:1s]">
+                <div className="flex gap-1">
+                   {[1,2,3,4,5].map(i => <StarIcon key={i} className="w-3 h-3 text-yellow-500 fill-yellow-500" />)}
+                </div>
+                <div className="text-[10px] uppercase tracking-widest font-bold mt-1">Global Standard</div>
               </div>
             </div>
-            <p className="text-lg text-muted-foreground max-w-md mx-auto md:mx-0">
-              I’m a Software Engineer and Future Architect dedicated to building Earth's next generation of innovators.
-            </p>
-            <Button size="lg" asChild>
-              <a href="https://drive.google.com/file/d/1XWs9OdhAqW8pgEQF_-Bpn9zHOBnoOZQOdlib6ggfCbE/view" target="_blank" rel="noopener noreferrer">
-                Download CV
-                <Download className="ml-2 h-5 w-5" />
-              </a>
-            </Button>
           </div>
-          <div 
-            className="relative flex justify-center items-center h-[400px] md:h-[500px] group z-20"
-            onMouseEnter={() => handleMouseEnter('image')}
-            onMouseLeave={handleMouseLeave}
-          >
-            <div className="absolute w-4/5 h-4/5 bg-primary/20 rounded-full animate-float transition-all duration-300 group-hover:shadow-[0_0_40px_hsl(var(--primary))]"></div>
-            {heroImage &&
-              <div className="relative w-full h-full max-w-[350px] max-h-[450px] z-10">
-                <Image
-                  src={heroImage.imageUrl}
-                  alt="Anas Masama"
-                  fill
-                  className="object-contain transition-transform duration-300 group-hover:scale-105"
-                  data-ai-hint="Software Engineer portrait no background"
-                  priority
-                />
-              </div>
-            }
-             <Link href="https://www.github.com/Anasabubakar" target="_blank" rel="noopener noreferrer" className="absolute top-10 -left-2 md:-left-5 z-20 group">
-                <div className="w-12 h-12 bg-card border-2 border-border rounded-full flex items-center justify-center transition-all duration-300 group-hover:border-primary group-hover:scale-110 group-hover:shadow-lg">
-                    <Github className="w-6 h-6 text-muted-foreground group-hover:text-primary transition-colors"/>
-                </div>
-            </Link>
-             <Link href="https://www.linkedin.com/in/Anasmasama" target="_blank" rel="noopener noreferrer" className="absolute top-1/3 -right-2 md:-right-5 z-20 group">
-                <div className="w-12 h-12 bg-card border-2 border-border rounded-full flex items-center justify-center transition-all duration-300 group-hover:border-primary group-hover:scale-110 group-hover:shadow-lg">
-                    <Linkedin className="w-6 h-6 text-muted-foreground group-hover:text-primary transition-colors"/>
-                </div>
-            </Link>
-             <Link href="https://www.twitter.com/Anas_Abubakar70" target="_blank" rel="noopener noreferrer" className="absolute bottom-1/4 -left-4 md:-left-8 z-20 group">
-                <div className="w-12 h-12 bg-card border-2 border-border rounded-full flex items-center justify-center transition-all duration-300 group-hover:border-primary group-hover:scale-110 group-hover:shadow-lg">
-                    <XIcon className="w-6 h-6 text-muted-foreground group-hover:text-primary transition-colors"/>
-                </div>
-            </Link>
-             <Link href="https://wa.me/+2347064294297" target="_blank" rel="noopener noreferrer" className="absolute bottom-0 -right-2 md:-right-4 z-20 group">
-                <div className="w-12 h-12 bg-card border-2 border-border rounded-full flex items-center justify-center transition-all duration-300 group-hover:border-primary group-hover:scale-110 group-hover:shadow-lg">
-                    <WhatsappIcon className="w-7 h-7 text-muted-foreground group-hover:text-primary transition-colors"/>
-                </div>
-            </Link>
-          </div>
+
         </div>
       </div>
       
-      <div className="mt-12 z-10">
+      <div className="mt-20">
         <ScrollingSkills />
       </div>
 
-      <ScrollIndicator />
     </section>
   );
 }

@@ -1,45 +1,74 @@
+'use client';
+
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { BrainCircuit, Lightbulb, SquareCode } from "lucide-react";
+import { BrainCircuit, Lightbulb, SquareCode, Layers, Cpu, Globe, Rocket } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 const services = [
   {
-    icon: <SquareCode className="w-10 h-10" />,
-    title: 'Web Development',
-    description: 'I build fast, responsive, and scalable web applications using modern technologies like Next.js and React to bring your vision to life online.',
+    icon: <Globe className="w-8 h-8" />,
+    title: 'World-Class Web Systems',
+    description: 'Architecting high-performance, scalable web ecosystems using Next.js, TypeScript, and modern cloud infrastructures.',
+    color: 'text-blue-500',
+    bg: 'bg-blue-500/10'
   },
   {
-    icon: <Lightbulb className="w-10 h-10" />,
-    title: 'Innovation',
-    description: 'I create intuitive and beautiful user interfaces that provide a seamless user experience, ensuring your product is a delight to use.',
+    icon: <Cpu className="w-8 h-8" />,
+    title: 'AI-Native Integration',
+    description: 'Infusing intelligent capabilities into your products using Gemini, Genkit, and advanced LLM orchestrations.',
+    color: 'text-primary',
+    bg: 'bg-primary/10'
   },
   {
-    icon: <BrainCircuit className="w-10 h-10" />,
-    title: 'AI/ML',
-    description: 'I leverage modern AI tools like Genkit and Gemini to build intelligent features, from chatbots to smart data analysis, into your applications.',
+    icon: <Layers className="w-8 h-8" />,
+    title: 'Enterprise Architecture',
+    description: 'Designing robust, future-proof technical foundations that grow with your business and handle global scale.',
+    color: 'text-purple-500',
+    bg: 'bg-purple-500/10'
+  },
+  {
+    icon: <Rocket className="w-8 h-8" />,
+    title: 'Product Innovation',
+    description: 'Transforming complex visions into intuitive, high-impact digital experiences through strategic design.',
+    color: 'text-orange-500',
+    bg: 'bg-orange-500/10'
   },
 ];
 
 export function Services() {
   return (
-    <section id="services" className="py-20 md:py-32 bg-secondary/20">
-      <div className="container">
-        <div className="text-center mb-16">
-          <p className="font-semibold text-primary uppercase tracking-widest font-body">My Service</p>
-          <h2 className="text-4xl md:text-5xl font-bold font-headline mt-2">Crafting stories through design and innovation</h2>
+    <section id="services" className="py-32 bg-background relative overflow-hidden">
+      <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+      
+      <div className="container max-w-7xl mx-auto px-6">
+        <div className="max-w-3xl mb-20 space-y-4">
+          <h2 className="text-sm uppercase tracking-[0.3em] text-primary font-bold">Expertise</h2>
+          <h3 className="text-5xl md:text-7xl font-black font-headline tracking-tighter leading-none">
+            ENGINEERING <br /> SOLUTIONS
+          </h3>
         </div>
-        <div className="grid md:grid-cols-3 gap-8">
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {services.map((service, index) => (
-            <Card key={index} className="group flex flex-col items-center text-center p-8 bg-card border-border transition-all duration-300 hover:border-primary/50 hover:shadow-[0_0_40px_-15px_hsl(var(--primary))] hover:-translate-y-2">
-              <div className="p-4 bg-background rounded-full border-4 border-secondary text-primary mb-6 transition-colors duration-300 group-hover:text-primary group-hover:border-primary/20">
+            <div 
+              key={index} 
+              className="group glass-card p-8 rounded-[2rem] flex flex-col items-start gap-8 hover:bg-white/[0.03] transition-all duration-500"
+            >
+              <div className={cn(
+                "p-4 rounded-2xl transition-all duration-500 group-hover:scale-110 group-hover:rotate-3",
+                service.bg,
+                service.color
+              )}>
                 {service.icon}
               </div>
-              <CardHeader className="p-0">
-                <CardTitle className="font-headline text-2xl group-hover:text-primary transition-colors">{service.title}</CardTitle>
-              </CardHeader>
-              <CardContent className="p-0 mt-4">
-                <p className="text-muted-foreground">{service.description}</p>
-              </CardContent>
-            </Card>
+              
+              <div className="space-y-4">
+                <h4 className="text-2xl font-bold tracking-tight">{service.title}</h4>
+                <p className="text-muted-foreground font-light leading-relaxed">
+                  {service.description}
+                </p>
+              </div>
+            </div>
           ))}
         </div>
       </div>
