@@ -95,13 +95,13 @@ export function Header() {
 
       <div
         className={[
-          "fixed bottom-5 left-1/2 -translate-x-1/2 z-[9999] w-[94%] max-w-[420px] transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]",
+          "fixed bottom-5 left-1/2 -translate-x-1/2 z-[9999] w-[86%] max-w-[380px] transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]",
           showChrome ? "opacity-100 translate-y-0 pointer-events-auto" : "opacity-0 translate-y-6 pointer-events-none",
         ].join(" ")}
       >
         <div className="flex items-center gap-2">
           <div
-            className="glass-card flex-1 flex items-center gap-0.5 rounded-full px-1.5 py-1.5 overflow-hidden"
+            className="glass-card flex-1 flex items-center gap-0.5 rounded-full px-1.5 py-2.5 overflow-hidden"
             style={{
               boxShadow:
                 '0 12px 40px rgba(20,20,40,0.25), 0 2px 8px rgba(20,20,40,0.18), inset 0 1px 0 rgba(255,255,255,0.9)',
@@ -116,8 +116,8 @@ export function Header() {
                   onClick={() => setActiveDock(id)}
                   className="relative flex items-center justify-center rounded-full transition-all duration-300"
                   style={{
-                    padding: isActive ? '10px 12px' : '10px 10px',
-                    minWidth: isActive ? 88 : 40,
+                    padding: isActive ? '12px 12px' : '12px 10px',
+                    minWidth: isActive ? 90 : 40,
                     gap: isActive ? 6 : 0,
                     color: isActive ? '#101114' : '#ffffff',
                     background: isActive ? 'rgba(240,240,244,0.92)' : 'transparent',
@@ -141,7 +141,7 @@ export function Header() {
 
           <SafeHireMeDialog>
             <Button
-              className="h-12 w-12 rounded-full border border-primary/40 font-semibold text-sm text-primary-foreground px-0"
+              className="h-14 w-14 rounded-full border border-primary/40 font-semibold text-sm text-primary-foreground px-0"
               style={{
                 background: 'linear-gradient(145deg, rgba(45,185,133,0.95), rgba(24,120,86,0.95))',
                 boxShadow:
