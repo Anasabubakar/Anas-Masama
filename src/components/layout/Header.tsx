@@ -74,7 +74,7 @@ export function Header() {
         </Link>
       </div>
 
-      <div className="fixed bottom-5 left-1/2 -translate-x-1/2 z-[9999] w-[86%] max-w-xs sm:max-w-sm lg:max-w-md pointer-events-auto">
+      <div className="fixed bottom-5 left-1/2 -translate-x-1/2 z-[9999] w-[78%] max-w-[280px] sm:max-w-[320px] lg:max-w-[360px] pointer-events-auto">
         <div className="flex items-center gap-3">
           <div
             className="glass-card flex-1 flex items-center gap-1 rounded-full px-2 py-2.5"
