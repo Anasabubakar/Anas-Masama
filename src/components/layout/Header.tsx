@@ -115,24 +115,23 @@ export function Header() {
             })}
           </div>
 
-          <SafeHireMeDialog>
-            <button
-              className="h-16 w-16 rounded-full border border-primary/40 outline-none flex items-center justify-center"
-              style={{
-                background: 'linear-gradient(145deg, rgba(45,185,133,0.95), rgba(24,120,86,0.95))',
-                boxShadow:
-                  '0 10px 28px rgba(45,185,133,0.35), 0 2px 8px rgba(45,185,133,0.25), inset 0 1px 0 rgba(255,255,255,0.35)',
-                transition: 'transform 0.15s ease',
-              }}
-              onMouseEnter={(e) => (e.currentTarget.style.transform = 'scale(1.06)')}
-              onMouseLeave={(e) => (e.currentTarget.style.transform = 'scale(1)')}
-              onMouseDown={(e) => (e.currentTarget.style.transform = 'scale(0.95)')}
-              onMouseUp={(e) => (e.currentTarget.style.transform = 'scale(1.06)')}
-              aria-label="Start a project"
-            >
-              <ArrowRight className="h-5 w-5 text-white" />
-            </button>
-          </SafeHireMeDialog>
+          <a
+            href="#contact"
+            className="h-14 px-5 rounded-full border border-primary/40 outline-none flex items-center justify-center font-semibold text-sm text-primary-foreground"
+            style={{
+              background: 'linear-gradient(145deg, rgba(45,185,133,0.95), rgba(24,120,86,0.95))',
+              boxShadow:
+                '0 10px 28px rgba(45,185,133,0.35), 0 2px 8px rgba(45,185,133,0.25), inset 0 1px 0 rgba(255,255,255,0.35)',
+              transition: 'transform 0.15s ease',
+            }}
+            onMouseEnter={(e) => (e.currentTarget.style.transform = 'scale(1.06)')}
+            onMouseLeave={(e) => (e.currentTarget.style.transform = 'scale(1)')}
+            onMouseDown={(e) => (e.currentTarget.style.transform = 'scale(0.95)')}
+            onMouseUp={(e) => (e.currentTarget.style.transform = 'scale(1.06)')}
+            aria-label="Contact"
+          >
+            Contact
+          </a>
         </div>
       </div>
     </>,
