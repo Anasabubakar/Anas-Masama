@@ -46,7 +46,6 @@ export function CursorFollower() {
         'bg-green-400/50 shadow-[0_0_10px_#4ade80]',
         {
           'bg-white shadow-[0_0_15px_#ffffff]': cursorType === 'text',
-          'animate-pulse-cursor': cursorType === 'image',
           'opacity-0': !isVisible,
           'opacity-100': isVisible,
         }

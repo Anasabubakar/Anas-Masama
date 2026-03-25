@@ -75,7 +75,7 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
           className="absolute bottom-0 right-0 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-xs font-medium tracking-wider"
           style={{
             color: "#6efcb0",
-            animation: "badgePop 0.45s ease 0.3s forwards",
+            animation: "nameReveal 0.45s ease 0.3s forwards",
             opacity: 0,
           }}
         >

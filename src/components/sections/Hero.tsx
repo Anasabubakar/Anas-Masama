@@ -99,7 +99,7 @@ export function Hero() {
                <Link href="https://www.github.com/Anasabubakar" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
                   <Github className="w-6 h-6" />
                </Link>
-               <Link href="https://www.linkedin.com/in/Anasmasama" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
+               <Link href="https://www.linkedin.com/in/anasmasama" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
                   <Linkedin className="w-6 h-6" />
                </Link>
                <Link href="https://www.twitter.com/Anas_Abubakar70" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
@@ -133,12 +133,12 @@ export function Hero() {
               </div>
 
               {/* Stats Badge */}
-              <div className="absolute -bottom-6 -right-6 glass-card p-6 rounded-2xl animate-float">
+              <div className="absolute -bottom-6 -right-6 glass-card p-6 rounded-2xl">
                 <div className="text-4xl font-bold text-primary">5+</div>
                 <div className="text-xs uppercase tracking-widest text-muted-foreground font-bold">Years Experience</div>
               </div>
               
-              <div className="absolute -top-6 -left-6 glass-card p-4 rounded-2xl animate-float [animation-delay:1s]">
+              <div className="absolute -top-6 -left-6 glass-card p-4 rounded-2xl">
                 <div className="flex gap-1">
                    {[1,2,3,4,5].map(i => <StarIcon key={i} className="w-3 h-3 text-yellow-500 fill-yellow-500" />)}
                 </div>

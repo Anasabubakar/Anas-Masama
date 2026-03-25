@@ -37,7 +37,7 @@ export function About() {
                 </div>
 
                 {/* Floating Experience Card */}
-                <div className="absolute -bottom-10 -left-10 glass-card p-8 rounded-3xl max-w-[200px] animate-float">
+                <div className="absolute -bottom-10 -left-10 glass-card p-8 rounded-3xl max-w-[200px]">
                     <Award className="w-10 h-10 text-primary mb-4" />
                     <p className="text-sm font-bold uppercase tracking-widest text-muted-foreground mb-1">Commitment</p>
                     <p className="text-lg font-black leading-tight">WORLD CLASS QUALITY</p>
