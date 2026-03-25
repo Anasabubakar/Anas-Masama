@@ -104,7 +104,7 @@
   }
 
   .glass-card {
-    @apply bg-white/[0.03] backdrop-blur-2xl border border-white/[0.15] shadow-[0_8px_32px_0_rgba(0,0,0,0.4)] hover:bg-white/[0.06] hover:border-primary/40 hover:shadow-[0_8px_32px_0_rgba(45,185,133,0.2)] transition-all duration-500;
+    @apply bg-white/10 md:bg-white/[0.03] backdrop-blur-2xl border border-white/25 md:border-white/[0.15] shadow-[0_8px_32px_0_rgba(0,0,0,0.4)] hover:bg-white/[0.12] md:hover:bg-white/[0.06] hover:border-primary/40 hover:shadow-[0_8px_32px_0_rgba(45,185,133,0.2)] transition-all duration-500;
   }
 
   @keyframes nameReveal {
