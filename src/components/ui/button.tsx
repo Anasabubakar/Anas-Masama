@@ -9,7 +9,7 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default: "glass-button bg-primary/20 text-primary border border-primary/30 hover:bg-primary hover:text-white",
+        default: "glass-button bg-primary/20 text-white border border-primary/30 hover:bg-primary hover:text-white",
         destructive:
           "bg-destructive text-destructive-foreground hover:bg-destructive/90",
         outline: "glass-button bg-transparent border border-white/20 text-white hover:bg-white/10 hover:border-primary/50",
