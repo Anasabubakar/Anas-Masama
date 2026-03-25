@@ -18,6 +18,7 @@ const projects = [
     tech: ['Next.js', 'Firebase', 'Auth', 'React'],
     liveLink: 'https://teenovatex.org',
     githubLink: 'https://github.com/Anasabubakar/TeenovateX-Labs',
+    image: '/images/teenovatex.png',
     icon: <GraduationCap className="w-6 h-6" />,
     featured: true,
     color: 'from-purple-500 to-pink-500',
@@ -31,6 +32,7 @@ const projects = [
     tech: ['Next.js', 'TypeScript', 'AI', 'OpenAI'],
     liveLink: 'https://jackpal.vercel.app',
     githubLink: 'https://github.com/Anasabubakar/JackPal',
+    image: '/images/jackpal.png',
     icon: <Brain className="w-6 h-6" />,
     featured: true,
     color: 'from-blue-500 to-cyan-500',
@@ -44,6 +46,7 @@ const projects = [
     tech: ['Next.js', 'Web3', 'TypeScript', 'Tailwind'],
     liveLink: 'https://web3-site-kappa.vercel.app/',
     githubLink: 'https://github.com/Anasabubakar/Web3-Site',
+    image: '/images/marcedivault.png',
     icon: <Wallet className="w-6 h-6" />,
     featured: true,
     color: 'from-orange-500 to-red-500',
@@ -57,6 +60,7 @@ const projects = [
     tech: ['Next.js', 'React', 'Node.js', 'MongoDB'],
     liveLink: 'https://ai.studio.apps/drive/17n6l3RtYoq5LYqpcpOA4OjjUc7F2tsQc?fullscreenApplet=true',
     githubLink: 'https://github.com/Anasabubakar/Kinzoku-Blueprint-Forge',
+    image: '/images/kinzoku.png',
     icon: <Sparkles className="w-6 h-6" />,
     featured: false,
     color: 'from-slate-500 to-zinc-500',
@@ -70,6 +74,7 @@ const projects = [
     tech: ['Next.js', 'TypeScript', 'PostgreSQL', 'Prisma'],
     liveLink: 'https://edupeak-eta.vercel.app/',
     githubLink: 'https://github.com/Anasabubakar/Edupeak',
+    image: '/images/edupeak.png',
     icon: <Layers className="w-6 h-6" />,
     featured: true,
     color: 'from-green-500 to-emerald-500',
@@ -83,6 +88,7 @@ const projects = [
     tech: ['Next.js', 'Framer Motion', 'Tailwind', 'React'],
     liveLink: 'https://ilmeen-mvp.vercel.app',
     githubLink: 'https://github.com/Anasabubakar/Ilmeen',
+    image: '/images/ilmeen.png',
     icon: <Code2 className="w-6 h-6" />,
     featured: false,
     color: 'from-rose-500 to-pink-500',
@@ -169,29 +175,38 @@ export default function ProjectsPage() {
                 <div 
                   key={project.id}
                   className={cn(
-                    "group relative overflow-hidden rounded-[2.5rem] glass-card p-1",
+                    "group relative overflow-hidden rounded-[2.5rem] glass-card",
                     idx % 2 === 1 ? "md:mt-12" : ""
                   )}
                 >
-                  <div className={cn(
-                    "absolute inset-0 opacity-20 bg-gradient-to-br",
-                    project.color
-                  )} />
-                  
-                  <div className="relative h-full w-full rounded-[2.4rem] overflow-hidden bg-black/40 p-8">
-                    {/* Project Icon */}
-                    <div className={cn(
-                      "w-16 h-16 rounded-2xl flex items-center justify-center mb-6 bg-gradient-to-br",
-                      project.color
-                    )}>
-                      <div className="text-white">{project.icon}</div>
+                  {/* Project Image */}
+                  <div className="relative aspect-video overflow-hidden">
+                    {project.image ? (
+                      <Image
+                        src={project.image}
+                        alt={project.title}
+                        fill
+                        className="object-cover transition-transform duration-700 group-hover:scale-105"
+                        unoptimized
+                      />
+                    ) : (
+                      <div className={cn(
+                        "absolute inset-0 bg-gradient-to-br",
+                        project.color
+                      )} />
+                    )}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+                    
+                    {/* Category Badge */}
+                    <div className="absolute top-4 left-4">
+                      <span className="text-[10px] uppercase tracking-widest text-white/90 font-bold px-3 py-1 rounded-full bg-black/40 backdrop-blur-sm border border-white/10">
+                        {project.category.split('•')[0].trim()}
+                      </span>
                     </div>
-                    
-                    {/* Category */}
-                    <span className="text-xs uppercase tracking-widest text-primary font-bold mb-2 block">
-                      {project.category}
-                    </span>
-                    
+                  </div>
+                  
+                  {/* Project Info */}
+                  <div className="relative p-8 -mt-4">
                     {/* Title */}
                     <h4 className="text-3xl font-black tracking-tight mb-2 group-hover:text-primary transition-colors">
                       {project.title}
@@ -245,54 +260,68 @@ export default function ProjectsPage() {
               {projects.map((project) => (
                 <div 
                   key={project.id} 
-                  className="group glass-card rounded-[2rem] p-6 hover:bg-white/[0.05] transition-all duration-500"
+                  className="group glass-card rounded-[2rem] overflow-hidden hover:bg-white/[0.05] transition-all duration-500"
                 >
-                  {/* Project Header */}
-                  <div className="flex items-start justify-between mb-4">
-                    <div className={cn(
-                      "w-12 h-12 rounded-xl flex items-center justify-center",
-                      `bg-gradient-to-br ${project.color}`
-                    )}>
-                      <div className="text-white">{project.icon}</div>
-                    </div>
-                    <span className="text-[10px] uppercase tracking-widest text-primary font-bold">
+                  {/* Project Image */}
+                  <div className="relative aspect-video overflow-hidden">
+                    {project.image ? (
+                      <Image
+                        src={project.image}
+                        alt={project.title}
+                        fill
+                        className="object-cover transition-transform duration-700 group-hover:scale-105"
+                        unoptimized
+                      />
+                    ) : (
+                      <div className={cn(
+                        "absolute inset-0 bg-gradient-to-br",
+                        project.color
+                      )} />
+                    )}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                  </div>
+                  
+                  {/* Project Content */}
+                  <div className="p-6">
+                    {/* Category */}
+                    <span className="text-[10px] uppercase tracking-widest text-primary font-bold mb-3 block">
                       {project.category.split('•')[0].trim()}
                     </span>
-                  </div>
-                  
-                  {/* Title & Description */}
-                  <h4 className="text-xl font-bold tracking-tight mb-2 group-hover:text-primary transition-colors">
-                    {project.title}
-                  </h4>
-                  <p className="text-white/50 text-sm leading-relaxed mb-4 line-clamp-2">
-                    {project.description}
-                  </p>
-                  
-                  {/* Tech */}
-                  <div className="flex flex-wrap gap-1.5 mb-6">
-                    {project.tech.slice(0, 4).map(tech => (
-                      <span key={tech} className="text-[8px] uppercase font-bold text-white/30 px-2 py-0.5 rounded-md bg-white/5">
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-                  
-                  {/* Actions */}
-                  <div className="flex gap-3">
-                    <Link 
-                      href={project.liveLink} 
-                      target="_blank"
-                      className="flex items-center text-xs font-bold uppercase tracking-widest text-primary hover:text-primary/70 transition-colors"
-                    >
-                      Live <ExternalLink className="ml-1 w-3 h-3" />
-                    </Link>
-                    <Link 
-                      href={project.githubLink} 
-                      target="_blank"
-                      className="flex items-center text-xs font-bold uppercase tracking-widest text-white/40 hover:text-white/70 transition-colors"
-                    >
-                      <Github className="mr-1 w-3 h-3" /> Code
-                    </Link>
+                    
+                    {/* Title & Description */}
+                    <h4 className="text-xl font-bold tracking-tight mb-2 group-hover:text-primary transition-colors">
+                      {project.title}
+                    </h4>
+                    <p className="text-white/50 text-sm leading-relaxed mb-4 line-clamp-2">
+                      {project.description}
+                    </p>
+                    
+                    {/* Tech */}
+                    <div className="flex flex-wrap gap-1.5 mb-6">
+                      {project.tech.slice(0, 4).map(tech => (
+                        <span key={tech} className="text-[8px] uppercase font-bold text-white/30 px-2 py-0.5 rounded-md bg-white/5">
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                    
+                    {/* Actions */}
+                    <div className="flex gap-3">
+                      <Link 
+                        href={project.liveLink} 
+                        target="_blank"
+                        className="flex items-center text-xs font-bold uppercase tracking-widest text-primary hover:text-primary/70 transition-colors"
+                      >
+                        Live <ExternalLink className="ml-1 w-3 h-3" />
+                      </Link>
+                      <Link 
+                        href={project.githubLink} 
+                        target="_blank"
+                        className="flex items-center text-xs font-bold uppercase tracking-widest text-white/40 hover:text-white/70 transition-colors"
+                      >
+                        <Github className="mr-1 w-3 h-3" /> Code
+                      </Link>
+                    </div>
                   </div>
                 </div>
               ))}
