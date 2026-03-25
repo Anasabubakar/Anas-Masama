@@ -10,7 +10,7 @@ import { Services } from '@/components/sections/Services';
 
 export default function Home() {
   return (
-    <div className="flex flex-col min-h-dvh bg-background">
+    <div className="flex flex-col min-h-dvh bg-transparent">
       <Header />
       <main className="flex-1">
         <Hero />

@@ -16,7 +16,7 @@
   --secondary: 0 0% 14.9%;
   --secondary-foreground: 0 0% 98%;
   --muted: 0 0% 14.9%;
-  --muted-foreground: 0 0% 63.9%;
+  --muted-foreground: 0 0% 85%;
   --accent: 0 0% 14.9%;
   --accent-foreground: 0 0% 98%;
   --destructive: 0 62.8% 30.6%;
@@ -33,7 +33,7 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-transparent text-foreground;
   }
   html {
     @apply scroll-smooth;
@@ -96,7 +96,7 @@
   }
 
   .glass-card {
-    @apply bg-background/40 backdrop-blur-md border border-white/10 hover:border-primary/50 transition-all duration-500;
+    @apply bg-white/[0.03] backdrop-blur-2xl border border-white/[0.15] shadow-[0_8px_32px_0_rgba(0,0,0,0.4)] hover:bg-white/[0.06] hover:border-primary/40 hover:shadow-[0_8px_32px_0_rgba(45,185,133,0.2)] transition-all duration-500;
   }
 
   @keyframes nameReveal {

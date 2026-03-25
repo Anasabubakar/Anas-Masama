@@ -60,7 +60,7 @@ const skillCategories = [
 
 export function Skills() {
   return (
-    <section id="skills" className="py-32 bg-secondary/5 relative overflow-hidden">
+    <section id="skills" className="py-32 bg-transparent relative overflow-hidden">
       <div className="container max-w-7xl mx-auto px-6">
         <div className="grid lg:grid-cols-12 gap-16 items-start">
           

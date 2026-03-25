@@ -31,12 +31,12 @@ const ScrollingSkills = () => {
   const repeatedSkills = Array(10).fill(skills).flat();
 
   return (
-    <div className="relative w-full overflow-hidden border-y border-white/5 bg-white/[0.02] py-6 mb-10">
+    <div className="relative w-full overflow-hidden border-y border-white/10 bg-white/[0.03] py-6 mb-10">
       <div className="flex marquee">
         {repeatedSkills.map((skill, index) => (
           <div key={index} className="flex items-center mx-10 shrink-0">
-            <span className="text-xl font-bold text-foreground/40 whitespace-nowrap font-headline uppercase tracking-[0.2em]">{skill}</span>
-            <StarIcon className="w-4 h-4 text-primary/30 mx-10" />
+            <span className="text-xl font-bold text-white/70 whitespace-nowrap font-headline uppercase tracking-[0.2em]">{skill}</span>
+            <StarIcon className="w-4 h-4 text-primary/60 mx-10" />
           </div>
         ))}
       </div>
@@ -55,10 +55,8 @@ export function Hero() {
   if (!mounted) return null;
 
   return (
-    <section id="hero" className="relative min-h-[95vh] w-full flex flex-col justify-center overflow-hidden bg-background pt-24">
-      {/* Background Elements */}
-      <div className="absolute inset-0 z-0 bg-grid-white opacity-[0.05]" />
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/20 rounded-full blur-[120px] opacity-30 animate-pulse" />
+    <section id="hero" className="relative min-h-[95vh] w-full flex flex-col justify-center overflow-hidden bg-transparent pt-32">
+      {/* Background Elements removed to show Silk background */}
       
       <div className="container max-w-7xl mx-auto px-6 z-10 flex-1 flex flex-col justify-center">
         <div className="grid lg:grid-cols-12 gap-12 items-center">
@@ -69,7 +67,7 @@ export function Hero() {
                 CRAFTING THE <br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-b from-primary to-primary/60">FUTURE</span> OF WEBS
               </h1>
-              <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto lg:mx-0 font-light leading-relaxed">
+              <p className="text-xl md:text-2xl text-white/80 max-w-2xl mx-auto lg:mx-0 font-light leading-relaxed">
                 I'm <span className="text-foreground font-semibold">Anas Abubakar Masama</span>. A Software Engineer and Future Architect building Earth's next generation of digital experiences.
               </p>
             </div>
@@ -82,24 +80,24 @@ export function Hero() {
                 </a>
               </Button>
               <Button variant="outline" size="lg" className="rounded-full h-14 px-10 text-lg font-bold border-white/10 hover:bg-white/5 transition-all duration-300" asChild>
-                <a href="https://drive.google.com/file/d/1XWs9OdhAqW8pgEQF_-Bpn9zHOBnoOZQOdlib6ggfCbE/view" target="_blank" rel="noopener noreferrer">
-                  Download CV
+                <a href="https://docs.google.com/document/d/14jyIrbxZq11wVatBQO_skgZATHC38aILMRKStdWHGkI/edit?usp=sharing" target="_blank" rel="noopener noreferrer">
+                  View CV
                   <Download className="ml-2 h-5 w-5" />
                 </a>
               </Button>
             </div>
 
-            <div className="pt-4 flex items-center justify-center lg:justify-start gap-8 opacity-60">
-               <Link href="https://www.github.com/Anasabubakar" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
+            <div className="pt-4 flex items-center justify-center lg:justify-start gap-8">
+               <Link href="https://www.github.com/Anasabubakar" target="_blank" rel="noopener noreferrer" className="text-white/50 hover:text-primary transition-all duration-300 hover:scale-110">
                   <Github className="w-6 h-6" />
                </Link>
-               <Link href="https://www.linkedin.com/in/anasmasama" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
+               <Link href="https://www.linkedin.com/in/anasmasama" target="_blank" rel="noopener noreferrer" className="text-white/50 hover:text-primary transition-all duration-300 hover:scale-110">
                   <Linkedin className="w-6 h-6" />
                </Link>
-               <Link href="https://www.twitter.com/Anas_Abubakar70" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
+               <Link href="https://www.twitter.com/Anas_Abubakar70" target="_blank" rel="noopener noreferrer" className="text-white/50 hover:text-primary transition-all duration-300 hover:scale-110">
                   <XIcon className="w-5 h-5" />
                </Link>
-               <Link href="https://wa.me/+2347064294297" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">
+               <Link href="https://wa.me/+2347064294297" target="_blank" rel="noopener noreferrer" className="text-white/50 hover:text-primary transition-all duration-300 hover:scale-110">
                   <WhatsappIcon className="w-6 h-6" />
                </Link>
             </div>
@@ -122,7 +120,7 @@ export function Hero() {
                       priority
                     />
                   )}
-                  <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-60" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-transparent via-transparent to-transparent opacity-60" />
                 </div>
               </div>
 

@@ -44,7 +44,7 @@ const contactLinks = [
 
 export function Contact() {
   return (
-    <section id="contact" className="py-32 bg-secondary/5 relative overflow-hidden">
+    <section id="contact" className="py-32 bg-transparent relative overflow-hidden">
       <div className="container max-w-7xl mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-20">
            

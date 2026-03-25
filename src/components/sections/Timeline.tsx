@@ -42,7 +42,7 @@ const timelineData = [
 
 export function Timeline() {
   return (
-    <section id="timeline" className="py-32 bg-background relative">
+    <section id="timeline" className="py-32 bg-transparent relative">
       <div className="container max-w-7xl mx-auto px-6">
         <div className="text-center mb-24 space-y-4">
            <h2 className="text-sm uppercase tracking-[0.3em] text-primary font-bold">The Journey</h2>
@@ -70,13 +70,13 @@ export function Timeline() {
                          {item.date}
                       </div>
                       <h4 className="text-2xl font-bold tracking-tight mb-1">{item.title}</h4>
-                      <p className="text-primary/60 text-xs font-bold uppercase tracking-widest mb-4">{item.organization}</p>
-                      <p className="text-muted-foreground font-light leading-relaxed mb-6">
+                      <p className="text-primary/80 text-xs font-bold uppercase tracking-widest mb-4">{item.organization}</p>
+                      <p className="text-white/70 font-light leading-relaxed mb-6">
                         {item.description}
                       </p>
                       <div className="flex flex-wrap gap-2">
                          {item.tags.map(tag => (
-                           <span key={tag} className="text-[9px] uppercase font-bold text-muted-foreground/60 px-2 py-1 rounded-full border border-white/5">
+                           <span key={tag} className="text-[9px] uppercase font-bold text-white/50 px-2 py-1 rounded-full border border-white/10">
                              {tag}
                            </span>
                          ))}
@@ -85,7 +85,7 @@ export function Timeline() {
                 </div>
 
                 {/* Center Node */}
-                <div className="absolute left-0 md:left-1/2 top-0 md:top-1/2 -translate-y-1/2 md:-translate-x-1/2 w-12 h-12 rounded-full glass-card border-primary/30 flex items-center justify-center text-primary z-10 bg-background">
+                <div className="absolute left-0 md:left-1/2 top-0 md:top-1/2 -translate-y-1/2 md:-translate-x-1/2 w-12 h-12 rounded-full glass-card border-primary/30 flex items-center justify-center text-primary z-10 bg-transparent">
                    <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center">
                       {item.icon}
                    </div>

@@ -37,8 +37,7 @@ const services = [
 
 export function Services() {
   return (
-    <section id="services" className="py-32 bg-background relative overflow-hidden">
-      <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+    <section id="services" className="py-32 bg-transparent relative overflow-hidden">
       
       <div className="container max-w-7xl mx-auto px-6">
         <div className="max-w-3xl mb-20 space-y-4">

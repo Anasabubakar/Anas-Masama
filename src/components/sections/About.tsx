@@ -18,22 +18,23 @@ const expertise = [
 
 export function About() {
   return (
-    <section id="about" className="py-32 bg-secondary/10 relative overflow-hidden">
+    <section id="about" className="py-32 bg-transparent relative overflow-hidden">
       <div className="container max-w-7xl mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-20 items-center">
           
           <div className="relative order-2 lg:order-1">
              <div className="relative aspect-square max-w-md mx-auto">
-                <div className="absolute inset-0 bg-primary/20 rounded-full blur-[100px] animate-pulse" />
+                {/* Glow removed to show Silk background */}
                 <div className="relative h-full w-full rounded-[3rem] overflow-hidden glass-card p-4">
-                   <div className="relative h-full w-full rounded-[2.5rem] overflow-hidden">
-                      <Image
-                        src="/images/Lodge.jpg"
-                        alt="Engineering Vision"
-                        fill
-                        className="object-cover"
-                      />
-                   </div>
+                <div className="relative h-full w-full rounded-[2.5rem] overflow-hidden">
+                       <Image
+                         src="/images/Lodge.jpg?cache-bust"
+                         alt="Engineering Vision"
+                         fill
+                         className="object-cover"
+                         unoptimized
+                       />
+                    </div>
                 </div>
 
                 {/* Floating Experience Card */}
@@ -71,11 +72,11 @@ export function About() {
             </div>
 
             <div className="flex flex-wrap items-center gap-6 pt-6">
-               <Button asChild size="lg" className="rounded-full h-14 px-8 font-bold bg-foreground text-background hover:bg-foreground/90">
-                <a href="https://drive.google.com/file/d/1XWs9OdhAqW8pgEQF_-Bpn9zHOBnoOZQOdlib6ggfCbE/view" target="_blank" rel="noopener noreferrer">
-                  Download CV <Download className="ml-2 w-5 h-5" />
-                </a>
-              </Button>
+<Button asChild size="lg" className="rounded-full h-14 px-8 font-bold bg-foreground text-background hover:bg-foreground/90">
+                 <a href="https://docs.google.com/document/d/14jyIrbxZq11wVatBQO_skgZATHC38aILMRKStdWHGkI/edit?usp=sharing" target="_blank" rel="noopener noreferrer">
+                   View CV <Download className="ml-2 w-5 h-5" />
+                 </a>
+               </Button>
               <SafeHireMeDialog>
                 <Button variant="outline" size="lg" className="rounded-full h-14 px-8 font-bold border-white/10 hover:bg-white/5">
                   Let's Talk <ArrowRight className="ml-2 w-5 h-5" />

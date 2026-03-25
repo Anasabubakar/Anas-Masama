@@ -25,12 +25,12 @@ export function Footer() {
   };
 
   return (
-    <footer className="bg-background border-t border-white/5 py-20">
+    <footer className="bg-transparent border-t border-white/5 py-20">
       <div className="container max-w-7xl mx-auto px-6">
         <div className="grid md:grid-cols-4 gap-12 mb-20">
           <div className="md:col-span-2 space-y-8">
              <Link href="/" className="flex items-center gap-3 font-bold text-2xl tracking-tighter">
-                <div className="w-10 h-10 overflow-hidden rounded-xl border border-white/10 bg-white/5 flex items-center justify-center">
+                <div className="w-10 h-10 overflow-hidden rounded-xl border border-white/10 bg-transparent flex items-center justify-center">
                   <Image
                     src="/images/logo-small.png"
                     alt="Anas Masama Logo"
@@ -40,7 +40,7 @@ export function Footer() {
                 </div>
                 <span>Anas Masama</span>
               </Link>
-              <p className="text-muted-foreground text-lg font-light max-w-sm">
+              <p className="text-white/60 text-lg font-light max-w-sm">
                 Architecting Earth's next generation of digital experiences through high-performance software engineering.
               </p>
           </div>
@@ -48,26 +48,26 @@ export function Footer() {
           <div className="space-y-6">
              <h5 className="text-[10px] uppercase tracking-[0.3em] font-bold text-primary">Navigation</h5>
              <nav className="flex flex-col gap-4">
-                <a href="#about" className="text-muted-foreground hover:text-primary transition-colors font-medium">About</a>
-                <a href="#projects" className="text-muted-foreground hover:text-primary transition-colors font-medium">Projects</a>
-                <a href="#services" className="text-muted-foreground hover:text-primary transition-colors font-medium">Services</a>
-                <a href="#contact" className="text-muted-foreground hover:text-primary transition-colors font-medium">Contact</a>
+                <a href="#about" className="text-white/60 hover:text-primary transition-all duration-300 font-medium">About</a>
+                <a href="#projects" className="text-white/60 hover:text-primary transition-all duration-300 font-medium">Projects</a>
+                <a href="#services" className="text-white/60 hover:text-primary transition-all duration-300 font-medium">Services</a>
+                <a href="#contact" className="text-white/60 hover:text-primary transition-all duration-300 font-medium">Contact</a>
              </nav>
           </div>
 
-          <div className="space-y-6">
-             <h5 className="text-[10px] uppercase tracking-[0.3em] font-bold text-primary">Social</h5>
-             <nav className="flex flex-col gap-4">
-                <Link href="https://www.linkedin.com/in/Anasmasama" target="_blank" className="text-muted-foreground hover:text-primary transition-colors font-medium">LinkedIn</Link>
-                <Link href="https://www.github.com/Anasabubakar" target="_blank" className="text-muted-foreground hover:text-primary transition-colors font-medium">GitHub</Link>
-                <Link href="https://www.twitter.com/Anas_Abubakar70" target="_blank" className="text-muted-foreground hover:text-primary transition-colors font-medium">Twitter</Link>
-                <Link href="https://wa.me/+2347064294297" target="_blank" className="text-muted-foreground hover:text-primary transition-colors font-medium">WhatsApp</Link>
-             </nav>
-          </div>
+           <div className="space-y-6">
+              <h5 className="text-[10px] uppercase tracking-[0.3em] font-bold text-primary">Social</h5>
+              <nav className="flex flex-col gap-4">
+                 <Link href="https://www.linkedin.com/in/Anasmasama" target="_blank" className="text-white/60 hover:text-primary transition-all duration-300 font-medium">LinkedIn</Link>
+                 <Link href="https://www.github.com/Anasabubakar" target="_blank" className="text-white/60 hover:text-primary transition-all duration-300 font-medium">GitHub</Link>
+                 <Link href="https://www.twitter.com/Anas_Abubakar70" target="_blank" className="text-white/60 hover:text-primary transition-all duration-300 font-medium">Twitter</Link>
+                 <Link href="https://wa.me/+2347064294297" target="_blank" className="text-white/60 hover:text-primary transition-all duration-300 font-medium">WhatsApp</Link>
+              </nav>
+           </div>
         </div>
 
         <div className="pt-12 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-8">
-           <p className="text-xs font-bold uppercase tracking-widest text-muted-foreground/60">
+           <p className="text-xs font-bold uppercase tracking-widest text-white/50">
               &copy; {year} ANAS ABUBAKAR MASAMA • BUILT FOR IMPACT
            </p>
            <button 

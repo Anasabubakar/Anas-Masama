@@ -34,6 +34,8 @@ export const metadata: Metadata = {
   },
 };
 
+import Silk from '@/components/ui/Silk';
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -56,7 +58,18 @@ export default function RootLayout({
   {/* Cache-bust and theme */}
   <meta name="theme-color" content="#0ea5a4" />
       </head>
-      <body className={cn("font-body antialiased bg-background text-foreground selection:bg-primary/30", fontHeadline.variable, fontBody.variable, fontCode.variable)}>
+      <body className={cn("font-body antialiased text-foreground selection:bg-primary/30 min-h-screen", fontHeadline.variable, fontBody.variable, fontCode.variable)}>
+        <div className="fixed inset-0 -z-50 overflow-hidden">
+          <div style={{ width: '100vw', height: '100vh', position: 'relative' }}>
+            <Silk
+              speed={5}
+              scale={1}
+              color="#2db985"
+              noiseIntensity={1.5}
+              rotation={0}
+            />
+          </div>
+        </div>
         <CursorFollower />
         <PageWrapper>
           {children}

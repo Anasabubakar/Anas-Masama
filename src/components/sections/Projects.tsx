@@ -47,8 +47,8 @@ const projects = [
 
 export function Projects() {
   return (
-    <section id="projects" className="py-32 bg-background relative overflow-hidden">
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[100px]" />
+    <section id="projects" className="py-32 bg-transparent relative overflow-hidden">
+      {/* Glow removed to show Silk background */}
       
       <div className="container max-w-7xl mx-auto px-6 relative z-10">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-20 gap-8">
@@ -119,6 +119,15 @@ export function Projects() {
               </div>
             );
           })}
+        </div>
+
+        <div className="mt-24 text-center">
+           <Button asChild variant="outline" className="rounded-full h-14 px-10 text-lg font-bold border-white/10 hover:bg-white/5 transition-all duration-300">
+              <Link href="/projects">
+                View all projects
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Link>
+           </Button>
         </div>
 
         <div className="mt-32 text-center">
