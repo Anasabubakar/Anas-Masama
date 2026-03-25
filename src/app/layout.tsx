@@ -70,7 +70,7 @@ export default function RootLayout({
             <Silk
               speed={5}
               scale={1}
-              color="#2db985"
+              color="#1b7a58"
               noiseIntensity={1.5}
               rotation={0}
             />
