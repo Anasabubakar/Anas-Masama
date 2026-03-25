@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
-import { Download, Github, Linkedin, ArrowRight, GithubIcon, Twitter } from 'lucide-react';
+import { Download, Github, Linkedin, ArrowRight, GithubIcon } from 'lucide-react';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { useEffect, useState } from 'react';
 import { cn } from '@/lib/utils';

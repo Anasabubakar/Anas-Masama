@@ -39,7 +39,7 @@ const socialLinks = [
   { name: 'Email', href: 'mailto:anasabubakar7000@gmail.com', icon: <Mail className="h-5 w-5" /> },
   { name: 'LinkedIn', href: 'https://www.linkedin.com/in/Anasmasama', icon: <Linkedin className="h-5 w-5" /> },
   { name: 'GitHub', href: 'https://www.github.com/Anasabubakar', icon: <Github className="h-5 w-5" /> },
-  { name: 'Twitter', href: 'https://www.twitter.com/Anas_Abubakar70', icon: <XIcon className="h-5 w-5" /> },
+  { name: 'X', href: 'https://www.twitter.com/Anas_Abubakar70', icon: <XIcon className="h-5 w-5" /> },
   { name: 'WhatsApp', href: 'https://wa.me/+2347064294297', icon: <WhatsappIcon className="h-5 w-5" /> },
 ];
 

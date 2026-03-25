@@ -60,7 +60,7 @@ export function Footer() {
               <nav className="flex flex-col gap-4">
                  <Link href="https://www.linkedin.com/in/Anasmasama" target="_blank" className="text-white/60 hover:text-primary transition-all duration-300 font-medium">LinkedIn</Link>
                  <Link href="https://www.github.com/Anasabubakar" target="_blank" className="text-white/60 hover:text-primary transition-all duration-300 font-medium">GitHub</Link>
-                 <Link href="https://www.twitter.com/Anas_Abubakar70" target="_blank" className="text-white/60 hover:text-primary transition-all duration-300 font-medium">Twitter</Link>
+                 <Link href="https://www.twitter.com/Anas_Abubakar70" target="_blank" className="text-white/60 hover:text-primary transition-all duration-300 font-medium">X</Link>
                  <Link href="https://wa.me/+2347064294297" target="_blank" className="text-white/60 hover:text-primary transition-all duration-300 font-medium">WhatsApp</Link>
               </nav>
            </div>
