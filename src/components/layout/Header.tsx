@@ -79,14 +79,15 @@ export function Header() {
       </div>
 
       <div className="fixed bottom-5 left-1/2 -translate-x-1/2 z-[9999] w-[78%] max-w-[280px] sm:max-w-[320px] lg:max-w-[360px] pointer-events-auto">
-        <div className="flex items-center gap-3">
-          <div
-            className="glass-card flex-1 flex items-center gap-1 rounded-full px-2 py-2.5"
-            style={{
-              boxShadow:
-                '0 12px 40px rgba(20,20,40,0.25), 0 2px 8px rgba(20,20,40,0.18), inset 0 1px 0 rgba(255,255,255,0.9)',
-            }}
-          >
+        <div className="prismatic-wrapper w-full">
+          <div className="flex items-center gap-3">
+            <div
+              className="glass-card flex-1 flex items-center gap-1 rounded-full px-2 py-2.5"
+              style={{
+                boxShadow:
+                  '0 12px 40px rgba(20,20,40,0.25), 0 2px 8px rgba(20,20,40,0.18), inset 0 1px 0 rgba(255,255,255,0.9)',
+              }}
+            >
             {dockTabs.map(({ id, label, href, icon: Icon }) => {
               const isActive = activeDock === id;
               return (
@@ -119,24 +120,25 @@ export function Header() {
             })}
           </div>
 
-          <SafeHireMeDialog>
-            <Button
-              className="h-14 px-5 rounded-full border border-primary/40 font-semibold text-sm text-primary-foreground"
-              style={{
-                background: 'linear-gradient(145deg, rgba(45,185,133,0.95), rgba(24,120,86,0.95))',
-                boxShadow:
-                  '0 10px 28px rgba(45,185,133,0.35), 0 2px 8px rgba(45,185,133,0.25), inset 0 1px 0 rgba(255,255,255,0.35)',
-                transition: 'transform 0.15s ease',
-              }}
-              onMouseEnter={(e) => (e.currentTarget.style.transform = 'scale(1.06)')}
-              onMouseLeave={(e) => (e.currentTarget.style.transform = 'scale(1)')}
-              onMouseDown={(e) => (e.currentTarget.style.transform = 'scale(0.95)')}
-              onMouseUp={(e) => (e.currentTarget.style.transform = 'scale(1.06)')}
-            >
-              <BriefcaseBusiness className="mr-2 h-4 w-4" />
-              Hire Me
-            </Button>
-          </SafeHireMeDialog>
+            <SafeHireMeDialog>
+              <Button
+                className="h-14 px-5 rounded-full border border-primary/40 font-semibold text-sm text-primary-foreground"
+                style={{
+                  background: 'linear-gradient(145deg, rgba(45,185,133,0.95), rgba(24,120,86,0.95))',
+                  boxShadow:
+                    '0 10px 28px rgba(45,185,133,0.35), 0 2px 8px rgba(45,185,133,0.25), inset 0 1px 0 rgba(255,255,255,0.35)',
+                  transition: 'transform 0.15s ease',
+                }}
+                onMouseEnter={(e) => (e.currentTarget.style.transform = 'scale(1.06)')}
+                onMouseLeave={(e) => (e.currentTarget.style.transform = 'scale(1)')}
+                onMouseDown={(e) => (e.currentTarget.style.transform = 'scale(0.95)')}
+                onMouseUp={(e) => (e.currentTarget.style.transform = 'scale(1.06)')}
+              >
+                <BriefcaseBusiness className="mr-2 h-4 w-4" />
+                Hire Me
+              </Button>
+            </SafeHireMeDialog>
+          </div>
         </div>
       </div>
     </>,

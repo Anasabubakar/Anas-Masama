@@ -180,7 +180,7 @@
     #161626 90%,
     #09091a 100%
   );
-  animation: rotatePrismatic 3.5s linear infinite;
+  animation: rotatePrismatic 6s linear infinite;
 }
 
 @keyframes rotatePrismatic {
