@@ -1,0 +1,26 @@
+/* TEAM */
+Developer: Anas Abubakar Masama
+Role: Software Engineer, AI Developer, Founder
+Location: Lagos, Nigeria
+Website: https://anasmasama.dev
+GitHub: https://github.com/Anasabubakar
+LinkedIn: https://linkedin.com/in/anasmasama
+X: https://x.com/Anas_Abubakar70
+Email: anasabubakar7000@gmail.com
+
+/* THANKS */
+Collaborator: Sanni Shazily
+Collaborator: Yasin Lasisi
+Collaborator: Abdulrahman Raufu (Koded)
+Collaborator: Quadri Lasisi
+
+/* SITE */
+Last updated: 2025
+Standards: HTML5, CSS3, ECMAScript 2024
+Framework: Next.js 16
+Language: TypeScript
+Styling: Tailwind CSS, shadcn/ui
+Hosting: Vercel
+Components: React 19, Framer Motion
+AI: Firebase Genkit, Google Gemini
+Email: Resend

@@ -17,8 +17,8 @@ export function SafeHireMeDialog({ children }: { children: React.ReactNode }) {
 
   if (!mounted) return <>{children}</>;
 
-  if (React.isValidElement(children)) {
-    const existingOnClick = (children.props as { onClick?: (e: React.MouseEvent) => void }).onClick;
+  if (React.isValidElement<{ onClick?: (e: React.MouseEvent) => void }>(children)) {
+    const existingOnClick = children.props.onClick;
     return React.cloneElement(children, {
       onClick: (e: React.MouseEvent) => {
         existingOnClick?.(e);

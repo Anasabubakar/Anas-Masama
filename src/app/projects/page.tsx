@@ -156,10 +156,10 @@ export default function ProjectsPage() {
             </Link>
             
             <div className="space-y-4">
-              <h1 className="text-sm uppercase tracking-[0.3em] text-primary font-bold">Full Portfolio</h1>
-              <h2 className="text-5xl md:text-7xl font-black font-headline tracking-tighter leading-none">
+              <p className="text-sm uppercase tracking-[0.3em] text-primary font-bold">Full Portfolio</p>
+              <h1 className="text-5xl md:text-7xl font-black font-headline tracking-tighter leading-none">
                 ALL <br /> PROJECTS
-              </h2>
+              </h1>
             </div>
             <p className="text-white/70 max-w-2xl text-xl font-light leading-relaxed">
               A comprehensive archive of my technical journey. From enterprise solutions to experimental prototypes — each project represents a step forward in my evolution as a builder.
@@ -169,13 +169,13 @@ export default function ProjectsPage() {
           {/* All Projects Grid */}
           <div className="mb-16">
             <h3 className="text-2xl font-bold mb-8 flex items-center gap-3">
-              <Layers className="w-6 h-6 text-primary" />
+              <Layers className="w-6 h-6 text-primary" aria-hidden="true" />
               All Projects
             </h3>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {projects.map((project) => (
-                <div 
-                  key={project.id} 
+                <article
+                  key={project.id}
                   className="group glass-card rounded-[2rem] overflow-hidden hover:bg-white/[0.05] transition-all duration-500"
                 >
                   {/* Project Image */}
@@ -183,7 +183,7 @@ export default function ProjectsPage() {
                     {project.image ? (
                       <Image
                         src={project.image}
-                        alt={project.title}
+                        alt={`${project.title} — ${project.tagline}. Built by Anas Masama using ${project.tech.join(', ')}`}
                         fill
                         className="object-cover transition-transform duration-700 group-hover:scale-105"
                         unoptimized
@@ -205,9 +205,9 @@ export default function ProjectsPage() {
                     </span>
                     
                     {/* Title & Description */}
-                    <h4 className="text-xl font-bold tracking-tight mb-2 group-hover:text-primary transition-colors">
+                    <h2 className="text-xl font-bold tracking-tight mb-2 group-hover:text-primary transition-colors">
                       {project.title}
-                    </h4>
+                    </h2>
                     <p className="text-white/50 text-sm leading-relaxed mb-4 line-clamp-2">
                       {project.description}
                     </p>
@@ -223,23 +223,25 @@ export default function ProjectsPage() {
                     
                     {/* Actions */}
                     <div className="flex gap-3">
-                      <Link 
-                        href={project.liveLink} 
+                      <Link
+                        href={project.liveLink}
                         target="_blank"
+                        rel="noopener noreferrer"
                         className="flex items-center text-xs font-bold uppercase tracking-widest text-primary hover:text-primary/70 transition-colors"
                       >
-                        Live <ExternalLink className="ml-1 w-3 h-3" />
+                        Live <ExternalLink className="ml-1 w-3 h-3" aria-hidden="true" />
                       </Link>
-                      <Link 
-                        href={project.githubLink} 
+                      <Link
+                        href={project.githubLink}
                         target="_blank"
+                        rel="noopener noreferrer"
                         className="flex items-center text-xs font-bold uppercase tracking-widest text-white/40 hover:text-white/70 transition-colors"
                       >
-                        <Github className="mr-1 w-3 h-3" /> Code
+                        <Github className="mr-1 w-3 h-3" aria-hidden="true" /> Code
                       </Link>
                     </div>
                   </div>
-                </div>
+                </article>
               ))}
             </div>
           </div>

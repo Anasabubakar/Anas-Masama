@@ -45,8 +45,8 @@ export function Timeline() {
     <section id="timeline" className="py-32 bg-transparent relative">
       <div className="container max-w-7xl mx-auto px-6">
         <div className="text-center mb-24 space-y-4">
-           <h2 className="text-sm uppercase tracking-[0.3em] text-primary font-bold">The Journey</h2>
-           <h3 className="text-5xl md:text-7xl font-black font-headline tracking-tighter">PROFESSIONAL <br /> EVOLUTION</h3>
+           <p className="text-sm uppercase tracking-[0.3em] text-primary font-bold">The Journey</p>
+           <h2 className="text-5xl md:text-7xl font-black font-headline tracking-tighter">PROFESSIONAL <br /> EVOLUTION</h2>
         </div>
 
         <div className="relative max-w-4xl mx-auto">
@@ -69,7 +69,7 @@ export function Timeline() {
                          <Calendar className="w-3 h-3" />
                          {item.date}
                       </div>
-                      <h4 className="text-2xl font-bold tracking-tight mb-1">{item.title}</h4>
+                      <h3 className="text-2xl font-bold tracking-tight mb-1">{item.title}</h3>
                       <p className="text-primary/80 text-xs font-bold uppercase tracking-widest mb-4">{item.organization}</p>
                       <p className="text-white/70 font-light leading-relaxed mb-6">
                         {item.description}

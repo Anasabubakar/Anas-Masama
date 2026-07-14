@@ -29,7 +29,7 @@ export function About() {
                 <div className="relative h-full w-full rounded-[2.5rem] overflow-hidden">
                        <Image
                          src="/images/Lodge.jpg?cache-bust"
-                         alt="Engineering Vision"
+                         alt="Anas Abubakar Masama — Software Engineer working on next-generation digital solutions"
                          fill
                          className="object-cover"
                          unoptimized
@@ -48,10 +48,10 @@ export function About() {
 
           <div className="space-y-12 order-1 lg:order-2">
             <div className="space-y-6">
-              <h2 className="text-sm uppercase tracking-[0.3em] text-primary font-bold">The Visionary</h2>
-              <h3 className="text-5xl md:text-6xl font-black font-headline tracking-tighter leading-none">
+              <p className="text-sm uppercase tracking-[0.3em] text-primary font-bold">The Visionary</p>
+              <h2 className="text-5xl md:text-6xl font-black font-headline tracking-tighter leading-none">
                 BUILDING THE <br /> NEXT ERA
-              </h3>
+              </h2>
               <div className="space-y-6 text-muted-foreground text-xl font-light leading-relaxed">
                 <p>
                  I’m <span className="text-foreground font-semibold">Anas Abubakar Masama</span>. I don't just write code; I architect solutions that empower the next generation of innovators.

@@ -1,74 +1,86 @@
-# Anas Masama - Personal Portfolio
+# Anas Abubakar Masama — Software Engineer & AI Developer
 
-This is the source code for my personal portfolio website, designed to showcase my skills, projects, and professional journey as a Software Engineer and Future Architect. It's built with modern technologies including Next.js, TypeScript, and Tailwind CSS, featuring a sleek, responsive design for a personalized experience.
+Personal portfolio website for **Anas Abubakar Masama** (also known as **Anas Masama**), a Software Engineer, AI Developer, and Founder of [TeenovateX Labs](https://teenovatex.org) based in Lagos, Nigeria.
 
-
-**Live Demo:** [**Anas Masama | Software Engineer**](https://anasmasama.vercel.app/)
-
----
-
-## ✨ Features
-
-*   **Interactive Timeline:** A visually engaging timeline that walks visitors through my career and educational milestones.
-*   **Dynamic Skills Showcase:** A dedicated section to display my technical skills and certifications.
-*   **Working Contact Form:** A functional contact form using **Resend** for reliable email delivery.
-*   **Fully Responsive:** A mobile-first design that looks great on all devices, from desktops to smartphones.
-*   **Modern Tech Stack:** Built with the latest industry-standard tools for performance and maintainability.
+**Live:** [anasmasama.dev](https://anasmasama.dev)
 
 ---
 
-## 🛠️ Built With
+## About
 
-This project leverages a modern, robust technology stack:
+This is the source code for a high-performance personal portfolio built with **Next.js 16**, **TypeScript**, **React 19**, and **Tailwind CSS**. It showcases projects spanning EdTech, AI, Web3, fintech, and healthcare — all built with modern web technologies.
 
-*   **Framework:** [Next.js](https://nextjs.org/) (App Router)
-*   **Language:** [TypeScript](https://www.typescriptlang.org/)
-*   **Styling:** [Tailwind CSS](https://tailwindcss.com/)
-*   **UI Components:** [Shadcn/ui](https://ui.shadcn.com/)
-*   **Generative AI:** [Firebase Genkit](https://firebase.google.com/docs/genkit) (with Google's Gemini model)
-*   **Email Service:** [Resend](https://resend.com/) for contact form submissions.
-*   **Deployment:** [Firebase Hosting](https://firebase.google.com/docs/hosting)
+### Technical Highlights
+
+- **Framework:** Next.js 16 with App Router and React Server Components
+- **Language:** TypeScript (strict mode)
+- **Styling:** Tailwind CSS + shadcn/ui component library
+- **3D/WebGL:** Custom Silk background effect using OGL
+- **AI:** Firebase Genkit with Google Gemini integration
+- **Email:** Resend API for contact form delivery
+- **SEO:** Full JSON-LD structured data, OpenGraph, Twitter Cards, dynamic sitemap, robots.txt, RSS feed
+- **Performance:** Local fonts with `display: swap`, image optimization, minimal client-side JavaScript
+- **Accessibility:** Semantic HTML, proper heading hierarchy, ARIA labels, keyboard navigation
+
+### Featured Projects
+
+| Project | Category | Stack |
+|---------|----------|-------|
+| [TeenovateX Labs](https://teenovatex.org) | NGO / Community | Next.js, Firebase, AI |
+| [JackPal](https://jackpal.vercel.app) | EdTech / AI | Next.js, TypeScript, Genkit |
+| [EduPeak](https://edupeak-eta.vercel.app) | EdTech / Platform | Next.js, PostgreSQL, Prisma |
+| [Ilmeen](https://ilmeen-mvp.vercel.app) | EdTech / AI | Next.js, Gemini, Firebase |
+| [MarcediVault](https://web3-site-kappa.vercel.app) | Web3 / Finance | Next.js, Web3, TypeScript |
+| [MonieFlow](https://monieplow-spark.vercel.app) | Fintech / Students | Next.js, Stripe |
+| [Pill-Pal](https://pill-pal-eta.vercel.app) | Healthcare / AI | Next.js, Firebase, Genkit |
+| [Empower-You](https://empower-you.vercel.app) | Wellness / AI | Next.js, Genkit, Recharts |
 
 ---
 
-## 🚀 Getting Started
-
-To get a local copy up and running, follow these simple steps.
+## Getting Started
 
 ### Prerequisites
 
-*   Node.js (v20 or later recommended)
-*   npm or yarn
+- Node.js 20+
+- npm
 
 ### Installation
 
-1.  **Clone the repository:**
-    ```sh
-    git clone https://github.com/Anasabubakar/Anas-Masama---Web-Developer.git
-    ```
-2.  **Navigate to the project directory:**
-    ```sh
-    cd Anas-Masama---Web-Developer
-    ```
-3.  **Install NPM packages:**
-    ```sh
-    npm install
-    ```
-4.  **Set up environment variables:**
-    Create a `.env` file in the root of the project and add your Resend API key:
-    ```env
-    RESEND_API_KEY=your_api_key_here
-    ```
-5.  **Run the development server:**
-    ```sh
-    npm run dev
-    ```
-    Open [http://localhost:9002](http://localhost:9002) with your browser to see the result.
+```sh
+git clone https://github.com/Anasabubakar/Anas-Masama.git
+cd Anas-Masama
+npm install
+```
+
+### Environment Variables
+
+Create a `.env` file:
+
+```env
+RESEND_API_KEY=your_api_key_here
+```
+
+### Development
+
+```sh
+npm run dev
+```
+
+Open [http://localhost:9002](http://localhost:9002).
 
 ---
 
-## ✉️ Contact
+## Connect
 
-Anas Masama – [@Anas Abubakar Masama](https://www.Linkedin.com/in/Anasmasama) – anasabubakar7000@gmail.com
+- **Website:** [anasmasama.dev](https://anasmasama.dev)
+- **GitHub:** [github.com/Anasabubakar](https://github.com/Anasabubakar)
+- **LinkedIn:** [linkedin.com/in/anasmasama](https://linkedin.com/in/anasmasama)
+- **X:** [x.com/Anas_Abubakar70](https://x.com/Anas_Abubakar70)
+- **Instagram:** [instagram.com/anasmasama.dev](https://instagram.com/anasmasama.dev)
+- **Email:** anasabubakar7000@gmail.com
 
-Project Link: [https://github.com/Anasabubakar/Anas-Masama---Web-Developer](https://github.com/Anasabubakar/Anas-Masama---Web-Developer)
+---
+
+## License
+
+This project is the personal portfolio of Anas Abubakar Masama. All rights reserved.

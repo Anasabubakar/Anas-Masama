@@ -46,7 +46,7 @@ export function Footer() {
           </div>
           
           <div className="space-y-6">
-             <h5 className="text-[10px] uppercase tracking-[0.3em] font-bold text-primary">Navigation</h5>
+             <p className="text-[10px] uppercase tracking-[0.3em] font-bold text-primary">Navigation</p>
              <nav className="flex flex-col gap-4">
                 <a href="#about" className="text-white/60 hover:text-primary transition-all duration-300 font-medium">About</a>
                 <a href="#projects" className="text-white/60 hover:text-primary transition-all duration-300 font-medium">Projects</a>
@@ -56,12 +56,12 @@ export function Footer() {
           </div>
 
            <div className="space-y-6">
-              <h5 className="text-[10px] uppercase tracking-[0.3em] font-bold text-primary">Social</h5>
-              <nav className="flex flex-col gap-4">
-                 <Link href="https://www.linkedin.com/in/Anasmasama" target="_blank" className="text-white/60 hover:text-primary transition-all duration-300 font-medium">LinkedIn</Link>
-                 <Link href="https://www.github.com/Anasabubakar" target="_blank" className="text-white/60 hover:text-primary transition-all duration-300 font-medium">GitHub</Link>
-                 <Link href="https://www.twitter.com/Anas_Abubakar70" target="_blank" className="text-white/60 hover:text-primary transition-all duration-300 font-medium">X</Link>
-                 <Link href="https://wa.me/+2347064294297" target="_blank" className="text-white/60 hover:text-primary transition-all duration-300 font-medium">WhatsApp</Link>
+              <p className="text-[10px] uppercase tracking-[0.3em] font-bold text-primary">Social</p>
+              <nav aria-label="Social media links" className="flex flex-col gap-4">
+                 <Link href="https://linkedin.com/in/anasmasama" target="_blank" rel="noopener noreferrer" className="text-white/60 hover:text-primary transition-all duration-300 font-medium">LinkedIn</Link>
+                 <Link href="https://github.com/Anasabubakar" target="_blank" rel="noopener noreferrer" className="text-white/60 hover:text-primary transition-all duration-300 font-medium">GitHub</Link>
+                 <Link href="https://x.com/Anas_Abubakar70" target="_blank" rel="noopener noreferrer" className="text-white/60 hover:text-primary transition-all duration-300 font-medium">X</Link>
+                 <Link href="https://wa.me/+2347064294297" target="_blank" rel="noopener noreferrer" className="text-white/60 hover:text-primary transition-all duration-300 font-medium">WhatsApp</Link>
               </nav>
            </div>
         </div>

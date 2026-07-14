@@ -77,10 +77,10 @@ export function Skills() {
         <div className="grid lg:grid-cols-12 gap-16 items-start">
           
           <div className="lg:col-span-4 space-y-6">
-            <h2 className="text-sm uppercase tracking-[0.3em] text-primary font-bold">Toolbox</h2>
-            <h3 className="text-5xl md:text-6xl font-black font-headline tracking-tighter leading-none">
+            <p className="text-sm uppercase tracking-[0.3em] text-primary font-bold">Toolbox</p>
+            <h2 className="text-5xl md:text-6xl font-black font-headline tracking-tighter leading-none">
               TECHNICAL <br /> STACK
-            </h3>
+            </h2>
             <p className="text-muted-foreground text-lg font-light leading-relaxed">
               A comprehensive suite of technologies and frameworks used to build high-performance, enterprise-grade solutions.
             </p>
@@ -108,7 +108,7 @@ export function Skills() {
                >
                  <div className="flex items-center gap-3 text-primary">
                     {category.icon}
-                    <h4 className="text-xl font-bold tracking-tight text-foreground">{category.title}</h4>
+                    <h3 className="text-xl font-bold tracking-tight text-foreground">{category.title}</h3>
                  </div>
                  
                  <div className="flex flex-wrap gap-4">

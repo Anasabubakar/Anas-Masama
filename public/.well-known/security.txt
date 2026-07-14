@@ -1,0 +1,3 @@
+Contact: mailto:anasabubakar7000@gmail.com
+Preferred-Languages: en
+Canonical: https://anasmasama.dev/.well-known/security.txt

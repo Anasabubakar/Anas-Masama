@@ -53,10 +53,10 @@ export function Projects() {
       <div className="container max-w-7xl mx-auto px-6 relative z-10">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-20 gap-8">
           <div className="space-y-4">
-            <h2 className="text-sm uppercase tracking-[0.3em] text-primary font-bold">Selected Works</h2>
-            <h3 className="text-5xl md:text-7xl font-black font-headline tracking-tighter leading-none">
+            <p className="text-sm uppercase tracking-[0.3em] text-primary font-bold">Selected Works</p>
+            <h2 className="text-5xl md:text-7xl font-black font-headline tracking-tighter leading-none">
               DIGITAL <br /> MASTERPIECES
-            </h3>
+            </h2>
           </div>
           <p className="text-muted-foreground max-w-sm text-lg font-light">
             A curation of high-impact digital solutions built with precision and modern engineering standards.
@@ -79,7 +79,7 @@ export function Projects() {
                     {image && (
                       <Image
                         src={image.imageUrl}
-                        alt={project.title}
+                        alt={`${project.title} — ${project.description}`}
                         fill
                         className="object-cover transition-transform duration-1000 group-hover:scale-110"
                       />
@@ -105,7 +105,7 @@ export function Projects() {
                        ))}
                     </div>
                   </div>
-                  <h4 className="text-3xl font-bold tracking-tight group-hover:text-primary transition-colors duration-300">{project.title}</h4>
+                  <h3 className="text-3xl font-bold tracking-tight group-hover:text-primary transition-colors duration-300">{project.title}</h3>
                   <p className="text-muted-foreground font-light text-lg leading-relaxed">{project.description}</p>
                   
                   <Link 
@@ -132,7 +132,7 @@ export function Projects() {
 
         <div className="mt-32 text-center">
           <div className="inline-block glass-card p-12 rounded-[3rem] max-w-3xl w-full">
-            <h5 className="text-4xl md:text-5xl font-black mb-6 tracking-tighter">HAVE A VISION?</h5>
+            <p className="text-4xl md:text-5xl font-black mb-6 tracking-tighter">HAVE A VISION?</p>
             <p className="text-muted-foreground text-lg mb-10 max-w-md mx-auto font-light">
               I specialize in turning complex ideas into high-performance digital realities.
             </p>

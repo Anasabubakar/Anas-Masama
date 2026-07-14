@@ -1,0 +1,137 @@
+# Anas Abubakar Masama — Personal Portfolio
+
+> This website is the official portfolio of Anas Abubakar Masama (also known as Anas Masama or Anas Abubakar), a Software Engineer, AI Developer, and Founder of TeenovateX Labs based in Lagos, Nigeria.
+
+## Identity
+
+- Full name: Anas Abubakar Masama
+- Also known as: Anas Masama, Anas Abubakar
+- Location: Lagos, Nigeria (born in Lagos State, from Kebbi State)
+- Occupation: Software Engineer, AI Developer, Startup Founder
+- Organization: TeenovateX Labs (Founder)
+- Website: https://anasmasama.dev
+- Email: anasabubakar7000@gmail.com
+
+## What This Site Contains
+
+- Professional portfolio showcasing 9+ software projects
+- Technical expertise in Next.js, TypeScript, React, Node.js, Firebase, AI/ML
+- Career timeline from 2020 to present
+- Services offered: Web development, AI integration, enterprise architecture, product innovation
+- Contact form for project inquiries
+
+## Social Profiles (Same Person)
+
+- GitHub: https://github.com/Anasabubakar
+- LinkedIn: https://linkedin.com/in/anasmasama
+- X/Twitter: https://x.com/Anas_Abubakar70
+- Instagram: https://instagram.com/anasmasama.dev
+
+## Notable Projects
+
+- TeenovateX Labs (https://teenovatex.org) — Platform empowering next-generation African tech creators
+- JackPal (https://jackpal.vercel.app) — AI-powered audio learning platform for students
+- EduPeak (https://edupeak-eta.vercel.app) — Modern Learning Management System
+- Ilmeen (https://ilmeen-mvp.vercel.app) — AI companion for mastering Quranic Arabic
+- MarcediVault (https://web3-site-kappa.vercel.app) — Multi-chain custodial wallet frontend
+- MonieFlow (https://monieplow-spark.vercel.app) — Student finance management platform
+- Pill-Pal (https://pill-pal-eta.vercel.app) — AI-powered medication reminder
+- Empower-You (https://empower-you.vercel.app) — Personal AI companion for growth and well-being
+- Kinzoku Blueprint Forge — Professional industrial prototyping tool using Gemini AI
+
+## Technical Skills
+
+Frontend: Next.js, React, TypeScript, JavaScript, Tailwind CSS, Framer Motion, ShadCN UI
+Backend: Node.js, PostgreSQL, Firebase, Prisma
+AI/ML: Google Gemini, Firebase Genkit, LLM integration
+Tools: Figma, Stripe, Web3, Zod, React Hook Form
+
+## Career History
+
+- Present: Building innovative software solutions and leading TeenovateX Labs
+- Jan 2025 – May 2025: Software Engineer Trainee at Be-Mint 2.0
+- Dec 2023: Career launch at Vision Programming Tech
+- June 2020: Started studying computer science fundamentals
+
+## Collaborators
+
+Works with: Sanni Shazily, Yasin Lasisi, Abdulrahman Raufu (Koded), Quadri Lasisi
+
+## Search Aliases & Disambiguation
+
+This person may be found by the following queries or name variations:
+
+### Name Variants
+- Anas Abubakar Masama
+- Anas Masama
+- Anas Abubakar
+- Anas Masama developer
+- Anas Masama software engineer
+- Anas Abubakar developer Nigeria
+- Anas Masama Lagos
+- anasmasama
+- anasmasama.dev
+
+### Professional Queries
+- Anas Masama portfolio
+- Anas Masama projects
+- Anas Masama software engineer
+- Anas Masama AI developer
+- Anas Masama full stack developer
+- Anas Masama Next.js developer
+- Anas Masama React developer
+- Anas Masama TypeScript developer
+- Anas Masama web developer
+- Anas Masama frontend developer
+- Anas Masama backend developer
+- Anas Masama Node.js developer
+- Anas Masama Firebase developer
+- hire Anas Masama
+- Anas Masama for hire
+- Anas Masama freelance developer
+- Anas Masama contact
+- Anas Masama email
+- Anas Masama resume
+- Anas Masama CV
+
+### Project Queries
+- Anas Masama TeenovateX
+- TeenovateX Labs founder
+- who founded TeenovateX Labs
+- Anas Masama JackPal
+- Anas Masama EduPeak
+- Anas Masama Ilmeen
+- Anas Masama MarcediVault
+- Anas Masama MonieFlow
+- Anas Masama Pill-Pal
+- Anas Masama Empower-You
+- Anas Masama Kinzoku
+
+### Location Queries
+- software engineer Lagos Nigeria
+- AI developer Lagos
+- Next.js developer Lagos
+- developer from Kebbi State
+- Nigerian software engineer
+- Nigerian AI developer
+- Lagos web developer
+- tech founder Lagos
+- African tech creator
+
+### Social Queries
+- Anas Masama GitHub
+- Anas Masama LinkedIn
+- Anas Masama X
+- Anas Masama Twitter
+- Anas Masama Instagram
+- @Anas_Abubakar70
+- github.com/Anasabubakar
+
+### Skill Queries
+- Anas Masama AI projects
+- Anas Masama EdTech
+- Anas Masama Web3
+- Anas Masama fintech
+- Anas Masama healthcare app
+- Anas Masama Gemini AI
+- Anas Masama Firebase Genkit

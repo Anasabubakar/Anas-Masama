@@ -41,10 +41,10 @@ export function Services() {
       
       <div className="container max-w-7xl mx-auto px-6">
         <div className="max-w-3xl mb-20 space-y-4">
-          <h2 className="text-sm uppercase tracking-[0.3em] text-primary font-bold">Expertise</h2>
-          <h3 className="text-5xl md:text-7xl font-black font-headline tracking-tighter leading-none">
+          <p className="text-sm uppercase tracking-[0.3em] text-primary font-bold">Expertise</p>
+          <h2 className="text-5xl md:text-7xl font-black font-headline tracking-tighter leading-none">
             ENGINEERING <br /> SOLUTIONS
-          </h3>
+          </h2>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -62,7 +62,7 @@ export function Services() {
               </div>
               
               <div className="space-y-4">
-                <h4 className="text-2xl font-bold tracking-tight">{service.title}</h4>
+                <h3 className="text-2xl font-bold tracking-tight">{service.title}</h3>
                 <p className="text-muted-foreground font-light leading-relaxed">
                   {service.description}
                 </p>

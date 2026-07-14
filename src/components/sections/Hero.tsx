@@ -88,17 +88,17 @@ export function Hero() {
             </div>
 
             <div className="pt-4 flex items-center justify-center lg:justify-start gap-8">
-               <Link href="https://www.github.com/Anasabubakar" target="_blank" rel="noopener noreferrer" className="text-white/50 hover:text-primary transition-all duration-300 hover:scale-110">
-                  <Github className="w-6 h-6" />
+               <Link href="https://github.com/Anasabubakar" target="_blank" rel="noopener noreferrer" aria-label="Anas Masama on GitHub" className="text-white/50 hover:text-primary transition-all duration-300 hover:scale-110">
+                  <Github className="w-6 h-6" aria-hidden="true" />
                </Link>
-               <Link href="https://www.linkedin.com/in/anasmasama" target="_blank" rel="noopener noreferrer" className="text-white/50 hover:text-primary transition-all duration-300 hover:scale-110">
-                  <Linkedin className="w-6 h-6" />
+               <Link href="https://linkedin.com/in/anasmasama" target="_blank" rel="noopener noreferrer" aria-label="Anas Masama on LinkedIn" className="text-white/50 hover:text-primary transition-all duration-300 hover:scale-110">
+                  <Linkedin className="w-6 h-6" aria-hidden="true" />
                </Link>
-               <Link href="https://www.twitter.com/Anas_Abubakar70" target="_blank" rel="noopener noreferrer" className="text-white/50 hover:text-primary transition-all duration-300 hover:scale-110">
-                  <XIcon className="w-5 h-5" />
+               <Link href="https://x.com/Anas_Abubakar70" target="_blank" rel="noopener noreferrer" aria-label="Anas Masama on X (Twitter)" className="text-white/50 hover:text-primary transition-all duration-300 hover:scale-110">
+                  <XIcon className="w-5 h-5" aria-hidden="true" />
                </Link>
-               <Link href="https://wa.me/+2347064294297" target="_blank" rel="noopener noreferrer" className="text-white/50 hover:text-primary transition-all duration-300 hover:scale-110">
-                  <WhatsappIcon className="w-6 h-6" />
+               <Link href="https://wa.me/+2347064294297" target="_blank" rel="noopener noreferrer" aria-label="Contact Anas Masama on WhatsApp" className="text-white/50 hover:text-primary transition-all duration-300 hover:scale-110">
+                  <WhatsappIcon className="w-6 h-6" aria-hidden="true" />
                </Link>
             </div>
           </div>
@@ -114,7 +114,7 @@ export function Hero() {
                   {heroImage && (
                     <Image
                       src={heroImage.imageUrl}
-                      alt="Anas Masama"
+                      alt="Anas Abubakar Masama — Software Engineer and AI Developer based in Lagos, Nigeria"
                       fill
                       className="object-cover transition-transform duration-700 group-hover:scale-110"
                       priority
