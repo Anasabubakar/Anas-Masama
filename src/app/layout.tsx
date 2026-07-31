@@ -334,7 +334,7 @@ export default function RootLayout({
       >
         <div className="fixed inset-0 -z-50 overflow-hidden" aria-hidden="true">
           <div style={{ width: '100vw', height: '100vh', position: 'relative' }}>
-            <Silk speed={5} scale={1} color="#1b7a58" noiseIntensity={1.5} rotation={0} />
+            <Silk speed={5} scale={1} color="#625d67" noiseIntensity={1.5} rotation={0} />
           </div>
         </div>
         <CursorFollower />
