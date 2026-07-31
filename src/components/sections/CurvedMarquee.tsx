@@ -42,11 +42,35 @@ export function CurvedMarquee() {
     return () => cancelAnimationFrame(rafRef.current);
   }, []);
 
+  const onPointerDown = (e: React.PointerEvent<SVGSVGElement>) => {
+    draggingRef.current = true;
+    lastXRef.current = e.clientX;
+  };
+  const onPointerMove = (e: React.PointerEvent<SVGSVGElement>) => {
+    const pathEl = pathRef.current;
+    const spacing = spacingRef.current;
+    if (!draggingRef.current || !pathEl || !spacing) return;
+    const dx = e.clientX - lastXRef.current;
+    lastXRef.current = e.clientX;
+    dirRef.current = dx > 0 ? 1 : -1;
+    offsetRef.current += dx;
+    if (offsetRef.current <= -spacing) offsetRef.current += spacing;
+    if (offsetRef.current > 0) offsetRef.current -= spacing;
+    pathEl.setAttribute('startOffset', `${offsetRef.current}px`);
+  };
+  const onPointerUp = () => {
+    draggingRef.current = false;
+  };
+
   return (
     <div className="relative z-[1] overflow-hidden pb-[30px]">
       <svg
         viewBox="0 0 1440 240"
         className="block w-full cursor-grab overflow-visible"
+        onPointerDown={onPointerDown}
+        onPointerMove={onPointerMove}
+        onPointerUp={onPointerUp}
+        onPointerLeave={onPointerUp}
       >
         <defs>
           <path id="loopPath" d="M-100,120 Q720,300 1540,120" fill="none" stroke="transparent" />
