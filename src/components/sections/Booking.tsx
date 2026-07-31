@@ -52,6 +52,19 @@ export function Booking() {
     setMsgTargetKey('');
   };
 
+  const pickSlot = (time: string) => {
+    if (!selectedDateKey) return;
+    const slotKey = `slot:${selectedDateKey}${time}`;
+    if (isSlotAvailable(selectedDateKey, time)) {
+      setSelectedSlot(time);
+      setBookStep('form');
+      setDayMessage('');
+      setMsgTargetKey('');
+    } else {
+      showDayMessage(slotKey);
+    }
+  };
+
   return (
     <Reveal as="section">
       <section
