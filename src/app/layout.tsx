@@ -329,8 +329,7 @@ export default function RootLayout({
         className={cn(
           'font-body antialiased text-foreground selection:bg-primary/30 min-h-screen',
           fontHeadline.variable,
-          fontBody.variable,
-          fontCode.variable
+          fontBody.variable
         )}
       >
         <div className="fixed inset-0 -z-50 overflow-hidden" aria-hidden="true">
