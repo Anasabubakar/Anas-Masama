@@ -55,6 +55,20 @@ export function Booking() {
     setMsgTargetKey('');
   };
 
+  const resetBooking = () => {
+    setBookStep('day');
+    setSelectedDateKey(null);
+    setSelectedSlot(null);
+    setBookName('');
+    setBookEmail('');
+    setBookNote('');
+  };
+
+  const confirmBooking = () => {
+    if (!bookName || !bookEmail) return;
+    setBookStep('done');
+  };
+
   const pickSlot = (time: string) => {
     if (!selectedDateKey) return;
     const slotKey = `slot:${selectedDateKey}${time}`;
