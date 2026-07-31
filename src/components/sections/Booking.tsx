@@ -1,6 +1,6 @@
 'use client';
 
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Reveal } from '@/components/Reveal';
 import {
   MONTHS,
@@ -28,6 +28,12 @@ export function Booking() {
   const [bookEmail, setBookEmail] = useState('');
   const [bookNote, setBookNote] = useState('');
   const msgTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  useEffect(() => {
+    return () => {
+      if (msgTimer.current) clearTimeout(msgTimer.current);
+    };
+  }, []);
 
   const { year, month } = getMonthMeta(monthOffset);
   const weeks = buildCalendarWeeks(monthOffset);
