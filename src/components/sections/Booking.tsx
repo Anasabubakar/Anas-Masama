@@ -137,7 +137,17 @@ export function Booking() {
               </span>
             </div>
           </div>
-          <div className="flex min-h-[340px] flex-col justify-center bg-[#040404]/[0.72] p-5 backdrop-blur-md sm:p-9" />
+          <div className="flex min-h-[340px] flex-col justify-center bg-[#040404]/[0.72] p-5 backdrop-blur-md sm:p-9">
+            {!selectedDateKey && (
+              <div
+                className="text-center text-[#f3f2ee]/40"
+                style={{ animation: 'panelIn 0.5s cubic-bezier(0.16,1,0.3,1) both' }}
+              >
+                <div className="mb-3 text-[32px]">◐</div>
+                <p className="m-0 text-[15px]">Pick a free day on the left to see open times.</p>
+              </div>
+            )}
+          </div>
         </div>
       </section>
     </Reveal>
