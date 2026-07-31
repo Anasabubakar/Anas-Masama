@@ -52,7 +52,7 @@ export function Contact() {
               aria-label="Your name"
               className="rounded-xl border border-[#f3f2ee]/15 bg-[#f3f2ee]/5 px-4 py-3.5 text-[15px] text-[#f3f2ee] outline-none focus-visible:ring-2 focus-visible:ring-[#34c97e]"
             />
-            {state.errors?.name && <p className="m-0 text-sm text-destructive">{state.errors.name[0]}</p>}
+            {state.errors?.name && <p role="alert" className="m-0 text-sm text-destructive">{state.errors.name[0]}</p>}
             <input
               name="email"
               type="email"
