@@ -13,6 +13,7 @@ export function Skills() {
     <Reveal as="section">
       <section
         id="skills"
+        aria-labelledby="skills-heading"
         className="relative z-[1] mx-auto max-w-[1280px] px-5 py-20 sm:px-8 lg:px-14"
       >
         <div className="grid gap-14 md:grid-cols-[1fr_2fr]">
@@ -20,7 +21,10 @@ export function Skills() {
             <p className="m-0 mb-3.5 text-[13px] font-bold uppercase tracking-[0.2em] text-[#34c97e]">
               Toolbox
             </p>
-            <h2 className="m-0 font-headline text-[clamp(32px,4vw,44px)] font-normal leading-[1.05] text-[#f3f2ee]">
+            <h2
+              id="skills-heading"
+              className="m-0 font-headline text-[clamp(32px,4vw,44px)] font-normal leading-[1.05] text-[#f3f2ee]"
+            >
               Tools I use
             </h2>
           </div>
