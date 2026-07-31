@@ -291,7 +291,7 @@ export function Booking() {
                 <button
                   type="button"
                   onClick={resetBooking}
-                  className="rounded-full border border-[#f3f2ee]/20 bg-transparent px-[22px] py-3 text-sm font-semibold text-[#f3f2ee] transition-[border-color,transform] duration-200 ease-out hover:-translate-y-0.5 hover:border-[#34c97e] active:scale-95"
+                  className="rounded-full border border-[#f3f2ee]/20 bg-transparent px-[22px] py-3 text-sm font-semibold text-[#f3f2ee] transition-[border-color,transform] duration-200 ease-out hover:-translate-y-0.5 hover:border-[#34c97e] active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#34c97e] focus-visible:ring-offset-2 focus-visible:ring-offset-[#060606]"
                 >
                   Book another time
                 </button>
