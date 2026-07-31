@@ -16,7 +16,7 @@ This is the source code for a high-performance personal portfolio built with **N
 - **Language:** TypeScript (strict mode)
 - **Styling:** Tailwind CSS + shadcn/ui component library
 - **3D/WebGL:** Custom Silk background effect using OGL
-- **AI:** Firebase Genkit with Google Gemini integration
+- **AI:** "Ask my Butler" chat widget powered by the Vercel AI Gateway
 - **Email:** Resend API for contact form delivery
 - **SEO:** Full JSON-LD structured data, OpenGraph, Twitter Cards, dynamic sitemap, robots.txt, RSS feed
 - **Performance:** Google Fonts (Instrument Serif + Manrope) with `display: swap`, image optimization, minimal client-side JavaScript
