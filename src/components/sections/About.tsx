@@ -56,6 +56,7 @@ export function About() {
               alt="Anas Masama"
               width={800}
               height={1000}
+              sizes="(max-width: 768px) 100vw, 50vw"
               className="h-full w-full object-cover transition-transform duration-[600ms] ease-out hover:scale-105"
               unoptimized
             />
