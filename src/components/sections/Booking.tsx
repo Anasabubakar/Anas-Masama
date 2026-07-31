@@ -2,7 +2,16 @@
 
 import { useRef, useState } from 'react';
 import { Reveal } from '@/components/Reveal';
-import { MONTHS, WEEKDAYS, WITTY_DECLINES, getMonthMeta, buildCalendarWeeks, hashKey } from '@/lib/booking';
+import {
+  MONTHS,
+  WEEKDAYS,
+  SLOT_TIMES,
+  WITTY_DECLINES,
+  getMonthMeta,
+  buildCalendarWeeks,
+  hashKey,
+  isSlotAvailable,
+} from '@/lib/booking';
 
 type BookStep = 'day' | 'time' | 'form' | 'done';
 
