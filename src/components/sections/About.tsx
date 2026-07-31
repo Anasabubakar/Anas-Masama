@@ -39,6 +39,26 @@ export function About() {
                 most of my free time goes.
               </p>
             </div>
+            <div className="flex flex-wrap gap-3 pt-7">
+              {expertise.map((item) => (
+                <span
+                  key={item}
+                  className="inline-block rounded-full border border-[#f3f2ee]/[0.14] px-4 py-[9px] text-[13px] font-semibold text-[#f3f2ee]/85 transition-[transform,border-color,background] duration-[250ms] ease-[cubic-bezier(0.34,1.56,0.64,1)] hover:-translate-y-0.5 hover:scale-[1.06] hover:border-[#34c97e] hover:bg-[#34c97e]/[0.08]"
+                >
+                  {item}
+                </span>
+              ))}
+            </div>
+          </div>
+          <div className="aspect-[4/5] overflow-hidden rounded-[20px] border border-[#f3f2ee]/10">
+            <Image
+              src="/images/Lodge.jpg"
+              alt="Anas Masama"
+              width={800}
+              height={1000}
+              className="h-full w-full object-cover transition-transform duration-[600ms] ease-out hover:scale-105"
+              unoptimized
+            />
           </div>
         </div>
       </section>
