@@ -1,12 +1,46 @@
 'use client';
 
-import { useRef } from 'react';
+import { useEffect, useRef } from 'react';
 
 const PHRASE = 'SOFTWARE ENGINEER • AI DEVELOPER • FOUNDER, TEENOVATEX LABS • ';
 
 export function CurvedMarquee() {
   const measureRef = useRef<SVGTextElement>(null);
   const pathRef = useRef<SVGTextPathElement>(null);
+  const spacingRef = useRef(0);
+  const offsetRef = useRef(0);
+  const dirRef = useRef(-1);
+  const draggingRef = useRef(false);
+  const lastXRef = useRef(0);
+  const rafRef = useRef(0);
+
+  useEffect(() => {
+    const measureEl = measureRef.current;
+    const pathEl = pathRef.current;
+    if (!measureEl || !pathEl || !measureEl.getComputedTextLength) return;
+
+    const spacing = measureEl.getComputedTextLength();
+    if (!spacing) return;
+    spacingRef.current = spacing;
+
+    const count = Math.ceil(1800 / spacing) + 2;
+    pathEl.textContent = PHRASE.repeat(count);
+    offsetRef.current = -spacing;
+    pathEl.setAttribute('startOffset', `${offsetRef.current}px`);
+
+    const step = () => {
+      if (!draggingRef.current) {
+        offsetRef.current += dirRef.current * 0.6;
+        if (offsetRef.current <= -spacing) offsetRef.current += spacing;
+        if (offsetRef.current > 0) offsetRef.current -= spacing;
+        pathEl.setAttribute('startOffset', `${offsetRef.current}px`);
+      }
+      rafRef.current = requestAnimationFrame(step);
+    };
+    rafRef.current = requestAnimationFrame(step);
+
+    return () => cancelAnimationFrame(rafRef.current);
+  }, []);
 
   return (
     <div className="relative z-[1] overflow-hidden pb-[30px]">
