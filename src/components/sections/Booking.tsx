@@ -262,7 +262,7 @@ export function Booking() {
                     value={bookNote}
                     onChange={(e) => setBookNote(e.target.value)}
                     rows={3}
-                    className="resize-y rounded-xl border border-[#f3f2ee]/15 bg-[#f3f2ee]/5 px-4 py-3.5 text-[15px] text-[#f3f2ee] outline-none"
+                    className="resize-y rounded-xl border border-[#f3f2ee]/15 bg-[#f3f2ee]/5 px-4 py-3.5 text-[15px] text-[#f3f2ee] outline-none focus-visible:ring-2 focus-visible:ring-[#34c97e]"
                   />
                   <button
                     type="button"
