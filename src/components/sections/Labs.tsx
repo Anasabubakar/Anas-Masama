@@ -122,7 +122,7 @@ export function Labs() {
         <div className="mt-12">
           <a
             href="/projects"
-            className="inline-block whitespace-nowrap rounded-full border border-[#f3f2ee]/20 px-[26px] py-3.5 text-sm font-bold text-[#f3f2ee] transition-[transform,border-color] duration-200 ease-out hover:translate-x-1 hover:border-[#34c97e] active:scale-[0.96]"
+            className="inline-block whitespace-nowrap rounded-full border border-[#f3f2ee]/20 px-[26px] py-3.5 text-sm font-bold text-[#f3f2ee] transition-[transform,border-color] duration-200 ease-out hover:translate-x-1 hover:border-[#34c97e] active:scale-[0.96] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#34c97e] focus-visible:ring-offset-2 focus-visible:ring-offset-[#060606]"
           >
             Visit my Labs →
           </a>
