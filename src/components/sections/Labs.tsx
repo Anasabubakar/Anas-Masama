@@ -104,7 +104,7 @@ export function Labs() {
               type="button"
               onClick={() => move(-1)}
               aria-label="Previous lab"
-              className="flex h-12 w-12 items-center justify-center rounded-full border border-[#f3f2ee]/[0.18] bg-[#0c0c0c] text-lg text-[#f3f2ee] transition-[transform,border-color] duration-200 ease-out hover:scale-[1.08] hover:border-[#34c97e] active:scale-[0.92]"
+              className="flex h-12 w-12 items-center justify-center rounded-full border border-[#f3f2ee]/[0.18] bg-[#0c0c0c] text-lg text-[#f3f2ee] transition-[transform,border-color] duration-200 ease-out hover:scale-[1.08] hover:border-[#34c97e] active:scale-[0.92] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#34c97e] focus-visible:ring-offset-2 focus-visible:ring-offset-[#060606]"
             >
               ←
             </button>
@@ -112,7 +112,7 @@ export function Labs() {
               type="button"
               onClick={() => move(1)}
               aria-label="Next lab"
-              className="flex h-12 w-12 items-center justify-center rounded-full border border-[#f3f2ee]/[0.18] bg-[#0c0c0c] text-lg text-[#f3f2ee] transition-[transform,border-color] duration-200 ease-out hover:scale-[1.08] hover:border-[#34c97e] active:scale-[0.92]"
+              className="flex h-12 w-12 items-center justify-center rounded-full border border-[#f3f2ee]/[0.18] bg-[#0c0c0c] text-lg text-[#f3f2ee] transition-[transform,border-color] duration-200 ease-out hover:scale-[1.08] hover:border-[#34c97e] active:scale-[0.92] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#34c97e] focus-visible:ring-offset-2 focus-visible:ring-offset-[#060606]"
             >
               →
             </button>
