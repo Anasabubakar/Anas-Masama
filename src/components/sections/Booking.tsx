@@ -192,7 +192,7 @@ export function Booking() {
                 <button
                   type="button"
                   onClick={() => setBookStep('day')}
-                  className="m-0 mb-5 whitespace-nowrap border-none bg-transparent p-0 text-[13px] font-semibold text-[#f3f2ee]/50"
+                  className="m-0 mb-5 whitespace-nowrap rounded border-none bg-transparent p-0 text-[13px] font-semibold text-[#f3f2ee]/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#34c97e]"
                 >
                   ← choose a different day
                 </button>
@@ -237,7 +237,7 @@ export function Booking() {
                 <button
                   type="button"
                   onClick={() => setBookStep('time')}
-                  className="m-0 mb-5 whitespace-nowrap border-none bg-transparent p-0 text-[13px] font-semibold text-[#f3f2ee]/50"
+                  className="m-0 mb-5 whitespace-nowrap rounded border-none bg-transparent p-0 text-[13px] font-semibold text-[#f3f2ee]/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#34c97e]"
                 >
                   ← choose a different time
                 </button>
