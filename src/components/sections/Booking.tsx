@@ -155,7 +155,11 @@ export function Booking() {
                           {day.num}
                         </button>
                         {msgTargetKey === day.key && dayMessage && (
-                          <div className="absolute bottom-[calc(100%+8px)] left-1/2 z-[6] w-[150px] -translate-x-1/2 rounded-[10px] bg-[#f3f2ee] px-3 py-2 text-center text-[11px] font-bold leading-[1.4] text-[#060606] shadow-[0_8px_20px_rgba(0,0,0,.4)]">
+                          <div
+                            role="status"
+                            aria-live="polite"
+                            className="absolute bottom-[calc(100%+8px)] left-1/2 z-[6] w-[150px] -translate-x-1/2 rounded-[10px] bg-[#f3f2ee] px-3 py-2 text-center text-[11px] font-bold leading-[1.4] text-[#060606] shadow-[0_8px_20px_rgba(0,0,0,.4)]"
+                          >
                             {dayMessage}
                           </div>
                         )}
@@ -221,7 +225,11 @@ export function Booking() {
                           {time}
                         </button>
                         {msgTargetKey === slotKey && dayMessage && (
-                          <div className="absolute bottom-[calc(100%+8px)] left-1/2 z-[6] w-[150px] -translate-x-1/2 rounded-[10px] bg-[#f3f2ee] px-3 py-2 text-center text-[11px] font-bold leading-[1.4] text-[#060606] shadow-[0_8px_20px_rgba(0,0,0,.4)]">
+                          <div
+                            role="status"
+                            aria-live="polite"
+                            className="absolute bottom-[calc(100%+8px)] left-1/2 z-[6] w-[150px] -translate-x-1/2 rounded-[10px] bg-[#f3f2ee] px-3 py-2 text-center text-[11px] font-bold leading-[1.4] text-[#060606] shadow-[0_8px_20px_rgba(0,0,0,.4)]"
+                          >
                             {dayMessage}
                           </div>
                         )}
