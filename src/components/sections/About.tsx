@@ -39,16 +39,16 @@ export function About() {
                 most of my free time goes.
               </p>
             </div>
-            <div className="flex flex-wrap gap-3 pt-7">
+            <ul className="m-0 flex list-none flex-wrap gap-3 p-0 pt-7">
               {expertise.map((item) => (
-                <span
+                <li
                   key={item}
                   className="inline-block rounded-full border border-[#f3f2ee]/[0.14] px-4 py-[9px] text-[13px] font-semibold text-[#f3f2ee]/85 transition-[transform,border-color,background] duration-[250ms] ease-[cubic-bezier(0.34,1.56,0.64,1)] hover:-translate-y-0.5 hover:scale-[1.06] hover:border-[#34c97e] hover:bg-[#34c97e]/[0.08]"
                 >
                   {item}
-                </span>
+                </li>
               ))}
-            </div>
+            </ul>
           </div>
           <div className="aspect-[4/5] overflow-hidden rounded-[20px] border border-[#f3f2ee]/10">
             <Image
