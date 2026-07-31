@@ -64,8 +64,9 @@ export function Contact() {
             <textarea
               name="message"
               placeholder="What's the project?"
+              aria-label="What's the project?"
               rows={4}
-              className="resize-y rounded-xl border border-[#f3f2ee]/15 bg-[#f3f2ee]/5 px-4 py-3.5 text-[15px] text-[#f3f2ee] outline-none"
+              className="resize-y rounded-xl border border-[#f3f2ee]/15 bg-[#f3f2ee]/5 px-4 py-3.5 text-[15px] text-[#f3f2ee] outline-none focus-visible:ring-2 focus-visible:ring-[#34c97e]"
             />
             {state.errors?.message && <p className="m-0 text-sm text-destructive">{state.errors.message[0]}</p>}
             <SubmitButton
