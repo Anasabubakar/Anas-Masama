@@ -123,7 +123,7 @@ export function Butler() {
               type="button"
               onClick={sendButler}
               aria-label="Send"
-              className="flex h-[38px] w-[38px] items-center justify-center rounded-full bg-[#f3f2ee] font-extrabold text-[#060606]"
+              className="flex h-[38px] w-[38px] items-center justify-center rounded-full bg-[#f3f2ee] font-extrabold text-[#060606] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#34c97e] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0c0c0c]"
             >
               →
             </button>
