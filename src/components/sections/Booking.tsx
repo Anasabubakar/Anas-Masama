@@ -115,7 +115,7 @@ export function Booking() {
               <button
                 type="button"
                 onClick={() => setMonthOffset((m) => Math.min(2, m + 1))}
-                className="flex h-[34px] w-[34px] items-center justify-center rounded-full border border-[#f3f2ee]/15 text-[15px] text-[#f3f2ee] transition-[transform,border-color] duration-200 ease-out hover:translate-x-[3px] hover:border-[#34c97e] active:scale-90"
+                className="flex h-[34px] w-[34px] items-center justify-center rounded-full border border-[#f3f2ee]/15 text-[15px] text-[#f3f2ee] transition-[transform,border-color] duration-200 ease-out hover:translate-x-[3px] hover:border-[#34c97e] active:scale-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#34c97e] focus-visible:ring-offset-2 focus-visible:ring-offset-[#060606]"
               >
                 →
               </button>
