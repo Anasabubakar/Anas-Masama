@@ -249,13 +249,13 @@ export function Booking() {
                     placeholder="Your name"
                     value={bookName}
                     onChange={(e) => setBookName(e.target.value)}
-                    className="rounded-xl border border-[#f3f2ee]/15 bg-[#f3f2ee]/5 px-4 py-3.5 text-[15px] text-[#f3f2ee] outline-none transition-colors focus:border-[#f3f2ee]/30"
+                    className="rounded-xl border border-[#f3f2ee]/15 bg-[#f3f2ee]/5 px-4 py-3.5 text-[15px] text-[#f3f2ee] outline-none transition-colors focus:border-[#f3f2ee]/30 focus-visible:ring-2 focus-visible:ring-[#34c97e]"
                   />
                   <input
                     placeholder="Your email"
                     value={bookEmail}
                     onChange={(e) => setBookEmail(e.target.value)}
-                    className="rounded-xl border border-[#f3f2ee]/15 bg-[#f3f2ee]/5 px-4 py-3.5 text-[15px] text-[#f3f2ee] outline-none transition-colors focus:border-[#f3f2ee]/30"
+                    className="rounded-xl border border-[#f3f2ee]/15 bg-[#f3f2ee]/5 px-4 py-3.5 text-[15px] text-[#f3f2ee] outline-none transition-colors focus:border-[#f3f2ee]/30 focus-visible:ring-2 focus-visible:ring-[#34c97e]"
                   />
                   <textarea
                     placeholder="What do you want to talk about?"
