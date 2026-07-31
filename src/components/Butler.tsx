@@ -43,6 +43,30 @@ export function Butler() {
               ×
             </button>
           </div>
+          <div className="flex flex-1 flex-col gap-3 overflow-y-auto px-[18px] py-4">
+            {messages.map((msg, i) => (
+              <div
+                key={i}
+                className={[
+                  'max-w-[85%] rounded-2xl px-3.5 py-2.5 text-[13px] leading-[1.5]',
+                  msg.role === 'user'
+                    ? 'self-end rounded-br-[2px] bg-[#f3f2ee] text-[#060606]'
+                    : 'self-start rounded-bl-[2px] bg-[#f3f2ee]/[0.06] text-[#f3f2ee]',
+                ].join(' ')}
+                style={{ animation: 'msgIn 0.3s ease both' }}
+              >
+                {msg.content}
+              </div>
+            ))}
+            {loading && (
+              <div
+                className="self-start text-[13px] text-[#f3f2ee]/40"
+                style={{ animation: 'pulseDot 1.2s ease infinite' }}
+              >
+                Butler is typing…
+              </div>
+            )}
+          </div>
         </div>
       )}
       <span className="prismatic-wrapper">
