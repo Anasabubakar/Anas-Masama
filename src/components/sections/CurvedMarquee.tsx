@@ -29,6 +29,8 @@ export function CurvedMarquee() {
     offsetRef.current = -spacing;
     pathEl.setAttribute('startOffset', `${offsetRef.current}px`);
 
+    if (reduceMotion) return;
+
     const step = () => {
       if (!draggingRef.current) {
         offsetRef.current += dirRef.current * 0.6;
