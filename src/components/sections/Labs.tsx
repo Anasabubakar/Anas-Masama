@@ -26,6 +26,15 @@ export function Labs() {
     setFocus((f) => ((f + steps) % n + n) % n);
   };
 
+  const n = LABS_ITEMS.length;
+  const cards = LABS_ITEMS.map((item, i) => {
+    let position = i - focus;
+    while (position > n / 2) position -= n;
+    while (position <= -n / 2) position += n;
+    const isCenter = position === 0;
+    return { item, position, isCenter };
+  });
+
   return (
     <Reveal as="section">
       <section
