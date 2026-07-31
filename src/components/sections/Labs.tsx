@@ -55,7 +55,7 @@ export function Labs() {
               type="button"
               onClick={() => move(position)}
               aria-label={item.title}
-              className="absolute left-1/2 top-1/2 overflow-hidden text-left transition-[transform,background,border-color,box-shadow] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]"
+              className="absolute left-1/2 top-1/2 overflow-hidden text-left transition-[transform,background,border-color,box-shadow] duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#34c97e] focus-visible:ring-offset-2 focus-visible:ring-offset-[#060606]"
               style={{
                 width: cardSize,
                 height: cardSize,
