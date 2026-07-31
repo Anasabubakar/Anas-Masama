@@ -136,8 +136,6 @@ const projects = [
   },
 ];
 
-const categories = ['All', 'EdTech', 'AI', 'Web3', 'Fintech', 'Healthcare', 'Productivity', 'Portfolio', 'Platform'];
-
 export default function ProjectsPage() {
   return (
     <div className="flex flex-col min-h-screen bg-transparent">
