@@ -274,6 +274,29 @@ export function Booking() {
                 </div>
               </div>
             )}
+
+            {bookStep === 'done' && (
+              <div className="text-center" style={{ animation: 'panelIn 0.45s cubic-bezier(0.16,1,0.3,1) both' }}>
+                <div
+                  className="mx-auto mb-[18px] flex h-[52px] w-[52px] items-center justify-center rounded-full bg-[#34c97e] text-[22px] font-extrabold text-[#060606]"
+                  style={{ animation: 'msgIn 0.5s 0.1s cubic-bezier(0.34,1.56,0.64,1) both' }}
+                >
+                  ✓
+                </div>
+                <h3 className="m-0 mb-2 text-xl font-bold text-[#f3f2ee]">You&apos;re booked</h3>
+                <p className="m-0 mb-[22px] text-[15px] text-[#f3f2ee]/65">
+                  {selectedDateLabel} at {selectedSlot}. A calendar invite is on its way to{' '}
+                  {bookEmail}.
+                </p>
+                <button
+                  type="button"
+                  onClick={resetBooking}
+                  className="rounded-full border border-[#f3f2ee]/20 bg-transparent px-[22px] py-3 text-sm font-semibold text-[#f3f2ee] transition-[border-color,transform] duration-200 ease-out hover:-translate-y-0.5 hover:border-[#34c97e] active:scale-95"
+                >
+                  Book another time
+                </button>
+              </div>
+            )}
           </div>
         </div>
       </section>
