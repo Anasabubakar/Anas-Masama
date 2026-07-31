@@ -66,7 +66,20 @@ export function Hero() {
             </a>
           </div>
         </div>
-        <div ref={imgWrapRef} className="relative justify-self-center" />
+        <div ref={imgWrapRef} className="relative justify-self-center">
+          <div className="group aspect-[3/4] w-[min(360px,80vw)] overflow-hidden rounded-[20px] border border-[#f3f2ee]/10 transition-colors duration-[350ms] ease-out hover:border-[#34c97e]">
+            {heroImage && (
+              <Image
+                src={heroImage.imageUrl}
+                alt="Anas Abubakar Masama — Software Engineer and AI Developer based in Lagos, Nigeria"
+                width={720}
+                height={960}
+                className="h-full w-full object-cover transition-transform duration-[600ms] ease-out group-hover:scale-105"
+                priority
+              />
+            )}
+          </div>
+        </div>
       </div>
     </section>
   );
