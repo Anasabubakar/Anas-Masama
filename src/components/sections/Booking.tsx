@@ -217,6 +217,8 @@ export function Booking() {
                         <button
                           type="button"
                           onClick={() => pickSlot(time)}
+                          aria-label={`${time}${available ? '' : ' (unavailable)'}`}
+                          aria-pressed={isSelected}
                           className={[
                             'w-full rounded-xl border px-2 py-3 text-[13px] font-bold transition-[transform,background,border-color] duration-200 ease-out hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#34c97e] focus-visible:ring-offset-2 focus-visible:ring-offset-[#060606]',
                             isSelected
