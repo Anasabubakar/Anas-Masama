@@ -87,7 +87,7 @@ export function Contact() {
                 rel="noopener noreferrer"
                 className="flex justify-between border-b border-[#f3f2ee]/10 py-4 text-[15px] font-semibold text-[#f3f2ee] transition-[padding-left,color] duration-200 ease-out hover:pl-2 hover:text-[#34c97e] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#34c97e]"
               >
-                {soc.label} <span className="text-[#f3f2ee]/40">↗</span>
+                {soc.label} <span aria-hidden="true" className="text-[#f3f2ee]/40">↗</span>
               </a>
             ))}
           </nav>
