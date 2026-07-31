@@ -37,6 +37,7 @@ export function Hero() {
   return (
     <section
       id="hero"
+      aria-labelledby="hero-heading"
       className="relative z-[1] flex min-h-[80vh] flex-col justify-center px-5 pb-3 pt-[140px] sm:px-8 lg:px-14"
     >
       <div className="mx-auto grid w-full max-w-[1280px] items-center gap-14 lg:grid-cols-[1.2fr_0.8fr]">
@@ -44,7 +45,10 @@ export function Hero() {
           <p className="m-0 text-[13px] font-bold uppercase tracking-[0.2em] text-[#34c97e]">
             Software Engineer &middot; Lagos, Nigeria
           </p>
-          <h1 className="m-0 font-headline text-[clamp(46px,7vw,96px)] font-normal leading-[0.98] tracking-[-0.01em] text-[#f3f2ee]">
+          <h1
+            id="hero-heading"
+            className="m-0 font-headline text-[clamp(46px,7vw,96px)] font-normal leading-[0.98] tracking-[-0.01em] text-[#f3f2ee]"
+          >
             <span
               className="inline-block"
               style={{ animation: 'wordIn 0.8s 0.05s cubic-bezier(0.16,1,0.3,1) both' }}
