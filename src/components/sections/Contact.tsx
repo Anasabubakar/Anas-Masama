@@ -44,6 +44,44 @@ export function Contact() {
         <p className="m-0 mb-10 max-w-[56ch] text-base text-[#f3f2ee]/65">
           Tell me what you need and I&apos;ll get back to you.
         </p>
+        <div className="grid gap-14 md:grid-cols-2">
+          <form ref={formRef} action={dispatch} className="flex flex-col gap-3.5">
+            <input
+              name="name"
+              placeholder="Your name"
+              className="rounded-xl border border-[#f3f2ee]/15 bg-[#f3f2ee]/5 px-4 py-3.5 text-[15px] text-[#f3f2ee] outline-none"
+            />
+            {state.errors?.name && <p className="m-0 text-sm text-destructive">{state.errors.name[0]}</p>}
+            <input
+              name="email"
+              type="email"
+              placeholder="Your email"
+              className="rounded-xl border border-[#f3f2ee]/15 bg-[#f3f2ee]/5 px-4 py-3.5 text-[15px] text-[#f3f2ee] outline-none"
+            />
+            {state.errors?.email && <p className="m-0 text-sm text-destructive">{state.errors.email[0]}</p>}
+            <textarea
+              name="message"
+              placeholder="What's the project?"
+              rows={4}
+              className="resize-y rounded-xl border border-[#f3f2ee]/15 bg-[#f3f2ee]/5 px-4 py-3.5 text-[15px] text-[#f3f2ee] outline-none"
+            />
+            {state.errors?.message && <p className="m-0 text-sm text-destructive">{state.errors.message[0]}</p>}
+            <SubmitButton />
+          </form>
+          <div className="flex flex-col gap-3.5">
+            {socials.map((soc) => (
+              <a
+                key={soc.label}
+                href={soc.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex justify-between border-b border-[#f3f2ee]/10 py-4 text-[15px] font-semibold text-[#f3f2ee] transition-[padding-left,color] duration-200 ease-out hover:pl-2 hover:text-[#34c97e]"
+              >
+                {soc.label} <span className="text-[#f3f2ee]/40">↗</span>
+              </a>
+            ))}
+          </div>
+        </div>
       </section>
     </Reveal>
   );
