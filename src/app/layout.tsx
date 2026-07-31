@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from 'next';
 import './globals.css';
 import { Toaster } from '@/components/ui/toaster';
-import localFont from 'next/font/local';
+import { Instrument_Serif, Manrope } from 'next/font/google';
 import { cn } from '@/lib/utils';
 import { CursorFollower } from '@/components/CursorFollower';
 import PageWrapper from '@/components/PageWrapper';
@@ -14,30 +14,18 @@ const TITLE = 'Anas Masama | Software Engineer & AI Developer from Lagos, Nigeri
 const DESCRIPTION =
   'Anas Abubakar Masama is a Software Engineer, AI Developer, and Founder of TeenovateX Labs based in Lagos, Nigeria. Specializing in Next.js, TypeScript, React, and AI integration. Building high-performance web applications and empowering the next generation of African tech creators.';
 
-const fontHeadline = localFont({
-  src: [
-    { path: '../../public/fonts/SF-Pro/SF-Pro-Display-Bold.otf', weight: '700', style: 'normal' },
-    { path: '../../public/fonts/SF-Pro/SF-Pro-Display-Semibold.otf', weight: '600', style: 'normal' },
-  ],
+const fontHeadline = Instrument_Serif({
+  subsets: ['latin'],
+  weight: '400',
+  style: ['normal', 'italic'],
   variable: '--font-headline',
   display: 'swap',
 });
 
-const fontBody = localFont({
-  src: [
-    { path: '../../public/fonts/SF-Pro/SF-Pro-Text-Regular.otf', weight: '400', style: 'normal' },
-    { path: '../../public/fonts/SF-Pro/SF-Pro-Text-Light.otf', weight: '300', style: 'normal' },
-    { path: '../../public/fonts/SF-Pro/SF-Pro-Text-Medium.otf', weight: '500', style: 'normal' },
-  ],
+const fontBody = Manrope({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700', '800'],
   variable: '--font-body',
-  display: 'swap',
-});
-
-const fontCode = localFont({
-  src: [
-    { path: '../../public/fonts/SF-Pro/SF-Pro-Text-Regular.otf', weight: '400', style: 'normal' },
-  ],
-  variable: '--font-code',
   display: 'swap',
 });
 
