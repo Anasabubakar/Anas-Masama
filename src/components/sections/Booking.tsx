@@ -1,8 +1,8 @@
 'use client';
 
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { Reveal } from '@/components/Reveal';
-import { MONTHS, WEEKDAYS, getMonthMeta, buildCalendarWeeks } from '@/lib/booking';
+import { MONTHS, WEEKDAYS, WITTY_DECLINES, getMonthMeta, buildCalendarWeeks, hashKey } from '@/lib/booking';
 
 type BookStep = 'day' | 'time' | 'form' | 'done';
 
@@ -12,9 +12,36 @@ export function Booking() {
   const [selectedDateKey, setSelectedDateKey] = useState<string | null>(null);
   const [selectedDateLabel, setSelectedDateLabel] = useState('');
   const [selectedSlot, setSelectedSlot] = useState<string | null>(null);
+  const [dayMessage, setDayMessage] = useState('');
+  const [msgTargetKey, setMsgTargetKey] = useState('');
+  const msgTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const { year, month } = getMonthMeta(monthOffset);
   const weeks = buildCalendarWeeks(monthOffset);
+
+  const showDayMessage = (key: string) => {
+    const msg = WITTY_DECLINES[hashKey(key) % WITTY_DECLINES.length];
+    setDayMessage(msg);
+    setMsgTargetKey(key);
+    if (msgTimer.current) clearTimeout(msgTimer.current);
+    msgTimer.current = setTimeout(() => {
+      setDayMessage('');
+      setMsgTargetKey('');
+    }, 2800);
+  };
+
+  const pickDate = (key: string, date: Date, available: boolean) => {
+    if (!available) {
+      showDayMessage(key);
+      return;
+    }
+    const label = date.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' });
+    setSelectedDateKey(key);
+    setSelectedDateLabel(label);
+    setBookStep('time');
+    setDayMessage('');
+    setMsgTargetKey('');
+  };
 
   return (
     <Reveal as="section">
