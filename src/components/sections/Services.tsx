@@ -30,12 +30,16 @@ export function Services() {
     <Reveal as="section">
       <section
         id="services"
+        aria-labelledby="services-heading"
         className="relative z-[1] mx-auto max-w-[1280px] px-5 py-20 sm:px-8 lg:px-14"
       >
         <p className="m-0 mb-3.5 text-[13px] font-bold uppercase tracking-[0.2em] text-[#34c97e]">
           What I do
         </p>
-        <h2 className="m-0 mb-12 max-w-[16ch] font-headline text-[clamp(32px,4vw,52px)] font-normal leading-[1.05] text-[#f3f2ee]">
+        <h2
+          id="services-heading"
+          className="m-0 mb-12 max-w-[16ch] font-headline text-[clamp(32px,4vw,52px)] font-normal leading-[1.05] text-[#f3f2ee]"
+        >
           Here&apos;s how I can help
         </h2>
         <ol className="m-0 flex list-none flex-col p-0">
