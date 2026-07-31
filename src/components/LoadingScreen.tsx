@@ -29,7 +29,7 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
   return (
     <div
       className={[
-        "fixed inset-0 z-[100] flex items-center justify-center bg-[#0a0a0a]",
+        "fixed inset-0 z-[100] flex items-center justify-center bg-[#060606]",
         "transition-[opacity,transform] duration-700",
         isExiting ? "opacity-0 scale-[1.04] pointer-events-none" : "opacity-100 scale-100",
       ].join(" ")}
