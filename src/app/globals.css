@@ -1,32 +1,32 @@
-@import url("https://fonts.googleapis.com/css2?family=Syne:wght@800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700;800&display=swap");
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --background: 0 0% 3.9%;
-  --foreground: 0 0% 98%;
-  --card: 0 0% 3.9%;
-  --card-foreground: 0 0% 98%;
-  --popover: 0 0% 3.9%;
-  --popover-foreground: 0 0% 98%;
-  --primary: 158 82% 57%; /* Bright Green */
-  --primary-foreground: 145 100% 6%;
-  --secondary: 0 0% 14.9%;
-  --secondary-foreground: 0 0% 98%;
-  --muted: 0 0% 14.9%;
-  --muted-foreground: 0 0% 85%;
-  --accent: 0 0% 14.9%;
-  --accent-foreground: 0 0% 98%;
+  --background: 0 0% 2%;
+  --foreground: 48 17% 94%;
+  --card: 0 0% 5%;
+  --card-foreground: 48 17% 94%;
+  --popover: 0 0% 5%;
+  --popover-foreground: 48 17% 94%;
+  --primary: 150 59% 50%; /* #34C97E — brand green */
+  --primary-foreground: 0 0% 2%;
+  --secondary: 0 0% 10%;
+  --secondary-foreground: 48 17% 94%;
+  --muted: 0 0% 10%;
+  --muted-foreground: 48 10% 65%;
+  --accent: 0 0% 10%;
+  --accent-foreground: 48 17% 94%;
   --destructive: 0 62.8% 30.6%;
   --destructive-foreground: 0 0% 98%;
-  --border: 0 0% 14.9%;
-  --input: 0 0% 14.9%;
-  --ring: 158 82% 57%;
+  --border: 48 8% 16%;
+  --input: 48 8% 16%;
+  --ring: 150 59% 50%;
   --radius: 0.5rem;
-  --font-syne: "Syne";
-  --font-qurova: "Qurova", sans-serif;
+  --font-headline: "Instrument Serif", serif;
+  --font-body: "Manrope", sans-serif;
   --letter-spacing-tight: -0.02em;
   --letter-spacing-normal: 0em;
   --letter-spacing-wide: 0.05em;
@@ -46,13 +46,17 @@
   h1, h2, h3, h4, h5, h6 {
     @apply tracking-wide;
   }
+  ::selection {
+    background: #34c97e;
+    color: #060606;
+  }
 }
 
 @layer utilities {
   .text-glow {
     text-shadow: 0 0 8px hsl(var(--primary) / 0.5), 0 0 20px hsl(var(--primary) / 0.3);
   }
-  
+
   .bg-grid-white {
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='32' height='32' fill='none' stroke='rgb(255 255 255 / 0.04)'%3E%3Cpath d='M0 .5H31.5V32'/%3E%3C/svg%3E");
   }
@@ -123,13 +127,13 @@
   }
 
   @keyframes pageReveal {
-    from { 
-      opacity: 0; 
+    from {
+      opacity: 0;
       transform: scale(0.98);
       filter: blur(10px);
     }
-    to { 
-      opacity: 1; 
+    to {
+      opacity: 1;
       transform: scale(1);
       filter: blur(0);
     }
@@ -137,6 +141,41 @@
 
   .animate-page-reveal {
     animation: pageReveal 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  @keyframes wordIn {
+    from { opacity: 0; filter: blur(10px); transform: translateY(14px); }
+    to   { opacity: 1; filter: blur(0);    transform: translateY(0);   }
+  }
+
+  @keyframes floatSlow {
+    0%, 100% { transform: translateY(0); }
+    50%      { transform: translateY(-10px); }
+  }
+
+  @keyframes pulseDot {
+    0%, 100% { opacity: .3; }
+    50%      { opacity: 1; }
+  }
+
+  @keyframes drawerIn {
+    from { opacity: 0; transform: translateY(16px) scale(.98); }
+    to   { opacity: 1; transform: translateY(0) scale(1); }
+  }
+
+  @keyframes panelIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes msgIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes rippleAnim {
+    from { transform: translate(-50%, -50%) scale(0); opacity: .6; }
+    to   { transform: translate(-50%, -50%) scale(7); opacity: 0; }
   }
 }
 
@@ -149,42 +188,19 @@
 .prismatic-wrapper {
   position: relative;
   display: inline-flex;
-  padding: 3px;
+  padding: 2px;
   border-radius: 9999px;
   background: conic-gradient(
     from var(--angle),
-    #09091a 0%,
-    #1c1c30 4%,
-    #3a3a55 8%,
-    #7070a0 12%,
-    #b0b0cc 15%,
-    #e0e0ee 17%,
-    #ffffff 18.5%,
-    #2db985 20%,
-    #2db985 22%,
-    #2db985 23%,
-    #00ddff 24.5%,
-    #0055ff 26%,
-    #8800ff 27%,
-    #ff00cc 28%,
-    #ffffff 29.5%,
-    #d8d8ec 31%,
-    #9090b0 35%,
-    #5a5a80 40%,
-    #2e2e48 46%,
-    #0d0d20 52%,
-    #303050 57%,
-    #7070a0 62%,
-    #b8b8d0 66%,
-    #e8e8f0 68%,
-    #ffffff 69.5%,
-    #2db985 71%,
-    #2db985 72.5%,
-    #c0c0d8 75%,
-    #8888a8 79%,
-    #3a3a58 84%,
-    #161626 90%,
-    #09091a 100%
+    #0a0a0a 0%,
+    #2db985 10%,
+    #00ddff 20%,
+    #7a5cff 30%,
+    #ff5cc0 40%,
+    #ffffff 48%,
+    #2db985 56%,
+    #0a0a0a 68%,
+    #0a0a0a 100%
   );
   animation: rotatePrismatic 6s linear infinite;
 }
