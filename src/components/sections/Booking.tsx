@@ -169,6 +169,51 @@ export function Booking() {
                 <p className="m-0 text-[15px]">Pick a free day on the left to see open times.</p>
               </div>
             )}
+
+            {bookStep === 'time' && selectedDateKey && (
+              <div className="w-full" style={{ animation: 'panelIn 0.45s cubic-bezier(0.16,1,0.3,1) both' }}>
+                <button
+                  type="button"
+                  onClick={() => setBookStep('day')}
+                  className="m-0 mb-5 whitespace-nowrap border-none bg-transparent p-0 text-[13px] font-semibold text-[#f3f2ee]/50"
+                >
+                  ← choose a different day
+                </button>
+                <h3 className="m-0 mb-5 text-[19px] font-bold text-[#f3f2ee]">
+                  {selectedDateLabel} — pick a time
+                </h3>
+                <div className="grid grid-cols-[repeat(auto-fill,minmax(110px,1fr))] gap-2.5">
+                  {SLOT_TIMES.map((time) => {
+                    const slotKey = `slot:${selectedDateKey}${time}`;
+                    const available = isSlotAvailable(selectedDateKey, time);
+                    const isSelected = time === selectedSlot;
+                    return (
+                      <div key={time} className="relative">
+                        <button
+                          type="button"
+                          onClick={() => pickSlot(time)}
+                          className={[
+                            'w-full rounded-xl border px-2 py-3 text-[13px] font-bold transition-[transform,background,border-color] duration-200 ease-out hover:-translate-y-0.5',
+                            isSelected
+                              ? 'border-[#34c97e] bg-[#34c97e] text-[#060606]'
+                              : available
+                                ? 'border-[#f3f2ee]/[0.18] bg-[#f3f2ee]/[0.04] text-[#f3f2ee]'
+                                : 'border-[#f3f2ee]/10 bg-transparent text-[#f3f2ee]/30',
+                          ].join(' ')}
+                        >
+                          {time}
+                        </button>
+                        {msgTargetKey === slotKey && dayMessage && (
+                          <div className="absolute bottom-[calc(100%+8px)] left-1/2 z-[6] w-[150px] -translate-x-1/2 rounded-[10px] bg-[#f3f2ee] px-3 py-2 text-center text-[11px] font-bold leading-[1.4] text-[#060606] shadow-[0_8px_20px_rgba(0,0,0,.4)]">
+                            {dayMessage}
+                          </div>
+                        )}
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
           </div>
         </div>
       </section>
