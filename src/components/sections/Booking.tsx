@@ -299,6 +299,9 @@ export function Booking() {
             )}
           </div>
         </div>
+        <p className="m-0 mt-[18px] max-w-[60ch] text-xs leading-[1.6] text-[#f3f2ee]/40">
+          This is one of my Lab Creations. Bring that idea, And Let me cook!
+        </p>
       </section>
     </Reveal>
   );
