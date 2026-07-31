@@ -17,6 +17,28 @@ export function Butler() {
   const [input, setInput] = useState('');
   const [loading, setLoading] = useState(false);
 
+  const sendButler = async () => {
+    const text = input.trim();
+    if (!text || loading) return;
+    const history = [...messages, { role: 'user' as const, content: text }];
+    setMessages(history);
+    setInput('');
+    setLoading(true);
+    try {
+      const res = await fetch('/api/butler', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ messages: history }),
+      });
+      const data = await res.json();
+      setMessages((m) => [...m, { role: 'assistant', content: data.reply || "Sorry, I couldn't reach my brain just now. Try again in a moment." }]);
+    } catch {
+      setMessages((m) => [...m, { role: 'assistant', content: "Sorry, I couldn't reach my brain just now. Try again in a moment." }]);
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <div className="fixed bottom-6 right-6 z-[60] flex flex-col items-end gap-3.5">
       {open && (
