@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowLeft, ArrowRight, ExternalLink, Github, Code2, Layers, Zap, Globe, Shield, Brain, Wallet, GraduationCap, Heart, Pill, Sparkles } from 'lucide-react';
+import { ArrowLeft, ArrowRight, ExternalLink, Github, Code2, Layers, Zap, Globe, Brain, Wallet, GraduationCap, Heart, Pill, Sparkles } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
