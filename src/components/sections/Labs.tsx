@@ -94,6 +94,33 @@ export function Labs() {
               </div>
             </button>
           ))}
+          <div className="absolute bottom-4 left-1/2 z-20 flex -translate-x-1/2 gap-2.5">
+            <button
+              type="button"
+              onClick={() => move(-1)}
+              aria-label="Previous lab"
+              className="flex h-12 w-12 items-center justify-center rounded-full border border-[#f3f2ee]/[0.18] bg-[#0c0c0c] text-lg text-[#f3f2ee] transition-[transform,border-color] duration-200 ease-out hover:scale-[1.08] hover:border-[#34c97e] active:scale-[0.92]"
+            >
+              ←
+            </button>
+            <button
+              type="button"
+              onClick={() => move(1)}
+              aria-label="Next lab"
+              className="flex h-12 w-12 items-center justify-center rounded-full border border-[#f3f2ee]/[0.18] bg-[#0c0c0c] text-lg text-[#f3f2ee] transition-[transform,border-color] duration-200 ease-out hover:scale-[1.08] hover:border-[#34c97e] active:scale-[0.92]"
+            >
+              →
+            </button>
+          </div>
+        </div>
+
+        <div className="mt-12">
+          <a
+            href="/projects"
+            className="inline-block whitespace-nowrap rounded-full border border-[#f3f2ee]/20 px-[26px] py-3.5 text-sm font-bold text-[#f3f2ee] transition-[transform,border-color] duration-200 ease-out hover:translate-x-1 hover:border-[#34c97e] active:scale-[0.96]"
+          >
+            Visit my Labs →
+          </a>
         </div>
       </section>
     </Reveal>
