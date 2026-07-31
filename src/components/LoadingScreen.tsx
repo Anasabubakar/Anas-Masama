@@ -63,7 +63,7 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
           <path
             style={{
               fill: "none",
-              stroke: "#6efcb0",
+              stroke: "#34c97e",
               strokeWidth: 3.5,
               strokeLinecap: "round",
               strokeLinejoin: "round",
