@@ -13,6 +13,25 @@ export function Hero() {
     setMounted(true);
   }, []);
 
+  useEffect(() => {
+    if (!mounted) return;
+    let raf = 0;
+    const onScroll = () => {
+      if (raf) return;
+      raf = requestAnimationFrame(() => {
+        raf = 0;
+        const el = imgWrapRef.current;
+        if (el) el.style.transform = `translateY(${Math.min(window.scrollY * 0.15, 60)}px)`;
+      });
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+      if (raf) cancelAnimationFrame(raf);
+    };
+  }, [mounted]);
+
   if (!mounted) return null;
 
   return (
