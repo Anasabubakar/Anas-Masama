@@ -5,6 +5,7 @@ import { CurvedMarquee } from '@/components/sections/CurvedMarquee';
 import { About } from '@/components/sections/About';
 import { Timeline } from '@/components/sections/Timeline';
 import { Labs } from '@/components/sections/Labs';
+import { Booking } from '@/components/sections/Booking';
 import { HireMe } from '@/components/sections/HireMe';
 import { Skills } from '@/components/sections/Skills';
 import { Services } from '@/components/sections/Services';
@@ -21,6 +22,7 @@ export default function Home() {
         <Skills />
         <Timeline />
         <Labs />
+        <Booking />
         <HireMe />
       </main>
       <Footer />
