@@ -231,6 +231,49 @@ export function Booking() {
                 </div>
               </div>
             )}
+
+            {bookStep === 'form' && (
+              <div className="w-full" style={{ animation: 'panelIn 0.45s cubic-bezier(0.16,1,0.3,1) both' }}>
+                <button
+                  type="button"
+                  onClick={() => setBookStep('time')}
+                  className="m-0 mb-5 whitespace-nowrap border-none bg-transparent p-0 text-[13px] font-semibold text-[#f3f2ee]/50"
+                >
+                  ← choose a different time
+                </button>
+                <h3 className="m-0 mb-5 text-[19px] font-bold text-[#f3f2ee]">
+                  {selectedDateLabel} at {selectedSlot} — your details
+                </h3>
+                <div className="flex max-w-[440px] flex-col gap-3.5">
+                  <input
+                    placeholder="Your name"
+                    value={bookName}
+                    onChange={(e) => setBookName(e.target.value)}
+                    className="rounded-xl border border-[#f3f2ee]/15 bg-[#f3f2ee]/5 px-4 py-3.5 text-[15px] text-[#f3f2ee] outline-none transition-colors focus:border-[#f3f2ee]/30"
+                  />
+                  <input
+                    placeholder="Your email"
+                    value={bookEmail}
+                    onChange={(e) => setBookEmail(e.target.value)}
+                    className="rounded-xl border border-[#f3f2ee]/15 bg-[#f3f2ee]/5 px-4 py-3.5 text-[15px] text-[#f3f2ee] outline-none transition-colors focus:border-[#f3f2ee]/30"
+                  />
+                  <textarea
+                    placeholder="What do you want to talk about?"
+                    value={bookNote}
+                    onChange={(e) => setBookNote(e.target.value)}
+                    rows={3}
+                    className="resize-y rounded-xl border border-[#f3f2ee]/15 bg-[#f3f2ee]/5 px-4 py-3.5 text-[15px] text-[#f3f2ee] outline-none"
+                  />
+                  <button
+                    type="button"
+                    onClick={confirmBooking}
+                    className="w-fit rounded-full bg-[#f3f2ee] px-5 py-3.5 text-[15px] font-bold text-[#060606] transition-transform duration-200 ease-out hover:-translate-y-0.5 hover:scale-[1.02] active:scale-95"
+                  >
+                    Confirm booking
+                  </button>
+                </div>
+              </div>
+            )}
           </div>
         </div>
       </section>
