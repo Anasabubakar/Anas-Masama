@@ -73,7 +73,7 @@ export function Hero() {
           <div className="flex flex-wrap gap-3.5 pt-2">
             <a
               href="#labs"
-              className="inline-block rounded-full bg-[#f3f2ee] px-[26px] py-3.5 text-sm font-bold text-[#060606] transition-transform duration-[250ms] ease-[cubic-bezier(0.34,1.56,0.64,1)] hover:-translate-y-[3px] hover:scale-[1.02] active:scale-[0.96]"
+              className="inline-block rounded-full bg-[#f3f2ee] px-[26px] py-3.5 text-sm font-bold text-[#060606] transition-transform duration-[250ms] ease-[cubic-bezier(0.34,1.56,0.64,1)] hover:-translate-y-[3px] hover:scale-[1.02] active:scale-[0.96] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#34c97e] focus-visible:ring-offset-2 focus-visible:ring-offset-[#060606]"
             >
               See my labs
             </a>
