@@ -54,11 +54,16 @@ npm install
 
 ### Environment Variables
 
-Create a `.env` file:
+Copy `.env.local.example` to `.env.local` and fill in:
 
 ```env
-RESEND_API_KEY=your_api_key_here
+RESEND_API_KEY=your_resend_api_key_here
+AI_GATEWAY_API_KEY=your_vercel_ai_gateway_key_here
 ```
+
+`RESEND_API_KEY` powers the Contact form. `AI_GATEWAY_API_KEY` powers the "Ask my Butler" chat
+widget — without it, Butler falls back to a friendly "can't reach my brain" message instead of
+failing the build.
 
 ### Development
 
