@@ -32,6 +32,11 @@ export function Booking() {
           See my real schedule below. Pick a free day, pick a time, and it&apos;s booked — no
           emails back and forth.
         </p>
+
+        <div className="grid grid-cols-1 gap-px overflow-hidden rounded-3xl border border-[#f3f2ee]/[0.14] bg-[#f3f2ee]/10 md:grid-cols-[minmax(280px,380px)_1fr]">
+          <div className="bg-[#040404]/[0.86] p-5 backdrop-blur-md sm:p-8" />
+          <div className="flex min-h-[340px] flex-col justify-center bg-[#040404]/[0.72] p-5 backdrop-blur-md sm:p-9" />
+        </div>
       </section>
     </Reveal>
   );
