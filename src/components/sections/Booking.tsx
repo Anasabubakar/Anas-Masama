@@ -91,6 +91,41 @@ export function Booking() {
                 </div>
               ))}
             </div>
+            <div className="transition-[transform,opacity] duration-[280ms] ease-out">
+              {weeks.map((week, wi) => (
+                <div key={wi} className="mb-1.5 grid grid-cols-7 gap-1.5">
+                  {week.map((day) => {
+                    if (day.num === null) {
+                      return <div key={day.key} className="invisible aspect-square" />;
+                    }
+                    const isSelected = day.key === selectedDateKey;
+                    return (
+                      <div key={day.key} className="relative">
+                        <button
+                          type="button"
+                          onClick={() => day.date && pickDate(day.key, day.date, day.available)}
+                          className={[
+                            'aspect-square w-full rounded-xl border text-sm font-bold transition-[transform,background,border-color] duration-200 ease-out hover:z-[2] hover:scale-110',
+                            isSelected
+                              ? 'border-[#34c97e] bg-[#34c97e] text-[#060606]'
+                              : day.available
+                                ? 'border-[#34c97e]/40 bg-[#34c97e]/[0.08] text-[#f3f2ee]'
+                                : 'border-[#f3f2ee]/10 bg-transparent text-[#f3f2ee]/30',
+                          ].join(' ')}
+                        >
+                          {day.num}
+                        </button>
+                        {msgTargetKey === day.key && dayMessage && (
+                          <div className="absolute bottom-[calc(100%+8px)] left-1/2 z-[6] w-[150px] -translate-x-1/2 rounded-[10px] bg-[#f3f2ee] px-3 py-2 text-center text-[11px] font-bold leading-[1.4] text-[#060606] shadow-[0_8px_20px_rgba(0,0,0,.4)]">
+                            {dayMessage}
+                          </div>
+                        )}
+                      </div>
+                    );
+                  })}
+                </div>
+              ))}
+            </div>
           </div>
           <div className="flex min-h-[340px] flex-col justify-center bg-[#040404]/[0.72] p-5 backdrop-blur-md sm:p-9" />
         </div>
