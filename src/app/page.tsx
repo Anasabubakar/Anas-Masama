@@ -3,13 +3,13 @@ import { Footer } from '@/components/layout/Footer';
 import { Hero } from '@/components/sections/Hero';
 import { CurvedMarquee } from '@/components/sections/CurvedMarquee';
 import { About } from '@/components/sections/About';
+import { Services } from '@/components/sections/Services';
+import { Skills } from '@/components/sections/Skills';
 import { Timeline } from '@/components/sections/Timeline';
 import { Labs } from '@/components/sections/Labs';
 import { Booking } from '@/components/sections/Booking';
 import { Contact } from '@/components/sections/Contact';
 import { Butler } from '@/components/Butler';
-import { Skills } from '@/components/sections/Skills';
-import { Services } from '@/components/sections/Services';
 
 export default function Home() {
   return (
