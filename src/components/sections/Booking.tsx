@@ -126,6 +126,16 @@ export function Booking() {
                 </div>
               ))}
             </div>
+            <div className="mt-[18px] flex gap-4 text-[11px] text-[#f3f2ee]/50">
+              <span>
+                <span className="mr-1.5 inline-block h-[7px] w-[7px] rounded-full bg-[#34c97e]" />
+                Free
+              </span>
+              <span>
+                <span className="mr-1.5 inline-block h-[7px] w-[7px] rounded-full bg-[#f3f2ee]/15" />
+                Unavailable
+              </span>
+            </div>
           </div>
           <div className="flex min-h-[340px] flex-col justify-center bg-[#040404]/[0.72] p-5 backdrop-blur-md sm:p-9" />
         </div>
