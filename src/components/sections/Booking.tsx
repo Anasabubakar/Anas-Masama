@@ -5,6 +5,7 @@ import { Reveal } from '@/components/Reveal';
 import {
   MONTHS,
   WEEKDAYS,
+  WEEKDAYS_FULL,
   SLOT_TIMES,
   WITTY_DECLINES,
   getMonthMeta,
@@ -127,12 +128,14 @@ export function Booking() {
               </button>
             </div>
             <div className="mb-1.5 grid grid-cols-7 gap-1.5">
-              {WEEKDAYS.map((wd) => (
+              {WEEKDAYS.map((wd, i) => (
                 <div
                   key={wd}
                   className="text-center text-[10px] font-bold uppercase text-[#f3f2ee]/40"
                 >
-                  {wd}
+                  <abbr title={WEEKDAYS_FULL[i]} className="no-underline">
+                    {wd}
+                  </abbr>
                 </div>
               ))}
             </div>
