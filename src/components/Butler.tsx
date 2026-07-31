@@ -111,12 +111,13 @@ export function Butler() {
           <div className="flex gap-2 border-t border-[#f3f2ee]/10 p-3.5">
             <input
               placeholder="Ask a question…"
+              aria-label="Ask Butler a question"
               value={input}
               onChange={(e) => setInput(e.target.value)}
               onKeyDown={(e) => {
                 if (e.key === 'Enter') sendButler();
               }}
-              className="flex-1 rounded-full border border-[#f3f2ee]/15 bg-[#f3f2ee]/5 px-3.5 py-[11px] text-[13px] text-[#f3f2ee] outline-none"
+              className="flex-1 rounded-full border border-[#f3f2ee]/15 bg-[#f3f2ee]/5 px-3.5 py-[11px] text-[13px] text-[#f3f2ee] outline-none focus-visible:ring-2 focus-visible:ring-[#34c97e]"
             />
             <button
               type="button"
