@@ -57,6 +57,8 @@ export function Butler() {
     <div className="fixed bottom-6 right-6 z-[60] flex flex-col items-end gap-3.5">
       {open && (
         <div
+          role="dialog"
+          aria-label="Ask my Butler chat"
           className="flex h-[min(460px,70vh)] w-[min(340px,88vw)] flex-col overflow-hidden rounded-[20px] border border-[#f3f2ee]/[0.14] bg-[#0c0c0c]"
           style={{ animation: 'drawerIn 0.3s ease both' }}
         >
