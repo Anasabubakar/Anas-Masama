@@ -74,7 +74,7 @@ export function Contact() {
               className="w-fit self-start rounded-full bg-[#f3f2ee] px-5 py-3.5 text-[15px] font-bold text-[#060606] hover:bg-[#f3f2ee]/90"
             />
           </form>
-          <div className="flex flex-col gap-3.5">
+          <nav aria-label="Social links" className="flex flex-col gap-3.5">
             {socials.map((soc) => (
               <a
                 key={soc.label}
@@ -86,7 +86,7 @@ export function Contact() {
                 {soc.label} <span className="text-[#f3f2ee]/40">↗</span>
               </a>
             ))}
-          </div>
+          </nav>
         </div>
       </section>
     </Reveal>
