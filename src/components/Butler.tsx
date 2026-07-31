@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 type ButlerMessage = { role: 'user' | 'assistant'; content: string };
 
@@ -16,6 +16,12 @@ export function Butler() {
   const [messages, setMessages] = useState<ButlerMessage[]>(INITIAL_MESSAGES);
   const [input, setInput] = useState('');
   const [loading, setLoading] = useState(false);
+  const scrollRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const el = scrollRef.current;
+    if (el) el.scrollTop = el.scrollHeight;
+  }, [messages, loading]);
 
   const sendButler = async () => {
     const text = input.trim();
