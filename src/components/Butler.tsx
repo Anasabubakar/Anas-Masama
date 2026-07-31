@@ -134,7 +134,8 @@ export function Butler() {
         <button
           type="button"
           onClick={() => setOpen((o) => !o)}
-          className="flex items-center gap-2 rounded-full bg-[#f3f2ee] px-[22px] py-3.5 text-sm font-bold text-[#060606] transition-transform duration-200 ease-out hover:scale-105 active:scale-[0.94]"
+          aria-expanded={open}
+          className="flex items-center gap-2 rounded-full bg-[#f3f2ee] px-[22px] py-3.5 text-sm font-bold text-[#060606] transition-transform duration-200 ease-out hover:scale-105 active:scale-[0.94] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#34c97e] focus-visible:ring-offset-2 focus-visible:ring-offset-[#060606]"
         >
           Ask my Butler
         </button>
