@@ -30,16 +30,16 @@ export function Skills() {
                 <p className="m-0 mb-3 text-[13px] font-bold uppercase tracking-[0.1em] text-[#f3f2ee]/50">
                   {group.title}
                 </p>
-                <div className="flex flex-wrap gap-2.5">
+                <ul className="m-0 flex list-none flex-wrap gap-2.5 p-0">
                   {group.items.map((tool) => (
-                    <span
+                    <li
                       key={tool}
                       className="inline-block rounded-xl border border-[#f3f2ee]/[0.08] bg-[#f3f2ee]/5 px-4 py-2.5 text-sm font-semibold text-[#f3f2ee] transition-[transform,border-color] duration-[250ms] ease-[cubic-bezier(0.34,1.56,0.64,1)] hover:scale-[1.08] hover:border-[#34c97e]"
                     >
                       {tool}
-                    </span>
+                    </li>
                   ))}
-                </div>
+                </ul>
               </div>
             ))}
           </div>
