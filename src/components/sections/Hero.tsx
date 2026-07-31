@@ -51,6 +51,20 @@ export function Hero() {
             TeenovateX Labs, a community helping young people in Africa learn to build
             things.
           </p>
+          <div className="flex flex-wrap gap-3.5 pt-2">
+            <a
+              href="#labs"
+              className="inline-block rounded-full bg-[#f3f2ee] px-[26px] py-3.5 text-sm font-bold text-[#060606] transition-transform duration-[250ms] ease-[cubic-bezier(0.34,1.56,0.64,1)] hover:-translate-y-[3px] hover:scale-[1.02] active:scale-[0.96]"
+            >
+              See my labs
+            </a>
+            <a
+              href="#booking"
+              className="inline-block whitespace-nowrap rounded-full border border-[#f3f2ee]/20 px-[26px] py-3.5 text-sm font-bold text-[#f3f2ee] transition-[transform,border-color,background] duration-200 ease-out hover:-translate-y-[3px] hover:border-[#34c97e] hover:bg-[#34c97e]/[0.08] active:scale-[0.96]"
+            >
+              Book a call
+            </a>
+          </div>
         </div>
         <div ref={imgWrapRef} className="relative justify-self-center" />
       </div>
