@@ -27,10 +27,6 @@
   --radius: 0.5rem;
   --font-headline: "Instrument Serif", serif;
   --font-body: "Manrope", sans-serif;
-  --letter-spacing-tight: -0.02em;
-  --letter-spacing-normal: 0em;
-  --letter-spacing-wide: 0.05em;
-  --letter-spacing-wider: 0.1em;
 }
 
 @layer base {
