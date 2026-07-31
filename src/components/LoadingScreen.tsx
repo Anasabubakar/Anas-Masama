@@ -79,7 +79,8 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
         <span
           className="absolute bottom-0 right-0 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-xs font-medium tracking-wider"
           style={{
-            color: "#6efcb0",
+            color: "#34c97e",
+            fontFamily: "var(--font-body), sans-serif",
             animation: "nameReveal 0.45s ease 0.3s forwards",
             opacity: 0,
           }}
