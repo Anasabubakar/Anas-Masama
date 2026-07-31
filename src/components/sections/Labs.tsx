@@ -75,7 +75,6 @@ export function Labs() {
                 style={{ background: isCenter ? 'rgba(6,6,6,.3)' : 'rgba(243,242,238,.2)' }}
               />
               <div className="absolute inset-0 bottom-[34%] overflow-hidden">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img src={item.image} alt={item.title} className="h-full w-full object-cover" />
               </div>
               <div className="absolute bottom-0 left-0 right-0 flex h-[34%] flex-col justify-center gap-1.5 px-5 py-3.5">
