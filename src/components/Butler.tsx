@@ -79,7 +79,12 @@ export function Butler() {
               ×
             </button>
           </div>
-          <div ref={scrollRef} className="flex flex-1 flex-col gap-3 overflow-y-auto px-[18px] py-4">
+          <div
+            ref={scrollRef}
+            role="log"
+            aria-live="polite"
+            className="flex flex-1 flex-col gap-3 overflow-y-auto px-[18px] py-4"
+          >
             {messages.map((msg, i) => (
               <div
                 key={i}
