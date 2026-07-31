@@ -73,7 +73,7 @@ export function Butler() {
             <button
               type="button"
               onClick={() => setOpen(false)}
-              className="border-none bg-transparent text-lg text-[#f3f2ee]/50"
+              className="rounded border-none bg-transparent text-lg text-[#f3f2ee]/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#34c97e]"
               aria-label="Close Butler"
             >
               ×
