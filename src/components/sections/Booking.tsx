@@ -144,7 +144,7 @@ export function Booking() {
                           type="button"
                           onClick={() => day.date && pickDate(day.key, day.date, day.available)}
                           className={[
-                            'aspect-square w-full rounded-xl border text-sm font-bold transition-[transform,background,border-color] duration-200 ease-out hover:z-[2] hover:scale-110',
+                            'aspect-square w-full rounded-xl border text-sm font-bold transition-[transform,background,border-color] duration-200 ease-out hover:z-[2] hover:scale-110 focus-visible:z-[2] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#34c97e] focus-visible:ring-offset-2 focus-visible:ring-offset-[#060606]',
                             isSelected
                               ? 'border-[#34c97e] bg-[#34c97e] text-[#060606]'
                               : day.available
