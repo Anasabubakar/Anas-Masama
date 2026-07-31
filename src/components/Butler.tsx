@@ -51,7 +51,9 @@ export function Butler() {
     }
   };
 
-  return (
+  if (!mounted) return null;
+
+  return createPortal(
     <div className="fixed bottom-6 right-6 z-[60] flex flex-col items-end gap-3.5">
       {open && (
         <div
@@ -131,6 +133,7 @@ export function Butler() {
           Ask my Butler
         </button>
       </span>
-    </div>
+    </div>,
+    document.body
   );
 }
