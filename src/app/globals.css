@@ -53,24 +53,6 @@
 }
 
 @layer utilities {
-  .marquee {
-    animation: marquee 40s linear infinite;
-  }
-
-  @keyframes marquee {
-    from { transform: translateX(0); }
-    to { transform: translateX(-50%); }
-  }
-
-  .marquee-rtl {
-    animation: marquee-rtl 40s linear infinite;
-  }
-
-  @keyframes marquee-rtl {
-    from { transform: translateX(-50%); }
-    to { transform: translateX(0); }
-  }
-
   .nav-link-underline {
     position: relative;
     @apply transition-colors;
