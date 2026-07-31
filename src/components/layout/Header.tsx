@@ -67,7 +67,7 @@ export function Header() {
         </span>
       </Link>
 
-      <div className="flex flex-wrap items-center gap-6 sm:gap-7">
+      <div className="hidden flex-wrap items-center gap-6 md:flex lg:gap-7">
         {navLinks.map((link) => (
           <a
             key={link.href}
