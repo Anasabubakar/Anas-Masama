@@ -7,6 +7,7 @@ import { Timeline } from '@/components/sections/Timeline';
 import { Labs } from '@/components/sections/Labs';
 import { Booking } from '@/components/sections/Booking';
 import { Contact } from '@/components/sections/Contact';
+import { Butler } from '@/components/Butler';
 import { Skills } from '@/components/sections/Skills';
 import { Services } from '@/components/sections/Services';
 
@@ -26,6 +27,7 @@ export default function Home() {
         <Contact />
       </main>
       <Footer />
+      <Butler />
     </div>
   );
 }
