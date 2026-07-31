@@ -46,6 +46,11 @@ export function Hero() {
               Masama.
             </span>
           </h1>
+          <p className="m-0 max-w-[52ch] text-[clamp(17px,2vw,20px)] font-normal leading-[1.6] text-[#f3f2ee]/75">
+            I build software. Websites, apps and AI tools that actually work. I run
+            TeenovateX Labs, a community helping young people in Africa learn to build
+            things.
+          </p>
         </div>
         <div ref={imgWrapRef} className="relative justify-self-center" />
       </div>
