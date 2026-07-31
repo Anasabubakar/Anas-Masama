@@ -68,7 +68,7 @@ export function Contact() {
               rows={4}
               className="resize-y rounded-xl border border-[#f3f2ee]/15 bg-[#f3f2ee]/5 px-4 py-3.5 text-[15px] text-[#f3f2ee] outline-none focus-visible:ring-2 focus-visible:ring-[#34c97e]"
             />
-            {state.errors?.message && <p className="m-0 text-sm text-destructive">{state.errors.message[0]}</p>}
+            {state.errors?.message && <p role="alert" className="m-0 text-sm text-destructive">{state.errors.message[0]}</p>}
             <SubmitButton
               label="Send message"
               className="w-fit self-start rounded-full bg-[#f3f2ee] px-5 py-3.5 text-[15px] font-bold text-[#060606] hover:bg-[#f3f2ee]/90"
