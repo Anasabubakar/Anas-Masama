@@ -17,6 +17,7 @@ export function About() {
     <Reveal as="section">
       <section
         id="about"
+        aria-labelledby="about-heading"
         className="relative z-[1] mx-auto max-w-[1280px] px-5 py-[100px] sm:px-8 lg:px-14"
       >
         <div className="grid items-start gap-16 md:grid-cols-2">
@@ -24,7 +25,10 @@ export function About() {
             <p className="m-0 mb-3.5 text-[13px] font-bold uppercase tracking-[0.2em] text-[#34c97e]">
               About
             </p>
-            <h2 className="m-0 mb-6 font-headline text-[clamp(32px,4vw,52px)] font-normal leading-[1.05] text-[#f3f2ee]">
+            <h2
+              id="about-heading"
+              className="m-0 mb-6 font-headline text-[clamp(32px,4vw,52px)] font-normal leading-[1.05] text-[#f3f2ee]"
+            >
               A bit about me
             </h2>
             <div className="flex flex-col gap-[18px] text-lg leading-[1.7] text-[#f3f2ee]/80">
