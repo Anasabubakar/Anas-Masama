@@ -42,9 +42,9 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
       <div className="relative flex items-center justify-center pb-10 scale-75 md:scale-100">
         {/* Name */}
         <h1
-          className="select-none whitespace-nowrap text-[clamp(2.5rem,8vw,7rem)] font-extrabold leading-none tracking-tight text-white"
+          className="select-none whitespace-nowrap text-[clamp(2.5rem,8vw,7rem)] font-normal leading-none tracking-tight text-[#f3f2ee]"
           style={{
-            fontFamily: "var(--font-syne), sans-serif",
+            fontFamily: "var(--font-headline), serif",
             animation: "nameReveal 1s cubic-bezier(0.16,1,0.3,1) 0.1s forwards",
             opacity: 0,
           }}
