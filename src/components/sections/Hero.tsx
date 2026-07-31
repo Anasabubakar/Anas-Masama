@@ -93,6 +93,7 @@ export function Hero() {
                 alt="Anas Abubakar Masama — Software Engineer and AI Developer based in Lagos, Nigeria"
                 width={720}
                 height={960}
+                sizes="(max-width: 1024px) 80vw, 360px"
                 className="h-full w-full object-cover transition-transform duration-[600ms] ease-out group-hover:scale-105"
                 priority
               />
