@@ -19,6 +19,7 @@ export function CurvedMarquee() {
     const pathEl = pathRef.current;
     if (!measureEl || !pathEl || !measureEl.getComputedTextLength) return;
 
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const spacing = measureEl.getComputedTextLength();
     if (!spacing) return;
     spacingRef.current = spacing;
