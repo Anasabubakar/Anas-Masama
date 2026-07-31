@@ -23,6 +23,9 @@ export function Booking() {
   const [selectedSlot, setSelectedSlot] = useState<string | null>(null);
   const [dayMessage, setDayMessage] = useState('');
   const [msgTargetKey, setMsgTargetKey] = useState('');
+  const [bookName, setBookName] = useState('');
+  const [bookEmail, setBookEmail] = useState('');
+  const [bookNote, setBookNote] = useState('');
   const msgTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const { year, month } = getMonthMeta(monthOffset);
