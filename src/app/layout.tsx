@@ -30,7 +30,7 @@ const fontBody = Manrope({
 });
 
 export const viewport: Viewport = {
-  themeColor: '#0ea5a4',
+  themeColor: '#060606',
   width: 'device-width',
   initialScale: 1,
   colorScheme: 'dark',
