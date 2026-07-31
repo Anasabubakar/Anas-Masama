@@ -1,76 +1,58 @@
 'use client';
 
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { BrainCircuit, Lightbulb, SquareCode, Layers, Cpu, Globe, Rocket } from "lucide-react";
-import { cn } from "@/lib/utils";
+import { Reveal } from '@/components/Reveal';
 
 const services = [
   {
-    icon: <Globe className="w-8 h-8" />,
-    title: 'World-Class Web Systems',
-    description: 'Architecting high-performance, scalable web ecosystems using Next.js, TypeScript, and modern cloud infrastructures.',
-    color: 'text-blue-500',
-    bg: 'bg-blue-500/10'
+    num: '01',
+    title: 'Web systems',
+    desc: 'Next.js and TypeScript apps built to last — not just to demo well.',
   },
   {
-    icon: <Cpu className="w-8 h-8" />,
-    title: 'AI-Native Integration',
-    description: 'Infusing intelligent capabilities into your products using Gemini, Genkit, and advanced LLM orchestrations.',
-    color: 'text-primary',
-    bg: 'bg-primary/10'
+    num: '02',
+    title: 'AI integration',
+    desc: 'Real AI features using Gemini and Genkit, built into the product — not a chatbot bolted on the side.',
   },
   {
-    icon: <Layers className="w-8 h-8" />,
-    title: 'Enterprise Architecture',
-    description: 'Designing robust, future-proof technical foundations that grow with your business and handle global scale.',
-    color: 'text-purple-500',
-    bg: 'bg-purple-500/10'
+    num: '03',
+    title: 'Product architecture',
+    desc: 'Planning the technical foundation before a single line of code gets written.',
   },
   {
-    icon: <Rocket className="w-8 h-8" />,
-    title: 'Product Innovation',
-    description: 'Transforming complex visions into intuitive, high-impact digital experiences through strategic design.',
-    color: 'text-orange-500',
-    bg: 'bg-orange-500/10'
+    num: '04',
+    title: 'Idea to launch',
+    desc: 'Taking a rough idea and shipping something people can actually use.',
   },
 ];
 
 export function Services() {
   return (
-    <section id="services" className="py-32 bg-transparent relative overflow-hidden">
-      
-      <div className="container max-w-7xl mx-auto px-6">
-        <div className="max-w-3xl mb-20 space-y-4">
-          <p className="text-sm uppercase tracking-[0.3em] text-primary font-bold">Expertise</p>
-          <h2 className="text-5xl md:text-7xl font-black font-headline tracking-tighter leading-none">
-            ENGINEERING <br /> SOLUTIONS
-          </h2>
-        </div>
-
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {services.map((service, index) => (
-            <div 
-              key={index} 
-              className="group glass-card p-8 rounded-[2rem] flex flex-col items-start gap-8 hover:bg-white/[0.03] transition-all duration-500"
+    <Reveal as="section">
+      <section
+        id="services"
+        className="relative z-[1] mx-auto max-w-[1280px] px-5 py-20 sm:px-8 lg:px-14"
+      >
+        <p className="m-0 mb-3.5 text-[13px] font-bold uppercase tracking-[0.2em] text-[#34c97e]">
+          What I do
+        </p>
+        <h2 className="m-0 mb-12 max-w-[16ch] font-headline text-[clamp(32px,4vw,52px)] font-normal leading-[1.05] text-[#f3f2ee]">
+          Here&apos;s how I can help
+        </h2>
+        <div className="flex flex-col">
+          {services.map((s) => (
+            <div
+              key={s.num}
+              className="grid grid-cols-[80px_1fr] items-baseline gap-6 border-t border-[#f3f2ee]/10 py-8 transition-[padding-left] duration-[350ms] ease-[cubic-bezier(0.16,1,0.3,1)] hover:pl-3.5"
             >
-              <div className={cn(
-                "p-4 rounded-2xl transition-all duration-500 group-hover:scale-110 group-hover:rotate-3",
-                service.bg,
-                service.color
-              )}>
-                {service.icon}
-              </div>
-              
-              <div className="space-y-4">
-                <h3 className="text-2xl font-bold tracking-tight">{service.title}</h3>
-                <p className="text-muted-foreground font-light leading-relaxed">
-                  {service.description}
-                </p>
+              <span className="font-headline text-[22px] text-[#f3f2ee]/35">{s.num}</span>
+              <div className="flex max-w-[70ch] flex-col gap-2">
+                <h3 className="m-0 text-[22px] font-bold text-[#f3f2ee]">{s.title}</h3>
+                <p className="m-0 text-base leading-[1.6] text-[#f3f2ee]/65">{s.desc}</p>
               </div>
             </div>
           ))}
         </div>
-      </div>
-    </section>
+      </section>
+    </Reveal>
   );
 }
