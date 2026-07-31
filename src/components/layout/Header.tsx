@@ -72,7 +72,7 @@ export function Header() {
           <a
             key={link.href}
             href={link.href}
-            className="whitespace-nowrap text-sm font-semibold text-[#f3f2ee]/70 transition-[color,transform] duration-200 ease-out hover:-translate-y-0.5 hover:text-[#34c97e]"
+            className="whitespace-nowrap rounded text-sm font-semibold text-[#f3f2ee]/70 transition-[color,transform] duration-200 ease-out hover:-translate-y-0.5 hover:text-[#34c97e] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#34c97e] focus-visible:ring-offset-2 focus-visible:ring-offset-[#060606]"
           >
             {link.label}
           </a>
