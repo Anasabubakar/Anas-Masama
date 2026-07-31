@@ -34,7 +34,37 @@ export function Booking() {
         </p>
 
         <div className="grid grid-cols-1 gap-px overflow-hidden rounded-3xl border border-[#f3f2ee]/[0.14] bg-[#f3f2ee]/10 md:grid-cols-[minmax(280px,380px)_1fr]">
-          <div className="bg-[#040404]/[0.86] p-5 backdrop-blur-md sm:p-8" />
+          <div className="bg-[#040404]/[0.86] p-5 backdrop-blur-md sm:p-8">
+            <div className="mb-[22px] flex items-center justify-between">
+              <button
+                type="button"
+                onClick={() => setMonthOffset((m) => Math.max(0, m - 1))}
+                className="flex h-[34px] w-[34px] items-center justify-center rounded-full border border-[#f3f2ee]/15 text-[15px] text-[#f3f2ee] transition-[transform,border-color] duration-200 ease-out hover:-translate-x-[3px] hover:border-[#34c97e] active:scale-90"
+              >
+                ←
+              </button>
+              <h3 className="m-0 whitespace-nowrap text-base font-bold text-[#f3f2ee]">
+                {MONTHS[month]} {year}
+              </h3>
+              <button
+                type="button"
+                onClick={() => setMonthOffset((m) => Math.min(2, m + 1))}
+                className="flex h-[34px] w-[34px] items-center justify-center rounded-full border border-[#f3f2ee]/15 text-[15px] text-[#f3f2ee] transition-[transform,border-color] duration-200 ease-out hover:translate-x-[3px] hover:border-[#34c97e] active:scale-90"
+              >
+                →
+              </button>
+            </div>
+            <div className="mb-1.5 grid grid-cols-7 gap-1.5">
+              {WEEKDAYS.map((wd) => (
+                <div
+                  key={wd}
+                  className="text-center text-[10px] font-bold uppercase text-[#f3f2ee]/40"
+                >
+                  {wd}
+                </div>
+              ))}
+            </div>
+          </div>
           <div className="flex min-h-[340px] flex-col justify-center bg-[#040404]/[0.72] p-5 backdrop-blur-md sm:p-9" />
         </div>
       </section>
