@@ -38,9 +38,9 @@ export function Services() {
         <h2 className="m-0 mb-12 max-w-[16ch] font-headline text-[clamp(32px,4vw,52px)] font-normal leading-[1.05] text-[#f3f2ee]">
           Here&apos;s how I can help
         </h2>
-        <div className="flex flex-col">
+        <ol className="m-0 flex list-none flex-col p-0">
           {services.map((s) => (
-            <div
+            <li
               key={s.num}
               className="grid grid-cols-[80px_1fr] items-baseline gap-6 border-t border-[#f3f2ee]/10 py-8 transition-[padding-left] duration-[350ms] ease-[cubic-bezier(0.16,1,0.3,1)] hover:pl-3.5"
             >
@@ -49,9 +49,9 @@ export function Services() {
                 <h3 className="m-0 text-[22px] font-bold text-[#f3f2ee]">{s.title}</h3>
                 <p className="m-0 text-base leading-[1.6] text-[#f3f2ee]/65">{s.desc}</p>
               </div>
-            </div>
+            </li>
           ))}
-        </div>
+        </ol>
       </section>
     </Reveal>
   );
