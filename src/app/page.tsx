@@ -1,6 +1,7 @@
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { Hero } from '@/components/sections/Hero';
+import { CurvedMarquee } from '@/components/sections/CurvedMarquee';
 import { About } from '@/components/sections/About';
 import { Timeline } from '@/components/sections/Timeline';
 import { Labs } from '@/components/sections/Labs';
@@ -14,6 +15,7 @@ export default function Home() {
       <Header />
       <main className="flex-1 pb-[calc(7rem+env(safe-area-inset-bottom))]">
         <Hero />
+        <CurvedMarquee />
         <About />
         <Services />
         <Skills />
