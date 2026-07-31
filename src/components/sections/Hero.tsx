@@ -79,7 +79,7 @@ export function Hero() {
             </a>
             <a
               href="#booking"
-              className="inline-block whitespace-nowrap rounded-full border border-[#f3f2ee]/20 px-[26px] py-3.5 text-sm font-bold text-[#f3f2ee] transition-[transform,border-color,background] duration-200 ease-out hover:-translate-y-[3px] hover:border-[#34c97e] hover:bg-[#34c97e]/[0.08] active:scale-[0.96]"
+              className="inline-block whitespace-nowrap rounded-full border border-[#f3f2ee]/20 px-[26px] py-3.5 text-sm font-bold text-[#f3f2ee] transition-[transform,border-color,background] duration-200 ease-out hover:-translate-y-[3px] hover:border-[#34c97e] hover:bg-[#34c97e]/[0.08] active:scale-[0.96] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#34c97e] focus-visible:ring-offset-2 focus-visible:ring-offset-[#060606]"
             >
               Book a call
             </a>
