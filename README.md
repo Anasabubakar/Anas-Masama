@@ -19,7 +19,7 @@ This is the source code for a high-performance personal portfolio built with **N
 - **AI:** Firebase Genkit with Google Gemini integration
 - **Email:** Resend API for contact form delivery
 - **SEO:** Full JSON-LD structured data, OpenGraph, Twitter Cards, dynamic sitemap, robots.txt, RSS feed
-- **Performance:** Local fonts with `display: swap`, image optimization, minimal client-side JavaScript
+- **Performance:** Google Fonts (Instrument Serif + Manrope) with `display: swap`, image optimization, minimal client-side JavaScript
 - **Accessibility:** Semantic HTML, proper heading hierarchy, ARIA labels, keyboard navigation
 
 ### Featured Projects
