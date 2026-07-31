@@ -43,6 +43,7 @@ export function Header() {
 
   return createPortal(
     <nav
+      aria-label="Primary"
       className={[
         'fixed top-0 left-0 right-0 z-[9999] flex flex-wrap items-center justify-between gap-4 px-5 py-5 backdrop-blur-md transition-[opacity,transform,background,box-shadow] duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] sm:px-8 lg:px-14',
         showChrome ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-4 pointer-events-none',
