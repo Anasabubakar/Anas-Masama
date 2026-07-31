@@ -47,11 +47,13 @@ export function Butler() {
         body: JSON.stringify({ messages: history }),
       });
       const data = await res.json();
+      if (!isMountedRef.current) return;
       setMessages((m) => [...m, { role: 'assistant', content: data.reply || "Sorry, I couldn't reach my brain just now. Try again in a moment." }]);
     } catch {
+      if (!isMountedRef.current) return;
       setMessages((m) => [...m, { role: 'assistant', content: "Sorry, I couldn't reach my brain just now. Try again in a moment." }]);
     } finally {
-      setLoading(false);
+      if (isMountedRef.current) setLoading(false);
     }
   };
 
