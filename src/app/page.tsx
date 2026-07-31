@@ -15,7 +15,7 @@ export default function Home() {
   return (
     <div className="flex flex-col min-h-dvh bg-transparent">
       <Header />
-      <main className="flex-1 pb-[calc(7rem+env(safe-area-inset-bottom))]">
+      <main className="flex-1">
         <Hero />
         <CurvedMarquee />
         <About />
