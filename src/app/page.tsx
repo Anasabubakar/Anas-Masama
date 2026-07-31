@@ -3,7 +3,7 @@ import { Footer } from '@/components/layout/Footer';
 import { Hero } from '@/components/sections/Hero';
 import { About } from '@/components/sections/About';
 import { Timeline } from '@/components/sections/Timeline';
-import { Projects } from '@/components/sections/Projects';
+import { Labs } from '@/components/sections/Labs';
 import { HireMe } from '@/components/sections/HireMe';
 import { Skills } from '@/components/sections/Skills';
 import { Services } from '@/components/sections/Services';
@@ -18,7 +18,7 @@ export default function Home() {
         <Services />
         <Skills />
         <Timeline />
-        <Projects />
+        <Labs />
         <HireMe />
       </main>
       <Footer />
