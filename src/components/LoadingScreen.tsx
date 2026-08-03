@@ -29,7 +29,7 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
   return (
     <div
       className={[
-        "fixed inset-0 z-[100] flex items-center justify-center bg-[#060606]",
+        "fixed inset-0 z-[100] flex items-center justify-center bg-[#0a0a0a]",
         "transition-[opacity,transform] duration-700",
         isExiting ? "opacity-0 scale-[1.04] pointer-events-none" : "opacity-100 scale-100",
       ].join(" ")}
@@ -42,9 +42,9 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
       <div className="relative flex items-center justify-center pb-10 scale-75 md:scale-100">
         {/* Name */}
         <h1
-          className="select-none whitespace-nowrap text-[clamp(2.5rem,8vw,7rem)] font-normal leading-none tracking-tight text-[#f3f2ee]"
+          className="select-none whitespace-nowrap text-[clamp(2.5rem,8vw,7rem)] font-extrabold leading-none tracking-tight text-white"
           style={{
-            fontFamily: "var(--font-headline), serif",
+            fontFamily: "var(--font-syne), sans-serif",
             animation: "nameReveal 1s cubic-bezier(0.16,1,0.3,1) 0.1s forwards",
             opacity: 0,
           }}
@@ -63,7 +63,7 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
           <path
             style={{
               fill: "none",
-              stroke: "#34c97e",
+              stroke: "#6efcb0",
               strokeWidth: 3.5,
               strokeLinecap: "round",
               strokeLinejoin: "round",
@@ -79,8 +79,7 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
         <span
           className="absolute bottom-0 right-0 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-xs font-medium tracking-wider"
           style={{
-            color: "#34c97e",
-            fontFamily: "var(--font-body), sans-serif",
+            color: "#6efcb0",
             animation: "nameReveal 0.45s ease 0.3s forwards",
             opacity: 0,
           }}
