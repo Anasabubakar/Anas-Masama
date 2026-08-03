@@ -1,92 +1,72 @@
 'use client';
 
 import Image from 'next/image';
-import { Button } from '@/components/ui/button';
-import { Download, PieChart, ArrowRight, Github, Linkedin, CheckCircle2, Award } from 'lucide-react';
-import Link from 'next/link';
-import { WhatsappIcon } from '../icons/WhatsappIcon';
-import { SafeHireMeDialog } from '../SafeHireMeDialog';
+import { Reveal } from '@/components/Reveal';
 
 const expertise = [
-  "Advanced System Architecture",
-  "High-Performance Web Apps",
-  "AI & Machine Learning Integration",
-  "Cloud Infrastructure (AWS/GCP)",
-  "Full-Stack Engineering Excellence",
-  "Strategic Technical Leadership"
+  'System architecture',
+  'Web apps',
+  'AI integration',
+  'Cloud infra',
+  'Full-stack engineering',
+  'Technical leadership',
 ];
 
 export function About() {
   return (
-    <section id="about" className="py-32 bg-transparent relative overflow-hidden">
-      <div className="container max-w-7xl mx-auto px-6">
-        <div className="grid lg:grid-cols-2 gap-20 items-center">
-          
-          <div className="relative order-2 lg:order-1">
-             <div className="relative aspect-square max-w-md mx-auto">
-                {/* Glow removed to show Silk background */}
-                <div className="relative h-full w-full rounded-[3rem] overflow-hidden glass-card p-4">
-                <div className="relative h-full w-full rounded-[2.5rem] overflow-hidden">
-                       <Image
-                         src="/images/Lodge.jpg?cache-bust"
-                         alt="Anas Abubakar Masama — Software Engineer working on next-generation digital solutions"
-                         fill
-                         className="object-cover"
-                         unoptimized
-                       />
-                    </div>
-                </div>
-
-                {/* Floating Experience Card */}
-                <div className="absolute -bottom-10 -left-10 glass-card p-8 rounded-3xl max-w-[200px]">
-                    <Award className="w-10 h-10 text-primary mb-4" />
-                    <p className="text-sm font-bold uppercase tracking-widest text-muted-foreground mb-1">Commitment</p>
-                    <p className="text-lg font-black leading-tight">WORLD CLASS QUALITY</p>
-                </div>
-             </div>
+    <Reveal as="section">
+      <section
+        id="about"
+        aria-labelledby="about-heading"
+        className="relative z-[1] mx-auto max-w-[1280px] px-5 py-[100px] sm:px-8 lg:px-14"
+      >
+        <div className="grid items-start gap-16 md:grid-cols-2">
+          <div>
+            <p className="m-0 mb-3.5 text-[13px] font-bold uppercase tracking-[0.2em] text-[#34c97e]">
+              About
+            </p>
+            <h2
+              id="about-heading"
+              className="m-0 mb-6 font-headline text-[clamp(32px,4vw,52px)] font-normal leading-[1.05] text-[#f3f2ee]"
+            >
+              A bit about me
+            </h2>
+            <div className="flex flex-col gap-[18px] text-lg leading-[1.7] text-[#f3f2ee]/80">
+              <p className="m-0">
+                I&apos;ve been writing code for 6 years. I like building things that solve
+                real problems — for students, for founders, for people who just need
+                software that works.
+              </p>
+              <p className="m-0">
+                Outside of client work, I run TeenovateX Labs — a community that helps
+                young people in Lagos and across Africa learn to build. That&apos;s where
+                most of my free time goes.
+              </p>
+            </div>
+            <ul className="m-0 flex list-none flex-wrap gap-3 p-0 pt-7">
+              {expertise.map((item) => (
+                <li
+                  key={item}
+                  className="inline-block rounded-full border border-[#f3f2ee]/[0.14] px-4 py-[9px] text-[13px] font-semibold text-[#f3f2ee]/85 transition-[transform,border-color,background] duration-[250ms] ease-[cubic-bezier(0.34,1.56,0.64,1)] hover:-translate-y-0.5 hover:scale-[1.06] hover:border-[#34c97e] hover:bg-[#34c97e]/[0.08]"
+                >
+                  {item}
+                </li>
+              ))}
+            </ul>
           </div>
-
-          <div className="space-y-12 order-1 lg:order-2">
-            <div className="space-y-6">
-              <p className="text-sm uppercase tracking-[0.3em] text-primary font-bold">The Visionary</p>
-              <h2 className="text-5xl md:text-6xl font-black font-headline tracking-tighter leading-none">
-                BUILDING THE <br /> NEXT ERA
-              </h2>
-              <div className="space-y-6 text-muted-foreground text-xl font-light leading-relaxed">
-                <p>
-                 I’m <span className="text-foreground font-semibold">Anas Abubakar Masama</span>. I don't just write code; I architect solutions that empower the next generation of innovators.
-                </p>
-                <p>
-                My approach combines deep technical expertise with a forward-thinking vision, ensuring every project I touch is built for scale, performance, and long-term impact.
-                </p>
-              </div>
-            </div>
-
-            <div className="grid sm:grid-cols-2 gap-6">
-               {expertise.map((item, i) => (
-                 <div key={i} className="flex items-center gap-3">
-                    <CheckCircle2 className="w-5 h-5 text-primary shrink-0" />
-                    <span className="text-sm font-bold uppercase tracking-widest text-foreground/80">{item}</span>
-                 </div>
-               ))}
-            </div>
-
-            <div className="flex flex-wrap items-center gap-6 pt-6">
-<Button asChild size="lg" className="rounded-full h-14 px-8 font-bold bg-foreground text-background hover:bg-foreground/90">
-                 <a href="https://docs.google.com/document/d/14jyIrbxZq11wVatBQO_skgZATHC38aILMRKStdWHGkI/edit?usp=sharing" target="_blank" rel="noopener noreferrer">
-                   View CV <Download className="ml-2 w-5 h-5" />
-                 </a>
-               </Button>
-              <SafeHireMeDialog>
-                <Button variant="outline" size="lg" className="rounded-full h-14 px-8 font-bold border-white/10 hover:bg-white/5">
-                  Let's Talk <ArrowRight className="ml-2 w-5 h-5" />
-                </Button>
-              </SafeHireMeDialog>
-            </div>
+          <div className="aspect-[4/5] overflow-hidden rounded-[20px] border border-[#f3f2ee]/10">
+            <Image
+              src="/images/Lodge.jpg"
+              alt="Anas Masama"
+              width={800}
+              height={1000}
+              sizes="(max-width: 768px) 100vw, 50vw"
+              className="h-full w-full object-cover transition-transform duration-[600ms] ease-out hover:scale-105"
+              unoptimized
+            />
           </div>
-
         </div>
-      </div>
-    </section>
+      </section>
+    </Reveal>
   );
 }

@@ -43,7 +43,7 @@ export function CursorFollower() {
       className={cn(
         'fixed top-0 left-0 rounded-full pointer-events-none z-[9999] transition-all duration-300',
         'h-[10px] w-[10px]',
-        'bg-green-400/50 shadow-[0_0_10px_#4ade80]',
+        'bg-[#34c97e]/50 shadow-[0_0_10px_#34c97e]',
         {
           'bg-white shadow-[0_0_15px_#ffffff]': cursorType === 'text',
           'opacity-0': !isVisible,

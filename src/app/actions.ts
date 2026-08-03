@@ -30,10 +30,10 @@ export async function submitContactForm(
   const name = formData.get('name') as string;
   const email = formData.get('email') as string;
   const message = formData.get('message') as string;
-  const organization = formData.get('organization') as string | undefined;
-  const role = formData.get('role') as string | undefined;
-  const budget = formData.get('budget') as string | undefined;
-  const timeRange = formData.get('timeRange') as string | undefined;
+  const organization = (formData.get('organization') as string | null) ?? undefined;
+  const role = (formData.get('role') as string | null) ?? undefined;
+  const budget = (formData.get('budget') as string | null) ?? undefined;
+  const timeRange = (formData.get('timeRange') as string | null) ?? undefined;
 
   const validatedFields = contactSchema.safeParse({
     name,

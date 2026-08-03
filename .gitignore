@@ -39,7 +39,11 @@ next-env.d.ts
 
 .genkit/*
 .env*
+!.env*.example
 
 # firebase
 firebase-debug.log
 firestore-debug.log
+
+# local Claude Code dev-server launch config (machine-specific paths)
+/.claude/
