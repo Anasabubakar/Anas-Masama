@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { Reveal } from '@/components/Reveal';
+import { submitBookingRequest } from '@/app/actions';
 import {
   MONTHS,
   WEEKDAYS,
@@ -16,6 +17,8 @@ import {
 
 type BookStep = 'day' | 'time' | 'form' | 'done';
 
+const IDLE_BOOKING_STATE = { message: null, success: false } as const;
+
 export function Booking() {
   const [monthOffset, setMonthOffset] = useState(0);
   const [bookStep, setBookStep] = useState<BookStep>('day');
@@ -27,6 +30,8 @@ export function Booking() {
   const [bookName, setBookName] = useState('');
   const [bookEmail, setBookEmail] = useState('');
   const [bookNote, setBookNote] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [bookingResult, setBookingResult] = useState<{ message: string | null; success: boolean }>(IDLE_BOOKING_STATE);
   const msgTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
@@ -69,11 +74,24 @@ export function Booking() {
     setBookName('');
     setBookEmail('');
     setBookNote('');
+    setBookingResult(IDLE_BOOKING_STATE);
   };
 
-  const confirmBooking = () => {
-    if (!bookName || !bookEmail) return;
-    setBookStep('done');
+  const confirmBooking = async () => {
+    if (!bookName || !bookEmail || !selectedSlot || isSubmitting) return;
+    setIsSubmitting(true);
+    const result = await submitBookingRequest({
+      name: bookName,
+      email: bookEmail,
+      note: bookNote,
+      dateLabel: selectedDateLabel,
+      time: selectedSlot,
+    });
+    setIsSubmitting(false);
+    setBookingResult(result);
+    if (result.success) {
+      setBookStep('done');
+    }
   };
 
   const pickSlot = (time: string) => {
@@ -106,8 +124,8 @@ export function Booking() {
           Pick a day that works
         </h2>
         <p className="m-0 mb-10 max-w-[60ch] text-base leading-[1.6] text-[#f3f2ee]/65">
-          See my real schedule below. Pick a free day, pick a time, and it&apos;s booked — no
-          emails back and forth.
+          Pick a free day, pick a time, and send your details straight to my inbox — I&apos;ll
+          reply to confirm.
         </p>
 
         <div className="grid grid-cols-1 gap-px overflow-hidden rounded-3xl border border-[#f3f2ee]/[0.14] bg-[#f3f2ee]/10 md:grid-cols-[minmax(280px,380px)_1fr]">
@@ -294,10 +312,16 @@ export function Booking() {
                   <button
                     type="button"
                     onClick={confirmBooking}
-                    className="w-fit rounded-full bg-[#f3f2ee] px-5 py-3.5 text-[15px] font-bold text-[#060606] transition-transform duration-200 ease-out hover:-translate-y-0.5 hover:scale-[1.02] active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#34c97e] focus-visible:ring-offset-2 focus-visible:ring-offset-[#060606]"
+                    disabled={isSubmitting || !bookName || !bookEmail}
+                    className="w-fit rounded-full bg-[#f3f2ee] px-5 py-3.5 text-[15px] font-bold text-[#060606] transition-transform duration-200 ease-out hover:-translate-y-0.5 hover:scale-[1.02] active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#34c97e] focus-visible:ring-offset-2 focus-visible:ring-offset-[#060606] disabled:opacity-50 disabled:hover:translate-y-0 disabled:hover:scale-100"
                   >
-                    Confirm booking
+                    {isSubmitting ? 'Sending…' : 'Send booking request'}
                   </button>
+                  {!bookingResult.success && bookingResult.message && (
+                    <p role="status" aria-live="polite" className="m-0 text-sm text-[#f3f2ee]/70">
+                      {bookingResult.message}
+                    </p>
+                  )}
                 </div>
               </div>
             )}
@@ -310,10 +334,10 @@ export function Booking() {
                 >
                   ✓
                 </div>
-                <h3 className="m-0 mb-2 text-xl font-bold text-[#f3f2ee]">You&apos;re booked</h3>
+                <h3 className="m-0 mb-2 text-xl font-bold text-[#f3f2ee]">Request sent</h3>
                 <p className="m-0 mb-[22px] text-[15px] text-[#f3f2ee]/65">
-                  {selectedDateLabel} at {selectedSlot}. A calendar invite is on its way to{' '}
-                  {bookEmail}.
+                  {selectedDateLabel} at {selectedSlot}. I&apos;ll reply to {bookEmail} to
+                  confirm.
                 </p>
                 <button
                   type="button"
