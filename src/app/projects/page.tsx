@@ -128,8 +128,8 @@ const projects = [
     category: 'Fintech • Students',
     description: 'Next-gen financial management for students. Beautiful design meets powerful budgeting tools.',
     tech: ['Next.js', 'Stripe', 'Framer Motion', 'Tailwind'],
-    liveLink: 'https://monieplow-spark.vercel.app',
-    githubLink: 'https://github.com/Anasabubakar/MonieFlow',
+    liveLink: 'https://monieflow.vercel.app',
+    githubLink: undefined as string | undefined,
     image: '/images/projects/monieflow.png',
     icon: <Zap className="w-6 h-6" />,
     color: 'from-violet-500 to-purple-500',
@@ -229,14 +229,16 @@ export default function ProjectsPage() {
                       >
                         Live <ExternalLink className="ml-1 w-3 h-3" aria-hidden="true" />
                       </Link>
-                      <Link
-                        href={project.githubLink}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center text-xs font-bold uppercase tracking-widest text-white/40 hover:text-white/70 transition-colors"
-                      >
-                        <Github className="mr-1 w-3 h-3" aria-hidden="true" /> Code
-                      </Link>
+                      {project.githubLink && (
+                        <Link
+                          href={project.githubLink}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center text-xs font-bold uppercase tracking-widest text-white/40 hover:text-white/70 transition-colors"
+                        >
+                          <Github className="mr-1 w-3 h-3" aria-hidden="true" /> Code
+                        </Link>
+                      )}
                     </div>
                   </div>
                 </article>

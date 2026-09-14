@@ -31,7 +31,7 @@ This is the source code for a high-performance personal portfolio built with **N
 | [EduPeak](https://edupeak-eta.vercel.app) | EdTech / Platform | Next.js, PostgreSQL, Prisma |
 | [Ilmeen](https://ilmeen-mvp.vercel.app) | EdTech / AI | Next.js, Gemini, Firebase |
 | [MarcediVault](https://web3-site-kappa.vercel.app) | Web3 / Finance | Next.js, Web3, TypeScript |
-| [MonieFlow](https://monieplow-spark.vercel.app) | Fintech / Students | Next.js, Stripe |
+| [MonieFlow](https://monieflow.vercel.app) | Fintech / Students | Next.js, Stripe |
 | [Pill-Pal](https://pill-pal-eta.vercel.app) | Healthcare / AI | Next.js, Firebase, Genkit |
 | [Empower-You](https://empower-you.vercel.app) | Wellness / AI | Next.js, Genkit, Recharts |
 
