@@ -34,7 +34,7 @@ export async function POST(req: Request) {
   }
 
   const body = await req.json().catch(() => null);
-  const { start, name, email, notes, timeZone } = body ?? {};
+  const { start, name, email, notes, timeZone, guests } = body ?? {};
 
   if (
     typeof start !== 'string' ||
@@ -43,9 +43,21 @@ export async function POST(req: Request) {
     typeof timeZone !== 'string' ||
     name.trim().length < 2 ||
     !EMAIL_RE.test(email) ||
-    (notes !== undefined && typeof notes !== 'string')
+    (notes !== undefined && typeof notes !== 'string') ||
+    (guests !== undefined && !Array.isArray(guests))
   ) {
     return NextResponse.json({ error: 'Invalid booking details' }, { status: 400 });
+  }
+
+  const cleanGuests: string[] = Array.isArray(guests)
+    ? guests
+        .filter((g): g is string => typeof g === 'string')
+        .map((g) => g.trim())
+        .filter((g) => g.length > 0)
+    : [];
+
+  if (cleanGuests.length > 10 || cleanGuests.some((g) => !EMAIL_RE.test(g) || g.length > 320)) {
+    return NextResponse.json({ error: 'Invalid guest email' }, { status: 400 });
   }
 
   const startDate = new Date(start);
@@ -64,6 +76,7 @@ export async function POST(req: Request) {
       email: email.trim(),
       notes: notes?.trim(),
       timeZone,
+      guests: cleanGuests,
     });
     return NextResponse.json({ booking });
   } catch (err) {

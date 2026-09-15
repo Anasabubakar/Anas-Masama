@@ -46,24 +46,41 @@ export async function getAvailableSlots(startISO: string, endISO: string, timeZo
   return json.data as SlottrSlots;
 }
 
-let cachedEventTypeId: number | null = null;
+export type SlottrEventType = {
+  id: number;
+  title: string;
+  slug: string;
+  lengthInMinutes: number;
+  locations: { type: string; integration?: string; address?: string }[];
+  bookingFields: { slug: string; type: string; required: boolean; label?: string | null }[];
+};
 
-export async function getEventTypeId(): Promise<number> {
-  if (cachedEventTypeId !== null) return cachedEventTypeId;
+let cachedEventType: SlottrEventType | null = null;
+
+// The real /v2/event-types response (apiVersion 2024-06-14) returns a flat
+// array under `data` for a single-user, non-team lookup — not the grouped
+// {eventTypeGroups: [...]} shape some older Cal.com API versions use.
+export async function getEventType(): Promise<SlottrEventType> {
+  if (cachedEventType !== null) return cachedEventType;
   const json = await slottrFetch(`/v2/event-types?username=${USERNAME}`, {
     method: 'GET',
     apiVersion: '2024-06-14',
   });
-  const groups = json.data?.eventTypeGroups ?? [];
-  for (const group of groups) {
-    for (const et of group.eventTypes ?? []) {
-      if (et.slug === EVENT_SLUG) {
-        cachedEventTypeId = et.id as number;
-        return cachedEventTypeId;
-      }
-    }
+  const list: SlottrEventType[] = Array.isArray(json.data)
+    ? json.data
+    : (json.data?.eventTypeGroups ?? []).flatMap(
+        (g: { eventTypes?: SlottrEventType[] }) => g.eventTypes ?? []
+      );
+  const match = list.find((et) => et.slug === EVENT_SLUG);
+  if (!match) {
+    throw new Error(`Slottr event type with slug "${EVENT_SLUG}" not found for user "${USERNAME}"`);
   }
-  throw new Error(`Slottr event type with slug "${EVENT_SLUG}" not found for user "${USERNAME}"`);
+  cachedEventType = match;
+  return match;
+}
+
+export async function getEventTypeId(): Promise<number> {
+  return (await getEventType()).id;
 }
 
 export async function createBooking(input: {
@@ -72,6 +89,7 @@ export async function createBooking(input: {
   email: string;
   notes?: string;
   timeZone: string;
+  guests?: string[];
 }) {
   const eventTypeId = await getEventTypeId();
   const json = await slottrFetch('/v2/bookings', {
@@ -86,6 +104,7 @@ export async function createBooking(input: {
         timeZone: input.timeZone,
         language: 'en',
       },
+      ...(input.guests && input.guests.length > 0 ? { guests: input.guests } : {}),
       // The "main" event type has required custom fields Topic and title
       // (used by its "Event name in calendar" template: {Topic} with
       // {Organiser} and {Scheduler}). The booking form's "what do you want

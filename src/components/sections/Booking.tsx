@@ -12,13 +12,34 @@ import {
 
 type BookStep = 'day' | 'time' | 'form' | 'done';
 type Slots = Record<string, { start: string }[]>;
+type EventInfo = { durationMinutes: number; location: string };
+
+const COMMON_TIMEZONES = [
+  'UTC', 'Africa/Lagos', 'Africa/Cairo', 'Africa/Johannesburg',
+  'Europe/London', 'Europe/Paris', 'Europe/Berlin', 'Europe/Moscow',
+  'America/New_York', 'America/Chicago', 'America/Denver', 'America/Los_Angeles',
+  'America/Sao_Paulo', 'Asia/Dubai', 'Asia/Kolkata', 'Asia/Singapore',
+  'Asia/Shanghai', 'Asia/Tokyo', 'Australia/Sydney', 'Pacific/Auckland',
+];
+
+function getTimezoneOptions(detected: string): string[] {
+  const supported =
+    typeof Intl !== 'undefined' && 'supportedValuesOf' in Intl
+      ? (Intl as unknown as { supportedValuesOf: (key: string) => string[] }).supportedValuesOf('timeZone')
+      : COMMON_TIMEZONES;
+  const list = Array.from(new Set([detected, ...supported]));
+  return list.sort((a, b) => (a === detected ? -1 : b === detected ? 1 : a.localeCompare(b)));
+}
 
 export function Booking() {
-  const timeZone = useMemo(
+  const detectedTimeZone = useMemo(
     () => (typeof Intl !== 'undefined' ? Intl.DateTimeFormat().resolvedOptions().timeZone : 'UTC'),
     []
   );
 
+  const [timeZone, setTimeZone] = useState(detectedTimeZone);
+  const timezoneOptions = useMemo(() => getTimezoneOptions(detectedTimeZone), [detectedTimeZone]);
+  const [eventInfo, setEventInfo] = useState<EventInfo | null>(null);
   const [monthOffset, setMonthOffset] = useState(0);
   const [bookStep, setBookStep] = useState<BookStep>('day');
   const [slots, setSlots] = useState<Slots>({});
@@ -30,8 +51,18 @@ export function Booking() {
   const [bookName, setBookName] = useState('');
   const [bookEmail, setBookEmail] = useState('');
   const [bookNote, setBookNote] = useState('');
+  const [guests, setGuests] = useState<string[]>([]);
+  const [showGuestInput, setShowGuestInput] = useState(false);
+  const [guestDraft, setGuestDraft] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
+
+  useEffect(() => {
+    fetch('/api/booking/event-info')
+      .then((res) => (res.ok ? res.json() : null))
+      .then((data) => data && setEventInfo(data))
+      .catch(() => {});
+  }, []);
 
   const { year, month } = getMonthMeta(monthOffset);
   const weeks = buildCalendarWeeks(monthOffset);
@@ -90,7 +121,21 @@ export function Booking() {
     setBookName('');
     setBookEmail('');
     setBookNote('');
+    setGuests([]);
+    setShowGuestInput(false);
+    setGuestDraft('');
     setSubmitError(null);
+  };
+
+  const addGuest = () => {
+    const email = guestDraft.trim();
+    if (!email || guests.includes(email)) return;
+    setGuests((g) => [...g, email]);
+    setGuestDraft('');
+  };
+
+  const removeGuest = (email: string) => {
+    setGuests((g) => g.filter((e) => e !== email));
   };
 
   const confirmBooking = async () => {
@@ -107,6 +152,7 @@ export function Booking() {
           email: bookEmail,
           notes: bookNote || undefined,
           timeZone,
+          guests,
         }),
       });
       if (!res.ok) {
@@ -139,10 +185,40 @@ export function Booking() {
         >
           Pick a day that works
         </h2>
-        <p className="m-0 mb-10 max-w-[60ch] text-base leading-[1.6] text-[#f3f2ee]/65">
+        <p className="m-0 mb-6 max-w-[60ch] text-base leading-[1.6] text-[#f3f2ee]/65">
           Synced straight to my real calendar — pick a free day, pick a time, and it&apos;s
           locked in immediately, no back-and-forth.
         </p>
+
+        <div className="mb-10 flex flex-wrap items-center gap-x-6 gap-y-3 text-[13px] text-[#f3f2ee]/60">
+          {eventInfo && (
+            <>
+              <span className="inline-flex items-center gap-1.5">
+                <span aria-hidden>⏱</span> {eventInfo.durationMinutes} min
+              </span>
+              {eventInfo.location && (
+                <span className="inline-flex items-center gap-1.5">
+                  <span aria-hidden>📍</span> {eventInfo.location}
+                </span>
+              )}
+            </>
+          )}
+          <label className="inline-flex items-center gap-1.5">
+            <span aria-hidden>🌐</span>
+            <select
+              value={timeZone}
+              onChange={(e) => setTimeZone(e.target.value)}
+              aria-label="Timezone"
+              className="cursor-pointer rounded-md border border-[#f3f2ee]/15 bg-[#040404] px-2 py-1 text-[13px] text-[#f3f2ee]/80 outline-none focus-visible:ring-2 focus-visible:ring-[#34c97e]"
+            >
+              {timezoneOptions.map((tz) => (
+                <option key={tz} value={tz}>
+                  {tz}
+                </option>
+              ))}
+            </select>
+          </label>
+        </div>
 
         {slotsError ? (
           <div className="flex min-h-[200px] w-full flex-col items-center justify-center gap-3 rounded-3xl border border-[#f3f2ee]/[0.14] bg-[#040404]/[0.86] p-8 text-center">
@@ -320,6 +396,61 @@ export function Booking() {
                       rows={3}
                       className="resize-y rounded-xl border border-[#f3f2ee]/15 bg-[#f3f2ee]/5 px-4 py-3.5 text-[15px] text-[#f3f2ee] outline-none focus-visible:ring-2 focus-visible:ring-[#34c97e]"
                     />
+
+                    {guests.length > 0 && (
+                      <ul className="m-0 flex list-none flex-col gap-1.5 p-0">
+                        {guests.map((email) => (
+                          <li
+                            key={email}
+                            className="flex items-center justify-between rounded-lg border border-[#f3f2ee]/10 bg-[#f3f2ee]/[0.03] px-3 py-2 text-[13px] text-[#f3f2ee]/80"
+                          >
+                            {email}
+                            <button
+                              type="button"
+                              onClick={() => removeGuest(email)}
+                              aria-label={`Remove guest ${email}`}
+                              className="ml-2 text-[#f3f2ee]/40 hover:text-[#f3f2ee] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#34c97e]"
+                            >
+                              ✕
+                            </button>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+
+                    {showGuestInput ? (
+                      <div className="flex gap-2">
+                        <input
+                          type="email"
+                          placeholder="Guest email"
+                          value={guestDraft}
+                          onChange={(e) => setGuestDraft(e.target.value)}
+                          onKeyDown={(e) => {
+                            if (e.key === 'Enter') {
+                              e.preventDefault();
+                              addGuest();
+                            }
+                          }}
+                          className="flex-1 rounded-xl border border-[#f3f2ee]/15 bg-[#f3f2ee]/5 px-4 py-3 text-[15px] text-[#f3f2ee] outline-none transition-colors focus:border-[#f3f2ee]/30 focus-visible:ring-2 focus-visible:ring-[#34c97e]"
+                        />
+                        <button
+                          type="button"
+                          onClick={addGuest}
+                          className="whitespace-nowrap rounded-xl border border-[#f3f2ee]/15 px-4 py-3 text-[13px] font-semibold text-[#f3f2ee] transition-colors hover:border-[#34c97e] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#34c97e]"
+                        >
+                          Add
+                        </button>
+                      </div>
+                    ) : (
+                      <button
+                        type="button"
+                        onClick={() => setShowGuestInput(true)}
+                        className="w-fit text-[13px] font-semibold text-[#f3f2ee]/50 underline decoration-dotted underline-offset-4 transition-colors hover:text-[#34c97e] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#34c97e]"
+                      >
+                        + Add guests
+                      </button>
+                    )}
+
                     <button
                       type="button"
                       onClick={confirmBooking}
