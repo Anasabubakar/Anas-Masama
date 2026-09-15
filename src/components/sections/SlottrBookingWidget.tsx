@@ -151,7 +151,7 @@ export function SlottrBookingWidget() {
             id={containerId}
             role="application"
             aria-label="Book a call via Slottr"
-            className="min-h-[650px] w-full overflow-hidden rounded-3xl border border-[#f3f2ee]/[0.14] bg-[#040404]/[0.86]"
+            className="min-h-[650px] w-full"
           />
         )}
       </section>
