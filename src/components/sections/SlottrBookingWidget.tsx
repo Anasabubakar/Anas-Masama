@@ -102,6 +102,25 @@ export function SlottrBookingWidget() {
         theme: 'dark',
         hideEventTypeDetails: false,
         layout: 'month_view',
+        // "theme: dark" only covers the calendar grid — the booking form's
+        // own input fields default to a white background regardless. Cal's
+        // embed CSS-var API is the documented way to reach those.
+        cssVarsPerTheme: {
+          dark: {
+            'cal-bg': '#040404',
+            'cal-bg-emphasis': '#111111',
+            'cal-bg-muted': '#0c0c0c',
+            'cal-border': 'rgba(243,242,238,0.14)',
+            'cal-border-emphasis': 'rgba(243,242,238,0.25)',
+            'cal-border-subtle': 'rgba(243,242,238,0.08)',
+            'cal-text': '#f3f2ee',
+            'cal-text-emphasis': '#f3f2ee',
+            'cal-text-muted': 'rgba(243,242,238,0.6)',
+            'cal-brand': '#34c97e',
+            'cal-brand-emphasis': '#2ba86a',
+            'cal-brand-text': '#060606',
+          },
+        },
       });
     } catch (err) {
       console.error('Slottr embed failed to initialize:', err);
