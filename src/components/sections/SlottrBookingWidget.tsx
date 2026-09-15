@@ -9,7 +9,7 @@ import { Reveal } from '@/components/Reveal';
 // NEXT_PUBLIC_EMBED_LIB_URL in Slottr's own env config.
 
 const WEBAPP_URL = process.env.NEXT_PUBLIC_SLOTTR_WEBAPP_URL || '';
-const EVENT_SLUG = process.env.NEXT_PUBLIC_SLOTTR_EVENT_SLUG || 'anasmasama/30min';
+const EVENT_SLUG = process.env.NEXT_PUBLIC_SLOTTR_EVENT_SLUG || 'anasmasama/main';
 const NAMESPACE = 'ask-my-butler';
 
 function isConfigured() {
