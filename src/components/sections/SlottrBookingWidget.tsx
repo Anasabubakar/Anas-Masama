@@ -110,7 +110,7 @@ export function SlottrBookingWidget() {
         // by the CSS vars below (page-level background outside the card)
         // falls back to this.
         styles: {
-          body: { background: '#040404' },
+          body: { background: 'transparent' },
         },
         // "theme: dark" only covers the calendar grid — the booking form's
         // own input fields default to a white background regardless. Cal's
