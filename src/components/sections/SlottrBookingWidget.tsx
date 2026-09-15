@@ -40,20 +40,41 @@ function loadCalEmbed(webappUrl: string) {
   if (typeof window === 'undefined') return;
   if (window.Cal) return;
 
-  // Mirrors Cal.com's standard embed snippet, pointed at the self-hosted
-  // instance's own embed.js instead of app.cal.com's.
+  // Faithful port of Cal.com's official embed snippet. The `cal` function
+  // must synchronously create a queueing function at `cal.ns[namespace]` on
+  // the "init" call — the real embed.js (loaded async below) later replaces
+  // these queues with live implementations. A naive reimplementation that
+  // leaves `ns` as a plain {} makes `Cal.ns[NAMESPACE](...)` throw
+  // (calling undefined), which silently unmounts this whole section.
   const w = window as Window & { Cal?: any };
-  const global: any = function (...args: unknown[]) {
-    (global.q = global.q || []).push(args);
-  };
-  global.loaded = false;
-  global.ns = {};
-  w.Cal = global;
+  const scriptSrc = `${webappUrl.replace(/\/$/, '')}/embed/embed.js`;
 
-  const script = document.createElement('script');
-  script.src = `${webappUrl.replace(/\/$/, '')}/embed/embed.js`;
-  script.async = true;
-  document.head.appendChild(script);
+  const cal: any = function (...args: unknown[]) {
+    if (!cal.loaded) {
+      cal.ns = {};
+      cal.q = cal.q || [];
+      document.head.appendChild(document.createElement('script')).src = scriptSrc;
+      cal.loaded = true;
+    }
+    if (args[0] === 'init') {
+      const namespace = args[1];
+      if (typeof namespace === 'string') {
+        const nsApi: any = function (...nsArgs: unknown[]) {
+          nsApi.q.push(nsArgs);
+        };
+        nsApi.q = [];
+        cal.ns[namespace] = cal.ns[namespace] || nsApi;
+        cal.ns[namespace].q.push(args);
+        cal.q.push(['initNamespace', namespace]);
+      } else {
+        cal.q.push(args);
+      }
+      return;
+    }
+    cal.q.push(args);
+  };
+
+  w.Cal = cal;
 }
 
 export function SlottrBookingWidget() {
@@ -88,9 +109,8 @@ export function SlottrBookingWidget() {
     }
   }, [containerId]);
 
-  // Not configured yet (or failed to load) — render nothing rather than a
-  // broken/empty booking block on the live site.
-  if (!isConfigured() || failed) {
+  // Not configured at all (no webapp URL) — nothing sensible to show.
+  if (!isConfigured()) {
     return null;
   }
 
@@ -114,12 +134,26 @@ export function SlottrBookingWidget() {
           Synced straight to my calendar — pick a time and it&apos;s locked in immediately,
           no back-and-forth.
         </p>
-        <div
-          id={containerId}
-          role="application"
-          aria-label="Book a call via Slottr"
-          className="min-h-[650px] w-full overflow-hidden rounded-3xl border border-[#f3f2ee]/[0.14] bg-[#040404]/[0.86]"
-        />
+        {failed ? (
+          <div className="flex min-h-[200px] w-full flex-col items-center justify-center gap-3 rounded-3xl border border-[#f3f2ee]/[0.14] bg-[#040404]/[0.86] p-8 text-center">
+            <p className="m-0 text-[15px] text-[#f3f2ee]/70">
+              The live calendar didn&apos;t load. Email me directly instead —
+            </p>
+            <a
+              href="mailto:anasabubakar7000@gmail.com"
+              className="rounded-full bg-[#f3f2ee] px-5 py-2.5 text-[13px] font-bold text-[#060606] transition-transform duration-200 ease-out hover:-translate-y-0.5 hover:scale-[1.03]"
+            >
+              anasabubakar7000@gmail.com
+            </a>
+          </div>
+        ) : (
+          <div
+            id={containerId}
+            role="application"
+            aria-label="Book a call via Slottr"
+            className="min-h-[650px] w-full overflow-hidden rounded-3xl border border-[#f3f2ee]/[0.14] bg-[#040404]/[0.86]"
+          />
+        )}
       </section>
     </Reveal>
   );
