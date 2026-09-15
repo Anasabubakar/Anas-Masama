@@ -23,55 +23,6 @@ export type FormState = {
   success: boolean;
 };
 
-const bookingSchema = z.object({
-  name: z.string().min(2, { message: 'Name must be at least 2 characters.' }),
-  email: z.string().email({ message: 'Please enter a valid email address.' }),
-  note: z.string().optional(),
-  dateLabel: z.string().min(1),
-  time: z.string().min(1),
-});
-
-export type BookingState = {
-  message: string | null;
-  success: boolean;
-};
-
-export async function submitBookingRequest(
-  input: { name: string; email: string; note?: string; dateLabel: string; time: string }
-): Promise<BookingState> {
-  const validated = bookingSchema.safeParse(input);
-
-  if (!validated.success) {
-    return { message: 'Please fill in your name and a valid email.', success: false };
-  }
-
-  if (!process.env.RESEND_API_KEY) {
-    console.error('Missing RESEND_API_KEY environment variable. Booking email not sent.');
-    return { message: 'Booking service is not configured. Please email me directly.', success: false };
-  }
-
-  const { name, email, note, dateLabel, time } = validated.data;
-
-  try {
-    const resend = new Resend(process.env.RESEND_API_KEY);
-    await resend.emails.send({
-      from: 'Portfolio Booking <onboarding@resend.dev>',
-      to: 'anasabubakar7000@gmail.com',
-      reply_to: email,
-      subject: `Booking request: ${name} — ${dateLabel} at ${time}`,
-      html: `<p><strong>${name}</strong> (${email}) requested a call.</p>
-        <p><strong>When:</strong> ${dateLabel} at ${time}</p>
-        ${note ? `<p><strong>Note:</strong><br/>${note}</p>` : ''}
-        <p>This slot is not auto-confirmed — reply to ${email} to lock it in.</p>`,
-    });
-
-    return { message: 'Request sent. I\'ll confirm by email shortly.', success: true };
-  } catch (error) {
-    console.error('Booking email sending error:', error);
-    return { message: 'Something went wrong sending your request. Please try again or email me directly.', success: false };
-  }
-}
-
 export async function submitContactForm(
   prevState: FormState,
   formData: FormData
