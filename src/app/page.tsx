@@ -7,7 +7,7 @@ import { Services } from '@/components/sections/Services';
 import { Skills } from '@/components/sections/Skills';
 import { Timeline } from '@/components/sections/Timeline';
 import { Labs } from '@/components/sections/Labs';
-import { SlottrBookingWidget } from '@/components/sections/SlottrBookingWidget';
+import { Booking } from '@/components/sections/Booking';
 import { Contact } from '@/components/sections/Contact';
 import { Butler } from '@/components/Butler';
 
@@ -23,7 +23,7 @@ export default function Home() {
         <Skills />
         <Timeline />
         <Labs />
-        <SlottrBookingWidget />
+        <Booking />
         <Contact />
       </main>
       <Footer />
