@@ -102,6 +102,16 @@ export function SlottrBookingWidget() {
         theme: 'dark',
         hideEventTypeDetails: false,
         layout: 'month_view',
+        // Deprecated in favor of cssVarsPerTheme, but it does one thing
+        // cssVarsPerTheme can't reach reliably: it directly sets
+        // document.body.style.background inside the iframe (see
+        // methods.ui in embed-iframe.ts), sidestepping the app's own
+        // dark-mode CSS-class cascade entirely. Whatever is left uncovered
+        // by the CSS vars below (page-level background outside the card)
+        // falls back to this.
+        styles: {
+          body: { background: '#040404' },
+        },
         // "theme: dark" only covers the calendar grid — the booking form's
         // own input fields default to a white background regardless. Cal's
         // embed CSS-var API is the documented way to reach those.
