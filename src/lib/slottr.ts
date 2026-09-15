@@ -86,7 +86,16 @@ export async function createBooking(input: {
         timeZone: input.timeZone,
         language: 'en',
       },
-      bookingFieldsResponses: input.notes ? { notes: input.notes } : undefined,
+      // The "main" event type has required custom fields Topic and title
+      // (used by its "Event name in calendar" template: {Topic} with
+      // {Organiser} and {Scheduler}). The booking form's "what do you want
+      // to talk about" textarea supplies this — reuse it for both, falling
+      // back to a generic label if left blank.
+      bookingFieldsResponses: {
+        Topic: input.notes || 'Quick chat',
+        title: input.notes || 'Quick chat',
+        ...(input.notes ? { notes: input.notes } : {}),
+      },
     }),
   });
   return json.data;
