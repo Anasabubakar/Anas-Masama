@@ -9,8 +9,17 @@ import { Reveal } from '@/components/Reveal';
 // NEXT_PUBLIC_EMBED_LIB_URL in Slottr's own env config.
 
 const WEBAPP_URL = process.env.NEXT_PUBLIC_SLOTTR_WEBAPP_URL || '';
-const EVENT_SLUG = process.env.NEXT_PUBLIC_SLOTTR_EVENT_SLUG || 'anasmasama/main';
+const SLOTTR_USERNAME = 'anasmasama';
 const NAMESPACE = 'ask-my-butler';
+
+// calLink must be "username/event-slug" (it's literally the URL path).
+// Accept either just the slug (e.g. "main") or the full path (e.g.
+// "anasmasama/main") from the env var so a misconfigured value doesn't
+// silently 404 the embed.
+const RAW_EVENT_SLUG = process.env.NEXT_PUBLIC_SLOTTR_EVENT_SLUG || 'main';
+const EVENT_SLUG = RAW_EVENT_SLUG.includes('/')
+  ? RAW_EVENT_SLUG
+  : `${SLOTTR_USERNAME}/${RAW_EVENT_SLUG}`;
 
 function isConfigured() {
   return Boolean(WEBAPP_URL) && !WEBAPP_URL.includes('localhost');
