@@ -5,7 +5,7 @@ const KEY_URL = `https://${HOST}/.well-known/indexnow.txt`;
 // Pages currently in the sitemap. Update this list as you add routes.
 const URLS = [
   'https://anasmasama.dev/',
-  'https://anasmasama.dev/projects',
+  'https://anasmasama.dev/labs',
 ];
 
 async function submit() {

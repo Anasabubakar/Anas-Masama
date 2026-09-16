@@ -2,233 +2,282 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowLeft, ArrowRight, ExternalLink, Github, Code2, Layers, Zap, Globe, Brain, Wallet, GraduationCap, Heart, Pill, Sparkles } from 'lucide-react';
+import { ArrowLeft, ArrowRight, ExternalLink, Github, Globe } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
-import { cn } from '@/lib/utils';
 
+// Ranked best-to-least by Anas. Entries without a screenshot render a
+// typographic monogram card instead of an <img>.
 const projects = [
   {
-    id: 'jackpal',
-    title: 'JackPal',
-    tagline: 'Student-first audio learning platform',
-    category: 'EdTech • AI',
-    description: 'JackPal is a student-first audio learning platform built for the Nigerian and African student market. Students can upload academic documents (PDFs, Word docs, text), convert them to natural-sounding audio using AI, and play them back offline — with content protection to prevent piracy.',
-    fullDescription: 'Students struggle with large volumes of academic reading due to limited time, reading fatigue, visual strain, and the high cost of existing audio tools. JackPal solves this by letting students upload their academic documents, converting them to natural-sounding audio using AI, and playing them back offline — with content protection so files cannot be shared or pirated.',
-    tech: ['Next.js', 'TypeScript', 'AI', 'Firebase', 'Genkit'],
-    liveLink: 'https://jackpal.vercel.app',
-    githubLink: 'https://github.com/Anasabubakar/JackPal',
-    image: '/images/jackpal.png',
-    icon: <Brain className="w-6 h-6" />,
-    color: 'from-blue-500 to-cyan-500',
+    title: 'Slottr',
+    category: 'Scheduling / Open Source',
+    description: 'Independent open-source scheduling platform, originally forked from Cal.com.',
+    image: '/images/slottr.png',
+    liveLink: 'https://slottr.anasmasama.dev',
+    githubLink: 'https://github.com/Anasabubakar/slottr',
   },
   {
-    id: 'teenovatex',
-    title: 'TeenovateX Labs',
-    tagline: 'Empowering the next generation of African creators',
-    category: 'NGO • Community',
-    description: 'TeenovateX Labs is a cutting-edge platform designed to empower the next generation of innovators. Combining advanced AI assistance (Le AI), immersive "MAD" designs, and a vibrant community, we provide the ultimate ecosystem for teens to learn, build, and grow.',
-    fullDescription: 'TeenovateX Labs is a cutting-edge platform designed to empower the next generation of innovators. Combining advanced AI assistance, immersive "MAD" designs, and a vibrant community, we provide the ultimate ecosystem for teens to learn, build, and grow. Features include Lexy AI (your personal coding companion), MAD Dashboard (visually stunning command center), Learn & Grow (curated learning paths), and Community & Trending (connect with like-minded teen innovators).',
-    tech: ['Next.js', 'Firebase', 'Auth', 'React', 'AI'],
+    title: 'Morrow',
+    category: 'Fintech / Payments Infra',
+    description: 'Device-to-device transaction infrastructure — optical protocol, BMONI settlement, offline-signed Morrow Reserve payments.',
+    image: '/images/morrow.jpg',
+    githubLink: 'https://github.com/Anasabubakar/morrow',
+  },
+  {
+    title: 'Agent Swarm',
+    category: 'Dev Tools / CLI',
+    description: 'Engine-agnostic multi-agent orchestrator from the terminal. Works with any CLI agent.',
+    image: '/images/swarm.png',
+    liveLink: 'https://www.npmjs.com/package/@anas.abubakar/swarm',
+    githubLink: 'https://github.com/Anasabubakar/agent-swarm',
+  },
+  {
+    title: 'Glance',
+    category: 'Desktop AI',
+    description: 'Open-source AI desktop companion that sees your screen, points at things, and acts on them. Windows + Linux.',
+    image: '/images/glance.png',
+    liveLink: 'https://tryglance.vercel.app',
+    githubLink: 'https://github.com/Anasabubakar/glance',
+  },
+  {
+    title: 'MoreMur',
+    category: 'Community / Anonymous Feeds',
+    description: 'Anonymous, organisation-scoped discussion and community intelligence platform.',
+    image: '/images/moremur.png',
+    liveLink: 'https://moremur.vercel.app',
+    githubLink: 'https://github.com/Anasabubakar/MoreMur',
+  },
+  {
+    title: 'Anas Masama',
+    category: 'Portfolio / Personal Site',
+    description: 'This site — Next.js, live Slottr-backed scheduling, AI chat widget, deployed end to end.',
+    image: '/images/anas-masama-og.png',
+    liveLink: 'https://anasmasama.dev',
+    githubLink: 'https://github.com/Anasabubakar/Anas-Masama',
+  },
+  {
+    title: 'Timeless',
+    category: 'AI Agents / Sponsorship',
+    description: 'Multi-tenant sponsorship intelligence platform powered by specialized AI agents.',
+    image: '/images/timeless.png',
+    liveLink: 'https://timeless-udc.vercel.app',
+    githubLink: 'https://github.com/Anasabubakar/Timeless',
+  },
+  {
+    title: 'Swarm HQ',
+    category: 'AI Agent Dashboard',
+    description: 'Virtual company dashboard for 257 AI agents.',
+    liveLink: 'https://swarm-hq.vercel.app',
+    githubLink: 'https://github.com/Anasabubakar/swarm-hq',
+  },
+  {
+    title: 'Podreach',
+    category: 'AI / Podcast Outreach',
+    description: 'Finds podcast episodes featuring a person, downloads the audio, transcribes it, and drafts a personalized outreach email.',
+    githubLink: 'https://github.com/Anasabubakar/podreach',
+  },
+  {
+    title: 'CipherVault',
+    category: 'Security / Encrypted Notes',
+    description: 'Encrypted notepad — E2E AES-256, zero-knowledge, PWA, self-hostable.',
+    liveLink: 'https://ciphervault-alpha.vercel.app',
+    githubLink: 'https://github.com/Anasabubakar/CipherVault',
+  },
+  {
+    title: 'TeenovateX',
+    category: 'NGO / Community',
+    description: 'A community helping young Africans turn ideas into working products.',
+    image: '/images/teenovatex.png',
     liveLink: 'https://teenovatex.org',
     githubLink: 'https://github.com/Anasabubakar/TeenovateX-Labs',
-    image: '/images/teenovatex.png',
-    icon: <GraduationCap className="w-6 h-6" />,
-    color: 'from-purple-500 to-pink-500',
   },
   {
-    id: 'marcedivault',
+    title: 'JackPal',
+    category: 'EdTech / AI',
+    description: 'Student-first audio learning platform — converts academic documents to natural-sounding audio.',
+    image: '/images/jackpal.png',
+    liveLink: 'https://jackpal.vercel.app',
+  },
+  {
     title: 'MarcediVault',
-    tagline: 'Multi-chain custodial wallet frontend',
-    category: 'Web3 • Finance',
-    description: 'MarcediVault is a multi-chain custodial wallet frontend featuring a production-quality, responsive interface with a luxury minimalist aesthetic.',
-    fullDescription: 'MarcediVault by Xentrius is a Next.js application for a multi-chain custodial wallet frontend. It features a production-quality, responsive interface with a luxury minimalist aesthetic.',
-    tech: ['Next.js', 'Web3', 'TypeScript', 'Tailwind'],
-    liveLink: 'https://web3-site-kappa.vercel.app/',
-    githubLink: 'https://github.com/Anasabubakar/Web3-Site',
+    category: 'Web3 / Finance',
+    description: 'Multi-chain custodial wallet frontend with a production-quality, luxury minimalist interface.',
     image: '/images/marcedivault.png',
-    icon: <Wallet className="w-6 h-6" />,
-    color: 'from-orange-500 to-red-500',
+    liveLink: 'https://web3-site-kappa.vercel.app',
+    githubLink: 'https://github.com/Anasabubakar/Web3-Site',
   },
   {
-    id: 'kinzoku',
     title: 'Kinzoku Blueprint Forge',
-    tagline: 'Professional industrial prototyping tool',
-    category: 'Platform • AI',
-    description: 'Kinzoku Blueprint Forge is a professional industrial prototyping tool that generates detailed technical specifications and photorealistic blueprints using AI.',
-    fullDescription: 'Kinzoku Blueprint Forge is a professional industrial prototyping tool designed to generate detailed technical specifications and photorealistic blueprints. Key features include The Forge (uses Gemini to generate precise engineering specs and Imagen to render 8K-quality technical drawings), Reverse Engineering (analyzes existing designs), Interactive Editor (manually refine AI-generated specs), and AI Assistant (built-in chat for brainstorming).',
-    tech: ['Next.js', 'React', 'Gemini', 'Imagen'],
-    liveLink: 'https://ai.studio.apps/drive/17n6l3RtYoq5LYqpcpOA4OjjUc7F2tsQc?fullscreenApplet=true',
-    githubLink: 'https://github.com/Anasabubakar/Kinzoku-Blueprint-Forge',
+    category: 'AI / Manufacturing Tools',
+    description: 'Industrial prototyping tool that generates detailed technical specs and photorealistic blueprints using Gemini and Imagen.',
     image: '/images/kinzoku.png',
-    icon: <Sparkles className="w-6 h-6" />,
-    color: 'from-slate-500 to-zinc-500',
+    githubLink: 'https://github.com/Anasabubakar/Kinzoku-Blueprint-Forge',
   },
   {
-    id: 'edupeak',
     title: 'EduPeak',
-    tagline: 'Modern Learning Management System',
-    category: 'EdTech • Platform',
-    description: 'EduPeak is a modern, feature-rich Learning Management System designed to provide a resilient and engaging educational experience with offline-first architecture.',
-    fullDescription: 'EDUPEAK is a modern, feature-rich Learning Management System (LMS) designed to provide a resilient and engaging educational experience for both students and teachers. Built with a robust, offline-first architecture, it ensures learning never stops. Features distinct portals for students and teachers with personalized learning paths, gamified quizzes, powerful analytics, and content curation tools.',
-    tech: ['Next.js', 'TypeScript', 'PostgreSQL', 'Prisma', 'Tailwind', 'ShadCN'],
-    liveLink: 'https://edupeak-eta.vercel.app/',
-    githubLink: 'https://github.com/Anasabubakar/Edupeak',
+    category: 'EdTech / Platform',
+    description: 'Modern, offline-first Learning Management System with gamified quizzes and analytics.',
     image: '/images/edupeak.png',
-    icon: <Layers className="w-6 h-6" />,
-    color: 'from-green-500 to-emerald-500',
+    liveLink: 'https://edupeak-eta.vercel.app',
+    githubLink: 'https://github.com/Anasabubakar/Edupeak',
   },
   {
-    id: 'ilmeen',
-    title: 'Ilmeen',
-    tagline: 'AI Companion for Mastering Quranic Arabic',
-    category: 'EdTech • AI',
-    description: 'Ilmeen is a revolutionary AI-powered web application that transforms any Arabic text into an interactive and engaging learning experience.',
-    fullDescription: 'Ilmeen is a revolutionary, AI-powered web application designed to help learners, especially African Muslims, master the Arabic language. By combining cutting-edge AI with pedagogical techniques inspired by traditional Islamic education, Ilmeen transforms any Arabic text into an interactive learning experience. Features include Scan & Learn, 24/7 AI Mentor with voice dialogue, Deep Understanding Engine with grammar annotations, Smart Memorization Mode, and Gamified Learning Journey.',
-    tech: ['Next.js', 'Framer Motion', 'Tailwind', 'React', 'Gemini', 'Genkit', 'Firebase'],
-    liveLink: 'https://ilmeen-mvp.vercel.app',
-    githubLink: 'https://github.com/Anasabubakar/Ilmeen',
-    image: '/images/ilmeen.png',
-    icon: <Code2 className="w-6 h-6" />,
-    color: 'from-rose-500 to-pink-500',
-  },
-  {
-    id: 'empower-you',
-    title: 'Empower-You',
-    tagline: 'Personal AI Companion for Growth & Well-being',
-    category: 'Wellness • AI',
-    description: 'EmpowerYou is a holistic, private, and AI-enhanced application designed to be a sanctuary for your thoughts, goals, and personal well-being.',
-    fullDescription: 'EmpowerYou is a holistic, private, and AI-enhanced application designed to be a sanctuary for your thoughts, goals, and personal well-being. It\'s a comprehensive tool for promoting self-awareness, organization, and growth, with all data stored securely and privately on your device. Features include Dashboard Overview, Wants & Needs Tracker, Menstrual Cycle Tracker, Task Manager, Health Metrics Logger, Daily Diary with AI summaries, AI Companion, and Personalized Insights.',
-    tech: ['Next.js', 'TypeScript', 'Tailwind', 'ShadCN', 'Genkit', 'Recharts'],
-    liveLink: 'https://empower-you.vercel.app/',
-    githubLink: 'https://github.com/Anasabubakar/EmpowerYou',
-    image: '/images/projects/empoweryou.png',
-    icon: <Heart className="w-6 h-6" />,
-    color: 'from-yellow-500 to-orange-500',
-  },
-  {
-    id: 'pill-pal',
     title: 'Pill-Pal',
-    tagline: 'AI-Powered Medication Reminder',
-    category: 'Healthcare • AI',
-    description: 'Pill-Pal is a modern, AI-powered web application designed to help users manage their medication schedules, track adherence, and gain insights.',
-    fullDescription: 'Pill-Pal is a modern, AI-powered web application designed to help users manage their medication schedules, track their adherence, and gain insights into their habits. Features include onboarding experience, secure authentication, medication management, daily dashboard, adherence tracking, medication logs with CSV export, AI-powered insights, responsive design, and light/dark mode.',
-    tech: ['Next.js', 'TypeScript', 'AI', 'Firebase', 'Genkit', 'Framer Motion', 'ShadCN', 'React Hook Form', 'Zod'],
-    liveLink: 'https://pill-pal-eta.vercel.app/',
-    githubLink: 'https://github.com/Anasabubakar/Pill-Pal',
+    category: 'Healthcare / AI',
+    description: 'AI-powered medication reminder and adherence tracker.',
     image: '/images/projects/pillpal.png',
-    icon: <Pill className="w-6 h-6" />,
-    color: 'from-teal-500 to-cyan-500',
+    liveLink: 'https://pill-pal-eta.vercel.app',
+    githubLink: 'https://github.com/Anasabubakar/Pill-Pal',
   },
   {
-    id: 'monieflow',
-    title: 'MonieFlow',
-    tagline: 'Student finance, reimagined',
-    category: 'Fintech • Students',
-    description: 'Next-gen financial management for students. Beautiful design meets powerful budgeting tools.',
-    tech: ['Next.js', 'Stripe', 'Framer Motion', 'Tailwind'],
-    liveLink: 'https://monieflow.vercel.app',
-    githubLink: undefined as string | undefined,
-    image: '/images/projects/monieflow.png',
-    icon: <Zap className="w-6 h-6" />,
-    color: 'from-violet-500 to-purple-500',
+    title: 'Ilmeen',
+    category: 'EdTech / AI',
+    description: 'AI companion for mastering Quranic Arabic — transforms any Arabic text into an interactive lesson.',
+    image: '/images/ilmeen.png',
+    liveLink: 'https://ilmeen-rose.vercel.app',
+    githubLink: 'https://github.com/Anasabubakar/Ilmeen',
+  },
+  {
+    title: 'EmpowerYou',
+    category: 'Wellness / AI',
+    description: 'A private, AI-enhanced sanctuary for your thoughts, goals, and personal well-being.',
+    image: '/images/projects/empoweryou.png',
+    liveLink: 'https://empower-you.vercel.app',
+    githubLink: 'https://github.com/Anasabubakar/EmpowerYou',
+  },
+  {
+    title: 'AOS-Swarm-Landing',
+    category: 'Landing Page',
+    description: 'Landing page (v1) for AOS and Swarm.',
+    liveLink: 'https://aos-swarm-landing.vercel.app',
+    githubLink: 'https://github.com/Anasabubakar/AOS-Swarm-Landing',
+  },
+  {
+    title: 'Anas Claude Train',
+    category: 'Architecture Notes',
+    description: 'Comprehensive Claude Code architecture analysis — every file studied, patterns documented.',
+    githubLink: 'https://github.com/Anasabubakar/Anas-Claude-Train',
+  },
+  {
+    title: 'GitSync',
+    category: 'Dev Tools / Sync',
+    description: 'Sync your repo with your portfolio.',
+    githubLink: 'https://github.com/Anasabubakar/GitSync',
+  },
+  {
+    title: 'OffScript News',
+    category: 'AI / News Briefs',
+    description: 'Get a detailed, latest news brief.',
+    githubLink: 'https://github.com/Anasabubakar/OffScript-News',
+  },
+  {
+    title: 'Five Minutes Left',
+    category: 'Browser Game',
+    description: 'A small browser game built for Hack Club’s Campfire Flagship, exploring slow progress and consistency.',
+    githubLink: 'https://github.com/Anasabubakar/Five-Minutes-Left',
   },
 ];
 
-export default function ProjectsPage() {
+function monogram(title: string): string {
+  const words = title.split(/[\s-]+/).filter(Boolean);
+  return words.length > 1 ? (words[0][0] + words[1][0]).toUpperCase() : title.slice(0, 2).toUpperCase();
+}
+
+export default function LabsPage() {
   return (
     <div className="flex flex-col min-h-screen bg-transparent">
       <Header />
-      
+
       <main className="flex-1 pt-32 pb-20">
         <div className="container max-w-7xl mx-auto px-6">
-          
-          {/* Header Section */}
+
           <div className="mb-16 space-y-6">
-            <Link 
-              href="/" 
+            <Link
+              href="/"
               className="inline-flex items-center text-sm font-bold uppercase tracking-widest text-primary hover:opacity-70 transition-opacity"
             >
               <ArrowLeft className="mr-2 w-4 h-4" /> Back to Home
             </Link>
-            
+
             <div className="space-y-4">
               <p className="text-sm uppercase tracking-[0.3em] text-primary font-bold">Full Portfolio</p>
               <h1 className="text-5xl md:text-7xl font-black font-headline tracking-tighter leading-none">
-                ALL <br /> PROJECTS
+                MY <br /> LABS
               </h1>
             </div>
             <p className="text-white/70 max-w-2xl text-xl font-light leading-relaxed">
-              A comprehensive archive of my technical journey. From enterprise solutions to experimental prototypes — each project represents a step forward in my evolution as a builder.
+              Every project I&apos;ve built, ranked best to least. From production tools people
+              actually use to weekend experiments — each one taught me something.
             </p>
           </div>
 
-          {/* All Projects Grid */}
           <div className="mb-16">
-            <h3 className="text-2xl font-bold mb-8 flex items-center gap-3">
-              <Layers className="w-6 h-6 text-primary" aria-hidden="true" />
-              All Projects
-            </h3>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {projects.map((project) => (
+              {projects.map((project, i) => (
                 <article
-                  key={project.id}
+                  key={project.title}
                   className="group glass-card rounded-[2rem] overflow-hidden hover:bg-white/[0.05] transition-all duration-500"
                 >
-                  {/* Project Image */}
                   <div className="relative aspect-video overflow-hidden">
+                    <span className="absolute left-4 top-4 z-10 rounded-full bg-black/60 px-3 py-1 text-xs font-bold text-primary backdrop-blur-sm">
+                      #{i + 1}
+                    </span>
                     {project.image ? (
                       <Image
                         src={project.image}
-                        alt={`${project.title} — ${project.tagline}. Built by Anas Masama using ${project.tech.join(', ')}`}
+                        alt={`${project.title} — ${project.description}`}
                         fill
                         className="object-cover transition-transform duration-700 group-hover:scale-105"
                         unoptimized
                       />
                     ) : (
-                      <div className={cn(
-                        "absolute inset-0 bg-gradient-to-br",
-                        project.color
-                      )} />
+                      <div
+                        className="absolute inset-0 flex items-center justify-center"
+                        style={{
+                          background:
+                            'radial-gradient(120% 140% at 30% 20%, rgba(52,201,126,.22), transparent 60%), #0a0a0a',
+                          backgroundImage:
+                            'linear-gradient(rgba(243,242,238,.05) 1px, transparent 1px), linear-gradient(90deg, rgba(243,242,238,.05) 1px, transparent 1px)',
+                          backgroundSize: '18px 18px',
+                        }}
+                      >
+                        <span
+                          className="select-none font-headline text-[56px] leading-none"
+                          style={{ color: 'rgba(52,201,126,.35)' }}
+                          aria-hidden="true"
+                        >
+                          {monogram(project.title)}
+                        </span>
+                      </div>
                     )}
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
                   </div>
-                  
-                  {/* Project Content */}
+
                   <div className="p-6">
-                    {/* Category */}
                     <span className="text-[10px] uppercase tracking-widest text-primary font-bold mb-3 block">
-                      {project.category.split('•')[0].trim()}
+                      {project.category}
                     </span>
-                    
-                    {/* Title & Description */}
+
                     <h2 className="text-xl font-bold tracking-tight mb-2 group-hover:text-primary transition-colors">
                       {project.title}
                     </h2>
-                    <p className="text-white/50 text-sm leading-relaxed mb-4 line-clamp-2">
+                    <p className="text-white/50 text-sm leading-relaxed mb-6 line-clamp-2">
                       {project.description}
                     </p>
-                    
-                    {/* Tech */}
-                    <div className="flex flex-wrap gap-1.5 mb-6">
-                      {project.tech.slice(0, 4).map(tech => (
-                        <span key={tech} className="text-[8px] uppercase font-bold text-white/30 px-2 py-0.5 rounded-md bg-white/5">
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
-                    
-                    {/* Actions */}
+
                     <div className="flex gap-3">
-                      <Link
-                        href={project.liveLink}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center text-xs font-bold uppercase tracking-widest text-primary hover:text-primary/70 transition-colors"
-                      >
-                        Live <ExternalLink className="ml-1 w-3 h-3" aria-hidden="true" />
-                      </Link>
+                      {project.liveLink && (
+                        <Link
+                          href={project.liveLink}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center text-xs font-bold uppercase tracking-widest text-primary hover:text-primary/70 transition-colors"
+                        >
+                          Live <ExternalLink className="ml-1 w-3 h-3" aria-hidden="true" />
+                        </Link>
+                      )}
                       {project.githubLink && (
                         <Link
                           href={project.githubLink}
@@ -246,7 +295,6 @@ export default function ProjectsPage() {
             </div>
           </div>
 
-          {/* View More on GitHub */}
           <div className="glass-card rounded-[3rem] p-12 text-center">
             <Globe className="w-12 h-12 text-primary mx-auto mb-6" />
             <h3 className="text-3xl font-black mb-4">View More on GitHub</h3>

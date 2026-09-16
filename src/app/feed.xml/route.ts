@@ -23,11 +23,11 @@ export async function GET() {
       <guid isPermaLink="true">${SITE_URL}</guid>
     </item>
     <item>
-      <title>Projects by ${FULL_NAME}</title>
-      <link>${SITE_URL}/projects</link>
-      <description>Full project archive: JackPal, TeenovateX Labs, MarcediVault, EduPeak, Ilmeen, Empower-You, Pill-Pal, MonieFlow, and more.</description>
+      <title>Labs by ${FULL_NAME}</title>
+      <link>${SITE_URL}/labs</link>
+      <description>Every project, ranked: Slottr, Morrow, Agent Swarm, Glance, MoreMur, TeenovateX Labs, JackPal, MarcediVault, EduPeak, Ilmeen, EmpowerYou, Pill-Pal, and more.</description>
       <pubDate>${now}</pubDate>
-      <guid isPermaLink="true">${SITE_URL}/projects</guid>
+      <guid isPermaLink="true">${SITE_URL}/labs</guid>
     </item>
   </channel>
 </rss>`;

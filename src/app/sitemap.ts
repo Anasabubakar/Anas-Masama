@@ -12,7 +12,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1.0,
     },
     {
-      url: `${siteUrl}/projects`,
+      url: `${siteUrl}/labs`,
       lastModified: now,
       changeFrequency: 'weekly',
       priority: 0.8,
