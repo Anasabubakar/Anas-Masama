@@ -4,10 +4,11 @@ import { useEffect, useState } from 'react';
 import { Reveal } from '@/components/Reveal';
 
 const LABS_ITEMS = [
-  { title: 'TeenovateX', category: 'NGO / Community', image: '/images/teenovatex.png' },
-  { title: 'JackPal', category: 'EdTech / AI', image: '/images/jackpal.png' },
-  { title: 'MarcediVault', category: 'Web3 / Finance', image: '/images/marcedivault.png' },
-  { title: 'EduPeak', category: 'EdTech / Platform', image: '/images/edupeak.png' },
+  { title: 'Slottr', category: 'Scheduling / Open Source', image: '/images/slottr.png' },
+  { title: 'Morrow', category: 'Fintech / Payments Infra', image: '/images/morrow.jpg' },
+  { title: 'Agent Swarm', category: 'Dev Tools / CLI', image: '/images/swarm.png' },
+  { title: 'Glance', category: 'Desktop AI', image: '/images/glance.png' },
+  { title: 'MoreMur', category: 'Community / Anonymous Feeds', image: '/images/moremur.png' },
 ];
 
 export function Labs() {
