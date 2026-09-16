@@ -3,12 +3,26 @@
 import { useEffect, useState } from 'react';
 import { Reveal } from '@/components/Reveal';
 
+// Ranked best-to-least by Anas. Entries without an image yet are left out
+// rather than shipped broken — added back in at their correct rank position
+// once a screenshot exists. Missing, in rank order: Timeless, swarm-hq,
+// podreach, CipherVault, AOS-Swarm-Landing, Anas-Claude-Train, GitSync,
+// OffScript-News, Five-Minutes-Left.
 const LABS_ITEMS = [
   { title: 'Slottr', category: 'Scheduling / Open Source', image: '/images/slottr.png' },
   { title: 'Morrow', category: 'Fintech / Payments Infra', image: '/images/morrow.jpg' },
   { title: 'Agent Swarm', category: 'Dev Tools / CLI', image: '/images/swarm.png' },
   { title: 'Glance', category: 'Desktop AI', image: '/images/glance.png' },
   { title: 'MoreMur', category: 'Community / Anonymous Feeds', image: '/images/moremur.png' },
+  { title: 'Anas Masama', category: 'Portfolio / Personal Site', image: '/images/anas-masama-og.png' },
+  { title: 'TeenovateX', category: 'NGO / Community', image: '/images/teenovatex.png' },
+  { title: 'JackPal', category: 'EdTech / AI', image: '/images/jackpal.png' },
+  { title: 'MarcediVault', category: 'Web3 / Finance', image: '/images/marcedivault.png' },
+  { title: 'Kinzoku Blueprint Forge', category: 'AI / Manufacturing Tools', image: '/images/kinzoku.png' },
+  { title: 'EduPeak', category: 'EdTech / Platform', image: '/images/edupeak.png' },
+  { title: 'Pill-Pal', category: 'Healthcare / AI', image: '/images/projects/pillpal.png' },
+  { title: 'Ilmeen', category: 'EdTech / AI', image: '/images/ilmeen.png' },
+  { title: 'EmpowerYou', category: 'Wellness / AI', image: '/images/projects/empoweryou.png' },
 ];
 
 export function Labs() {
