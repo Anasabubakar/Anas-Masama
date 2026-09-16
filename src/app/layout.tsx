@@ -138,7 +138,7 @@ const personJsonLd = {
   familyName: 'Masama',
   additionalName: 'Abubakar',
   url: SITE_URL,
-  image: `${SITE_URL}/images/Lodge.jpg`,
+  image: `${SITE_URL}/images/hero-portrait.png`,
   email: 'mailto:anasabubakar7000@gmail.com',
   telephone: '+2347064294297',
   jobTitle: 'Software Engineer',

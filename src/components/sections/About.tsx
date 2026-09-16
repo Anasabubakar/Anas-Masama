@@ -56,7 +56,7 @@ export function About() {
           </div>
           <div className="aspect-[4/5] overflow-hidden rounded-[20px] border border-[#f3f2ee]/10">
             <Image
-              src="/images/Lodge.jpg"
+              src="/images/about-portrait.png"
               alt="Anas Masama"
               width={800}
               height={1000}
