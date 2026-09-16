@@ -20,11 +20,40 @@ export function Butler() {
   const [loading, setLoading] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
   const isMountedRef = useRef(true);
+  const messagesRef = useRef(messages);
+  const notifiedRef = useRef(false);
+  messagesRef.current = messages;
+
+  const notifyConversationEnd = (useBeacon: boolean) => {
+    if (notifiedRef.current) return;
+    const hasRealExchange = messagesRef.current.some((m) => m.role === 'user');
+    if (!hasRealExchange) return;
+    notifiedRef.current = true;
+
+    const payload = JSON.stringify({ messages: messagesRef.current });
+    if (useBeacon && typeof navigator.sendBeacon === 'function') {
+      navigator.sendBeacon('/api/butler/notify', new Blob([payload], { type: 'application/json' }));
+    } else {
+      fetch('/api/butler/notify', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: payload,
+        keepalive: true,
+      }).catch(() => {});
+    }
+  };
 
   useEffect(() => {
     setMounted(true);
+    const onHide = () => {
+      if (document.visibilityState === 'hidden') notifyConversationEnd(true);
+    };
+    document.addEventListener('visibilitychange', onHide);
+    window.addEventListener('pagehide', onHide);
     return () => {
       isMountedRef.current = false;
+      document.removeEventListener('visibilitychange', onHide);
+      window.removeEventListener('pagehide', onHide);
     };
   }, []);
 
@@ -80,7 +109,10 @@ export function Butler() {
             </div>
             <button
               type="button"
-              onClick={() => setOpen(false)}
+              onClick={() => {
+                setOpen(false);
+                notifyConversationEnd(false);
+              }}
               className="rounded border-none bg-transparent text-lg text-[#f3f2ee]/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#34c97e]"
               aria-label="Close Butler"
             >
