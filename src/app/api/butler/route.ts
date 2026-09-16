@@ -58,16 +58,18 @@ export async function POST(req: Request) {
     return NextResponse.json({ reply: RATE_LIMIT_REPLY }, { status: 429 });
   }
 
-  const { messages } = (await req.json()) as { messages?: ButlerMessage[] };
+  const body = await req.json().catch(() => null);
+  const rawMessages = body?.messages as ButlerMessage[] | undefined;
 
-  if (!Array.isArray(messages) || messages.length === 0) {
+  if (!Array.isArray(rawMessages) || rawMessages.length === 0) {
     return NextResponse.json({ error: 'messages is required' }, { status: 400 });
   }
 
+  const recent = rawMessages.slice(-MAX_MESSAGES);
   if (
-    messages.length > MAX_MESSAGES ||
-    messages.some(
+    recent.some(
       (m) =>
+        !m ||
         typeof m.content !== 'string' ||
         m.content.length > MAX_MESSAGE_LENGTH ||
         (m.role !== 'user' && m.role !== 'assistant')
@@ -75,8 +77,6 @@ export async function POST(req: Request) {
   ) {
     return NextResponse.json({ error: 'Invalid or oversized message payload' }, { status: 400 });
   }
-
-  const recent = messages.slice(-MAX_MESSAGES);
 
   // Prefer the real Butler backend (full context on Anas + guarded disclosure
   // policy + Slottr scheduling awareness) once it's deployed and configured.
@@ -90,11 +90,16 @@ export async function POST(req: Request) {
         text: m.content,
       }));
 
-      const res = await fetch(`${process.env.BUTLER_API_BASE_URL}/api/public/butler/chat`, {
+      const backendBaseURL = process.env.BUTLER_API_BASE_URL.replace(/\/+$/, '');
+      const res = await fetch(`${backendBaseURL}/api/public/butler/chat`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
           'X-Butler-Api-Key': process.env.BUTLER_PORTFOLIO_API_KEY,
+          // The shared key authenticates this proxy, allowing Butler's own
+          // limiter to distinguish visitors instead of throttling all Vercel
+          // traffic as one backend IP.
+          'X-Forwarded-For': ip,
         },
         body: JSON.stringify({ text: last.content, history }),
         signal: AbortSignal.timeout(20_000),

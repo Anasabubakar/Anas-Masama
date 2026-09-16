@@ -1,6 +1,5 @@
 import { NextResponse } from 'next/server';
 import { generateText } from 'ai';
-import { Resend } from 'resend';
 
 export const runtime = 'nodejs';
 
@@ -11,6 +10,18 @@ const RATE_LIMIT_WINDOW_MS = 60_000;
 const RATE_LIMIT_MAX_REQUESTS = 5;
 
 type ButlerMessage = { role: 'user' | 'assistant'; content: string };
+
+function isAllowedOrigin(req: Request): boolean {
+  const origin = req.headers.get('origin') ?? req.headers.get('referer');
+  if (!origin) return true;
+  try {
+    const originHost = new URL(origin).host;
+    const requestHost = req.headers.get('host');
+    return !requestHost || originHost === requestHost;
+  } catch {
+    return false;
+  }
+}
 
 // Fires once per conversation (on widget close or page hide), not per
 // message — a much lower ceiling than the chat route's limiter is enough
@@ -37,20 +48,35 @@ function escapeHtml(s: string): string {
 }
 
 export async function POST(req: Request) {
+  if (!isAllowedOrigin(req)) {
+    return NextResponse.json({ ok: false, error: 'Forbidden' }, { status: 403 });
+  }
+
   const ip = getClientIp(req);
   if (isRateLimited(ip)) {
     return NextResponse.json({ ok: false }, { status: 429 });
   }
 
   const body = await req.json().catch(() => null);
-  const messages = body?.messages as ButlerMessage[] | undefined;
+  const conversationId = body?.conversationId as string | undefined;
+  const rawMessages = body?.messages as ButlerMessage[] | undefined;
 
   if (
-    !Array.isArray(messages) ||
-    messages.length === 0 ||
-    messages.length > MAX_MESSAGES ||
+    typeof conversationId !== 'string' ||
+    !/^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i.test(
+      conversationId
+    ) ||
+    !Array.isArray(rawMessages) ||
+    rawMessages.length === 0
+  ) {
+    return NextResponse.json({ ok: false, error: 'Invalid payload' }, { status: 400 });
+  }
+
+  const messages = rawMessages.slice(-MAX_MESSAGES);
+  if (
     messages.some(
       (m) =>
+        !m ||
         typeof m?.content !== 'string' ||
         m.content.length > MAX_MESSAGE_LENGTH ||
         (m.role !== 'user' && m.role !== 'assistant')
@@ -90,18 +116,26 @@ export async function POST(req: Request) {
   }
 
   try {
-    const resend = new Resend(process.env.RESEND_API_KEY);
     const html = `
       ${summary ? `<p>${escapeHtml(summary)}</p><hr>` : ''}
       <p><strong>Full conversation:</strong></p>
       <pre style="white-space: pre-wrap; font-family: inherit;">${escapeHtml(transcript)}</pre>
     `;
-    await resend.emails.send({
-      from: 'Butler <onboarding@resend.dev>',
-      to: NOTIFY_TO,
-      subject: summary ? `Butler chat: ${summary.slice(0, 80)}` : 'Someone chatted with Butler',
-      html,
+    const response = await fetch('https://api.resend.com/emails', {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${process.env.RESEND_API_KEY}`,
+        'Content-Type': 'application/json',
+        'Idempotency-Key': `butler-chat/${conversationId}`,
+      },
+      body: JSON.stringify({
+        from: process.env.BUTLER_NOTIFY_FROM || 'Butler <onboarding@resend.dev>',
+        to: [NOTIFY_TO],
+        subject: summary ? `Butler chat: ${summary.slice(0, 80)}` : 'Someone chatted with Butler',
+        html,
+      }),
     });
+    if (!response.ok) throw new Error(`Resend responded ${response.status}`);
     return NextResponse.json({ ok: true });
   } catch (err) {
     console.error('Butler notify: email send failed:', err);

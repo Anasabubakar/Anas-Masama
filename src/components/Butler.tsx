@@ -22,6 +22,7 @@ export function Butler() {
   const isMountedRef = useRef(true);
   const messagesRef = useRef(messages);
   const notifiedRef = useRef(false);
+  const conversationIdRef = useRef('');
   messagesRef.current = messages;
 
   const notifyConversationEnd = (useBeacon: boolean) => {
@@ -30,7 +31,10 @@ export function Butler() {
     if (!hasRealExchange) return;
     notifiedRef.current = true;
 
-    const payload = JSON.stringify({ messages: messagesRef.current });
+    const payload = JSON.stringify({
+      conversationId: conversationIdRef.current,
+      messages: messagesRef.current.slice(-12),
+    });
     if (useBeacon && typeof navigator.sendBeacon === 'function') {
       navigator.sendBeacon('/api/butler/notify', new Blob([payload], { type: 'application/json' }));
     } else {
@@ -45,14 +49,11 @@ export function Butler() {
 
   useEffect(() => {
     setMounted(true);
-    const onHide = () => {
-      if (document.visibilityState === 'hidden') notifyConversationEnd(true);
-    };
-    document.addEventListener('visibilitychange', onHide);
+    conversationIdRef.current = crypto.randomUUID();
+    const onHide = () => notifyConversationEnd(true);
     window.addEventListener('pagehide', onHide);
     return () => {
       isMountedRef.current = false;
-      document.removeEventListener('visibilitychange', onHide);
       window.removeEventListener('pagehide', onHide);
     };
   }, []);
@@ -173,7 +174,15 @@ export function Butler() {
       <span className="prismatic-wrapper">
         <button
           type="button"
-          onClick={() => setOpen((o) => !o)}
+          onClick={() => {
+            if (!open && notifiedRef.current) {
+              setMessages(INITIAL_MESSAGES);
+              messagesRef.current = INITIAL_MESSAGES;
+              notifiedRef.current = false;
+              conversationIdRef.current = crypto.randomUUID();
+            }
+            setOpen((o) => !o);
+          }}
           aria-expanded={open}
           className="flex items-center gap-2 rounded-full bg-[#f3f2ee] px-[22px] py-3.5 text-sm font-bold text-[#060606] transition-transform duration-200 ease-out hover:scale-105 active:scale-[0.94] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#34c97e] focus-visible:ring-offset-2 focus-visible:ring-offset-[#060606]"
         >
