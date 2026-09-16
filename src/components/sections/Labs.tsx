@@ -3,18 +3,22 @@
 import { useEffect, useState } from 'react';
 import { Reveal } from '@/components/Reveal';
 
-// Ranked best-to-least by Anas. Entries without an image yet are left out
-// rather than shipped broken — added back in at their correct rank position
-// once a screenshot exists. Missing, in rank order: Timeless, swarm-hq,
-// podreach, CipherVault, AOS-Swarm-Landing, Anas-Claude-Train, GitSync,
-// OffScript-News, Five-Minutes-Left.
-const LABS_ITEMS = [
+// Ranked best-to-least by Anas. Entries without a screenshot render a
+// typographic monogram card instead of an <img> — see the `image` field
+// being undefined below.
+type LabItem = { title: string; category: string; image?: string };
+
+const LABS_ITEMS: LabItem[] = [
   { title: 'Slottr', category: 'Scheduling / Open Source', image: '/images/slottr.png' },
   { title: 'Morrow', category: 'Fintech / Payments Infra', image: '/images/morrow.jpg' },
   { title: 'Agent Swarm', category: 'Dev Tools / CLI', image: '/images/swarm.png' },
   { title: 'Glance', category: 'Desktop AI', image: '/images/glance.png' },
   { title: 'MoreMur', category: 'Community / Anonymous Feeds', image: '/images/moremur.png' },
   { title: 'Anas Masama', category: 'Portfolio / Personal Site', image: '/images/anas-masama-og.png' },
+  { title: 'Timeless', category: 'AI Agents / Sponsorship', image: '/images/timeless.png' },
+  { title: 'Swarm HQ', category: 'AI Agent Dashboard' },
+  { title: 'Podreach', category: 'AI / Podcast Outreach' },
+  { title: 'CipherVault', category: 'Security / Encrypted Notes' },
   { title: 'TeenovateX', category: 'NGO / Community', image: '/images/teenovatex.png' },
   { title: 'JackPal', category: 'EdTech / AI', image: '/images/jackpal.png' },
   { title: 'MarcediVault', category: 'Web3 / Finance', image: '/images/marcedivault.png' },
@@ -23,7 +27,17 @@ const LABS_ITEMS = [
   { title: 'Pill-Pal', category: 'Healthcare / AI', image: '/images/projects/pillpal.png' },
   { title: 'Ilmeen', category: 'EdTech / AI', image: '/images/ilmeen.png' },
   { title: 'EmpowerYou', category: 'Wellness / AI', image: '/images/projects/empoweryou.png' },
+  { title: 'AOS-Swarm-Landing', category: 'Landing Page' },
+  { title: 'Anas Claude Train', category: 'Architecture Notes' },
+  { title: 'GitSync', category: 'Dev Tools / Sync' },
+  { title: 'OffScript News', category: 'AI / News Briefs' },
+  { title: 'Five Minutes Left', category: 'Browser Game' },
 ];
+
+function monogram(title: string): string {
+  const words = title.split(/[\s-]+/).filter(Boolean);
+  return words.length > 1 ? (words[0][0] + words[1][0]).toUpperCase() : title.slice(0, 2).toUpperCase();
+}
 
 export function Labs() {
   const [focus, setFocus] = useState(0);
@@ -94,13 +108,34 @@ export function Labs() {
                 style={{ background: isCenter ? 'rgba(6,6,6,.3)' : 'rgba(243,242,238,.2)' }}
               />
               <div className="absolute inset-0 bottom-[34%] overflow-hidden">
-                <img
-                  src={item.image}
-                  alt={item.title}
-                  loading="lazy"
-                  decoding="async"
-                  className="h-full w-full object-cover"
-                />
+                {item.image ? (
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    loading="lazy"
+                    decoding="async"
+                    className="h-full w-full object-cover"
+                  />
+                ) : (
+                  <div
+                    className="relative flex h-full w-full items-center justify-center overflow-hidden"
+                    style={{
+                      background:
+                        'radial-gradient(120% 140% at 30% 20%, rgba(52,201,126,.22), transparent 60%), #0a0a0a',
+                      backgroundImage:
+                        'linear-gradient(rgba(243,242,238,.05) 1px, transparent 1px), linear-gradient(90deg, rgba(243,242,238,.05) 1px, transparent 1px)',
+                      backgroundSize: '18px 18px',
+                    }}
+                  >
+                    <span
+                      className="select-none font-headline text-[64px] leading-none"
+                      style={{ color: 'rgba(52,201,126,.35)' }}
+                      aria-hidden="true"
+                    >
+                      {monogram(item.title)}
+                    </span>
+                  </div>
+                )}
               </div>
               <div className="absolute bottom-0 left-0 right-0 flex h-[34%] flex-col justify-center gap-1.5 px-5 py-3.5">
                 <span
