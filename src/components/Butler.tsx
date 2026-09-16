@@ -124,13 +124,13 @@ export function Butler() {
             ref={scrollRef}
             role="log"
             aria-live="polite"
-            className="flex flex-1 flex-col gap-3 overflow-y-auto px-[18px] py-4"
+            className="flex flex-1 flex-col gap-3 overflow-x-hidden overflow-y-auto px-[18px] py-4"
           >
             {messages.map((msg, i) => (
               <div
                 key={i}
                 className={[
-                  'max-w-[85%] rounded-2xl px-3.5 py-2.5 text-[13px] leading-[1.5]',
+                  'min-w-0 max-w-[85%] break-words rounded-2xl px-3.5 py-2.5 text-[13px] leading-[1.5]',
                   msg.role === 'user'
                     ? 'self-end rounded-br-[2px] bg-[#f3f2ee] text-[#060606]'
                     : 'self-start rounded-bl-[2px] bg-[#f3f2ee]/[0.06] text-[#f3f2ee]',
